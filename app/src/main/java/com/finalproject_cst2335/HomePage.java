@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.finalproject_cst2335.Song.SongMainActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -62,6 +64,11 @@ public class HomePage extends AppCompatActivity {
 //            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
 //            startActivity(goToSoccerGame);
 //        }
+
+        if( item.getItemId() == R.id.toSongster){
+            Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
+            startActivity(goToSoccerGame);
+        }
 
         return super.onOptionsItemSelected(item);
     }

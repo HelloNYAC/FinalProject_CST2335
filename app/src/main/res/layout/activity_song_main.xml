@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/ss_main"
+tools:context=".Song.SongMainActivity">
+
+
+
+
+<SearchView
+    android:id="@+id/ss_searchView"
+    android:layout_width="230dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="130dp"
+    android:layout_marginLeft="90dp"
+    android:iconifiedByDefault="false"
+    android:queryHint="Artist/Band"
+    android:scrollbars="none"
+    android:background="@color/white"
+    />
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss_listView"
+    android:divider="#ad5"
+    android:dividerHeight="2dp"
+    android:visibility="invisible"
+    android:layout_below="@+id/ss_searchView"/>
+
+
+<TextView
+    android:id="@+id/ss_quote"
+    android:layout_width="400dp"
+    android:layout_height="180dp"
+    android:fontFamily="cursive"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:text="WHere words fail,\n music speak"
+    android:textColor="@color/white"
+    android:textSize="50dp"
+    android:layout_below="@id/ss_searchView"
+    >
+
+</TextView>
+</RelativeLayout>
