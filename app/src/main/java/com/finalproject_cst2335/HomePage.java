@@ -5,13 +5,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import com.finalproject_cst2335.trivia.TriviaMainActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -58,10 +58,10 @@ public class HomePage extends AppCompatActivity {
 //            startActivity(goToSoccerGame);
 //        }
 //
-//        if( item.getItemId() == R.id.toTrivia){
-//            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-//            startActivity(goToSoccerGame);
-//        }
+        if( item.getItemId() == R.id.toTrivia){
+            Intent toTrivia = new Intent(HomePage.this, TriviaMainActivity.class);
+            startActivity(toTrivia);
+        }
 
         return super.onOptionsItemSelected(item);
     }
