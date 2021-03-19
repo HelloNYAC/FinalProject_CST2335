@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".trivia.TriviaMainActivity"/>
+        <activity android:name=".trivia.TriviaURLActivity"/>
+        <activity android:name=".trivia.TriviaChatRoomActivity"/>
+        <activity android:name=".trivia.TriviaEmptyActivity"/>
+        <activity android:name=".trivia.TriviaGamePickActivity"/>
     </application>
 
 </manifest>
