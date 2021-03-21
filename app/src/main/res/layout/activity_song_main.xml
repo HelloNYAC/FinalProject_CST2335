@@ -11,25 +11,37 @@ tools:context=".Song.SongMainActivity">
 
 
 
-<SearchView
-    android:id="@+id/ss_searchView"
+<EditText
+    android:id="@+id/ss_inputname"
     android:layout_width="230dp"
-    android:layout_height="50dp"
+    android:layout_height="45dp"
     android:layout_marginTop="130dp"
-    android:layout_marginLeft="90dp"
+    android:layout_marginLeft="70dp"
     android:iconifiedByDefault="false"
     android:queryHint="Artist/Band"
     android:scrollbars="none"
-    android:background="@color/white"
-    />
-<ListView
+    android:hint="Artist/Band"
+    android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/ss_gobt"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="130dp"
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/ss_inputname"
+        android:text="@string/ss_mainbt">
+
+    </Button>
+
+    <ListView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/ss_listView"
     android:divider="#ad5"
     android:dividerHeight="2dp"
     android:visibility="invisible"
-    android:layout_below="@+id/ss_searchView"/>
+    android:layout_below="@+id/ss_inputname"/>
 
 
 <TextView
@@ -42,7 +54,7 @@ tools:context=".Song.SongMainActivity">
     android:text="WHere words fail,\n music speak"
     android:textColor="@color/white"
     android:textSize="50dp"
-    android:layout_below="@id/ss_searchView"
+    android:layout_below="@id/ss_inputname"
     >
 
 </TextView>

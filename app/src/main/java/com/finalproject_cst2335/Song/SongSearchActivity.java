@@ -2,56 +2,67 @@ package com.finalproject_cst2335.Song;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class SongSearchActivity extends AppCompatActivity {
+public class SongSearchActivity  extends AppCompatActivity {
+    TextView artistname;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_search);
-        
-        ForecastQuery req = new ForecastQuery();
-        req.execute();
+//        Songsearch find = new Songsearch();
+//        find.execute();
+
+        artistname = findViewById(R.id.ss_artistNameText);
+        ListView listview = findViewById(R.id.ss_searchlistview);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
+        Intent fromMain = getIntent();
+        artistname.setText(getIntent().getStringExtra("NAME"));
     }
-    
-    private class ForecastQuery extends AsyncTask<String, Integer, String> {
-        private ForecastQuery(){
+
+
+    private class Songsearch extends AsyncTask<String, Integer, String> {
+        private Songsearch() {
+
+
+            ArrayList<HashMap<String, String>> searchList = new ArrayList<>();
+
+
+            String artist = null;
+            String songname = null;
+
+            String title = null;
+            String name = null;
+            String song = null;
         }
 
-        ProgressBar progressBar = findViewById(R.id.progressBar);
-        TextView artist = findViewById(R.id.ss_searchtextview);
-        ListView songlist = findViewById(R.id.ss_searchlistview);
-        String artistname = null;
-        String songname = null;
+        public boolean fileExistance(String fname) {
+            File file = getBaseContext().getFileStreamPath(fname);
+            return file.exists();
+        }
+
 
         protected String doInBackground(String... strings) {
-            publishProgress(20,50,75);
+            publishProgress(20, 50, 75);
             String ex = null;
             return null;
 
             try {
                 //create a URL object of what server to contact:
-                String artistURL = "http://www.songsterr.com/a/wa/artist?id=XXX";
+                String webURL = "http://www.songsterr.com/a/wa/artist?";
 
-                URL url = new URL(artistURL);
+                URL url = new URL(webURL);
 
                 //open the connection
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -65,6 +76,18 @@ public class SongSearchActivity extends AppCompatActivity {
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput(response, "UTF-8");
 
+
+                int eventType = xpp.getEventType();
+                while (eventType != XmlPullParser.END_DOCUMENT) {
+                    if (eventType == XmlPullParser.START_TAG) {
+                        if (xpp.getName().equals("Artist")) {
+                            title = xpp.getAttributeValue(null, "title");
+                            name = xpp.getAttributeValue(null, "name");
+                            song = xpp.getAttributeValue(null, "Song");
+                        } else if (xpp.getName().equals("")) ;
+                    }
+                }
+
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             } catch (MalformedURLException e) {
@@ -73,4 +96,5 @@ public class SongSearchActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
 }
