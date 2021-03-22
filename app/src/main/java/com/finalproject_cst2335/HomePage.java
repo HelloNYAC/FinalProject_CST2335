@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.finalproject_cst2335.car.CarMainActivity;
+import com.finalproject_cst2335.soccergames.SoccerGameHomePage;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -53,10 +54,10 @@ public class HomePage extends AppCompatActivity {
             return true;
         }
 
-//        if( item.getItemId() == R.id.toSoccerGame){
-//            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
-//            startActivity(goToSoccerGame);
-//        }
+        if( item.getItemId() == R.id.toSoccerGame){
+            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+            startActivity(goToSoccerGame);
+        }
 //
 //        if( item.getItemId() == R.id.toTrivia){
 //            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
