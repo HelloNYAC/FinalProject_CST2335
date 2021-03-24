@@ -8,9 +8,6 @@ android:layout_height="match_parent"
 android:background="@drawable/ss_main"
 tools:context=".Song.SongMainActivity">
 
-
-
-
 <EditText
     android:id="@+id/ss_inputname"
     android:layout_width="230dp"
@@ -56,6 +53,7 @@ tools:context=".Song.SongMainActivity">
     android:textSize="50dp"
     android:layout_below="@id/ss_inputname"
     >
+
 
 </TextView>
 </RelativeLayout>

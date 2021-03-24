@@ -2,12 +2,15 @@ package com.finalproject_cst2335.Song;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,66 +18,60 @@ import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SongSearchActivity  extends AppCompatActivity {
     TextView artistname;
-    ListView listView;
+    ArrayList<String> songlist = new ArrayList<String>();
+    String searchedArtist;
+//    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_search);
-        Songsearch find = new Songsearch();
-        find.execute();
+
+        TextView artistname = findViewById(R.id.song_artistNameText);
+        ListView lv = findViewById(R.id.song_searchlistview);
+
+        EditText searchRst = findViewById(R.id.search_rst);
+
+        Intent fromMain = getIntent();
+        searchedArtist = fromMain.getStringExtra("NAME");
+        searchRst.setText(searchedArtist);
+
+        String artistURL = "https://www.songsterr.com/a/ra/songs.json?pattern="+searchedArtist;
+
+        Songsearch findReq = new Songsearch();
+        findReq.execute(artistURL);
     }
 
-    private class Songsearch extends AsyncTask<String, Integer, String> {
-
-        private Songsearch() {
-        }
-
-        TextView artistname = findViewById(R.id.ss_artistNameText);
-        ListView listview = findViewById(R.id.ss_searchlistview);
-        ProgressBar progressBar = findViewById(R.id.progressBar);
-        Intent fromMain = getIntent();
-  //      ArrayList<HashMap<String, String>> searchList = new ArrayList<>();
-
-
-        String artist = null;
-        String songname = null;
-        String title = null;
-        String name = null;
-        String song = null;
-
-        public boolean fileExistance(String fname) {
-            File file = getBaseContext().getFileStreamPath(fname);
-            return file.exists();
-        }
-
-        //      listview.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,new ArrayList<String>()));
-
-        protected String doInBackground(String... strings) {
-            publishProgress(20, 50, 75);
-            String ex = null;
-            return null;
-
+    private class Songsearch extends AsyncTask< String, Integer, String>
+    {
+        //Type3                Type1
+        public String doInBackground(String ... args)
+        {
             try {
-                //create a URL object of what server to contact:
 
-                String songsterurl = "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/?";
-                URL url = new URL(songsterurl);
+                //create a URL object of what server to contact:
+                URL url = new URL(args[0]);
 
                 //open the connection
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -82,59 +79,63 @@ public class SongSearchActivity  extends AppCompatActivity {
                 //wait for data:
                 InputStream response = urlConnection.getInputStream();
 
-                //From part 3: slide 19
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                factory.setNamespaceAware(false);
-                XmlPullParser xpp = factory.newPullParser();
-                xpp.setInput(response, "UTF-8");
+                //JSON reading:   Look at slide 26
+                //Build the entire string response:
+                BufferedReader reader = new BufferedReader(new InputStreamReader(response, "UTF-8"), 8);
+                StringBuilder sb = new StringBuilder();
+
+                String line = null;
+                while ((line = reader.readLine()) != null)
+                {
+                    sb.append(line + "\n");
+                }
+                String result = sb.toString(); //result is the whole string
 
 
-                int eventType = xpp.getEventType();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG) {
-                        if (xpp.getName().equals("Artist")) {
-                            String title = xpp.getAttributeValue(null, "title");
-                            String name = xpp.getAttributeValue(null, "name");
-                            String song = xpp.getAttributeValue(null, "Song");
-                        } else if (xpp.getName().equals("Artist")) ;
-                    }
+                // convert string to JSON: Look at slide 27:
+                JSONObject SongObject = new JSONObject(result);
+                JSONArray jsonArray = SongObject.getJSONArray(result);
+
+                for(int i=0; i<jsonArray.length(); i++){
+                    JSONObject eachObject = (JSONObject)jsonArray.getJSONObject(i);
+                    String songID = eachObject.getString("id");
+                    String songTitle = eachObject.getString("title");
+
+                    JSONObject innerObject = (JSONObject)eachObject.getJSONObject("artist");
+                    String artistID = innerObject.getString("id");
+                    String artistName = innerObject.getString("name");
+
+
                 }
 
-            } catch (XmlPullParserException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+                //get the double associated with "value"
+                double uvRating = uvReport.getDouble("value");
+
+                Log.i("MainActivity", "The uv is now: " + uvRating) ;
+
             }
-            return ex;
+            catch (Exception e)
+            {
+
+            }
+
+            return "Done";
         }
 
-            protected void onProgressUpdate (Integer...values){
-                super.onProgressUpdate(values);
-                //Update GUI stuff only:
-                try {
+        //Type 2
+        public void onProgressUpdate(Integer ... args)
+        {
 
-                    progressBar.setVisibility(View.VISIBLE);
-                    progressBar.setProgress(values[0]);
-                    Thread.sleep(1000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            protected void onPostExecute (String sentFromDoInBackground){
-                super.onPostExecute(sentFromDoInBackground);
-                //update GUI Stuff:
-                artistname.setText(fromMain.getStringExtra("NAME"));
-                song.setText("Songname " + songname);
-                title.setText("Title :" + title);
-                name.setText("name is  :" + name);
-                progressBar.setVisibility(View.INVISIBLE);
-            }
+        }
+        //Type3
+        public void onPostExecute(String fromDoInBackground)
+        {
+            Log.i("HTTP", fromDoInBackground);
         }
     }
+    }
+
 
 
 

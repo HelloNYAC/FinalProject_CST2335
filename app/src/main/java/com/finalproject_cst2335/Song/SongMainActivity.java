@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class SongMainActivity extends AppCompatActivity {
     private static final String NAME_KEY="nameKey";
@@ -19,7 +21,7 @@ public class SongMainActivity extends AppCompatActivity {
     private SharedPreferences pref;
     private EditText search;
     private Button gobutton;
-
+    private Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +36,34 @@ public class SongMainActivity extends AppCompatActivity {
 //        String aname = sp.getString("name","");
 //        search.setText(aname);
 
-
+        Toast.makeText(this,"This is a Toast message",Toast.LENGTH_LONG).show();
         gobutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameSearched = search.getText().toString();
+
+
                 Intent goToSearch = new Intent(SongMainActivity.this, SongSearchActivity.class);
                 goToSearch.putExtra("NAME", nameSearched);
+
                 startActivity(goToSearch);
+
             }
         });
 
 
 
-//        Toast.makeText(this,"NAME_KEY",Toast.LENGTH_LONG).show();
-//        gobutton.setOnClickListener(click->{
+       }
 
 
-//        });
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = pref.edit();
 
-            }
+        editor.commit();
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        SharedPreferences.Editor editor = sp.edit();
-//
-//        editor.commit();
-//
-//    }
+    }
+
+
 }
