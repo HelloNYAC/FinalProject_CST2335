@@ -67,7 +67,7 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="tg_clname">Please enter your name</string>
-    <string name="tg_name_ph">Type name here</string>
+    <string name="tg_name_ph">Lucky Name</string>
     <string name="tg_enter_email">Enter your email address</string>
     <string name="email_ph">Type email here</string>
     <string name="enter_pswd">Type your password</string>

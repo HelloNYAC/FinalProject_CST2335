@@ -63,12 +63,11 @@
             android:layout_row="0"
             android:layout_column="1"
             android:background="#A5D14776"
-            android:popupBackground="#441717"/>
+            android:popupBackground="#B8A0A0"/>
 
         <TextView
             android:id="@+id/qust_typ"
             android:layout_width="wrap_content"
-
             android:layout_height="50dp"
             android:text="@string/tg_select_q_type"
             android:textSize="20dp"
@@ -87,7 +86,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:background="#A5D14776"
-            android:popupBackground="#441717" />
+            android:popupBackground="#B8A0A0" />
 
         <TextView
             android:id="@+id/qust_lvl"
@@ -108,7 +107,7 @@
             android:textSize="20dp"
             android:layout_gravity="center_horizontal"
             android:background="#A5D14776"
-            android:popupBackground="#441717"
+            android:popupBackground="#B8A0A0"
             android:layout_row="2"
             android:layout_column="1"/>
 

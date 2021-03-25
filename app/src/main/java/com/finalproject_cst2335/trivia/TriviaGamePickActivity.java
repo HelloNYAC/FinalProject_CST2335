@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
@@ -21,8 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TriviaGamePickActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+public class TriviaGamePickActivity extends AppCompatActivity{
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     private EditText nameText;
     private Button qest_go;
@@ -38,7 +38,17 @@ public class TriviaGamePickActivity extends AppCompatActivity implements Adapter
         setContentView(R.layout.tg_activity_game_pick);
 
         spinner1 = (Spinner)findViewById(R.id.q_num_btn);
-        spinner1.setOnItemSelectedListener(this);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                question_num = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         String[] spinList1 = getResources().getStringArray(R.array.spin_qust_num);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinList1);
@@ -47,7 +57,18 @@ public class TriviaGamePickActivity extends AppCompatActivity implements Adapter
 
 
         spinner2 = (Spinner)findViewById(R.id.q_typ_btn);
-        spinner2.setOnItemSelectedListener(this);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                question_type = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         String[] spinList2 = getResources().getStringArray(R.array.spin_qust_typ);
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinList2);
@@ -55,17 +76,18 @@ public class TriviaGamePickActivity extends AppCompatActivity implements Adapter
         spinner2.setAdapter(adapter2);
 
         spinner3 = (Spinner)findViewById(R.id.q_lvl_btn);
-        spinner3.setOnItemSelectedListener(this);
-//        spinner3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String difficulty = parent.getItemAtPosition(position).toString();
-//                //lowercase
-//            }
-//
-//            //onNothing
-//
-//        });
+//        spinner3.setOnItemSelectedListener(this);
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                question_level = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         String[] spinList3 = getResources().getStringArray(R.array.spin_qust_lvl);
 
@@ -75,8 +97,9 @@ public class TriviaGamePickActivity extends AppCompatActivity implements Adapter
 
 
         qest_go = findViewById(R.id.q_go_btn);
-        Intent GoToChalg = new Intent(TriviaGamePickActivity.this, TriviaChatRoomActivity.class);
+        Intent GoToChalg = new Intent(TriviaGamePickActivity.this, TriviaGameRoomActivity.class);
         qest_go.setOnClickListener(click -> {
+            Toast.makeText(this, "Loading Your Game....", Toast.LENGTH_LONG).show();
             GoToChalg.putExtra("question_num", question_num);
             GoToChalg.putExtra("question_type", question_type);
             GoToChalg.putExtra("question_level", question_level);
@@ -87,35 +110,6 @@ public class TriviaGamePickActivity extends AppCompatActivity implements Adapter
 
         Intent fromMain = getIntent();
         nameText.setText(fromMain.getStringExtra("name"));
-    }
-
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-
-        switch (parent.getId()) {
-            case R.id.qust_num:
-                question_num = parent.getItemAtPosition(position).toString();
-                Toast.makeText(TriviaGamePickActivity.this, "Question Number Picked", Toast.LENGTH_LONG).show();
-                pref_num = getSharedPreferences("question_num", Context.MODE_PRIVATE);
-                String numdef = pref_num.getString("question_num", "");
-
-                break;
-            case R.id.qust_typ:
-                question_type = parent.getItemAtPosition(position).toString();
-                Toast.makeText(TriviaGamePickActivity.this, "Question Type Picked", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.qust_lvl:
-                question_level = parent.getItemAtPosition(position).toString();
-                Toast.makeText(TriviaGamePickActivity.this, "Question Level Picked", Toast.LENGTH_LONG).show();
-                break;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
 }

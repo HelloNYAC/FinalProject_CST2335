@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginBottom="20dp"
-    android:background="#FF00FF">
-    <Spinner
-        android:id="@+id/dropStatus"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:popupBackground="@color/teal_200"
-        android:layout_marginBottom="7dp"
-        android:drawSelectorOnTop="true"/>
-</LinearLayout>
+    android:layout_height="match_parent"
+    tools:context=".trivia.TriviaEmptyActivity">
+
+    <TextView
+        android:id="@+id/frag_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fragment_msg"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/frag_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fragment_id"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/frag_msg"
+        android:textSize="15dp"/>
+
+    <CheckBox
+        android:id="@+id/frag_ckbx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fragment_ckbx"
+        android:layout_below="@+id/frag_id"/>
+
+    <Button
+        android:id="@+id/frag_hdbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="fragment_hide"
+        />
+
+</RelativeLayout>

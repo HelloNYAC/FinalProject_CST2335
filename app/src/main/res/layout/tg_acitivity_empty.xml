@@ -2,7 +2,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".TriviaEmptyActivity"
+    tools:context=".trivia.TriviaEmptyActivity"
     android:id="@+id/tg_fragmentLocation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
