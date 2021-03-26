@@ -1,55 +1,55 @@
 package com.finalproject_cst2335.Song;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class SongSearchActivity  extends AppCompatActivity {
-    TextView artistname;
-    ArrayList<String> songlist = new ArrayList<String>();
+    ArrayList<SongMessage> songArrayList = new ArrayList<>();
+    private SonglistAdapter songAdapter;
     String searchedArtist;
-//    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_search);
+        ListView song_lv = findViewById(R.id.song_searchlistview);
 
-        TextView artistname = findViewById(R.id.song_artistNameText);
-        ListView lv = findViewById(R.id.song_searchlistview);
+
+        songAdapter = new SonglistAdapter();
+        song_lv.setAdapter(songAdapter);
 
         EditText searchRst = findViewById(R.id.search_rst);
 
@@ -57,24 +57,89 @@ public class SongSearchActivity  extends AppCompatActivity {
         searchedArtist = fromMain.getStringExtra("NAME");
         searchRst.setText(searchedArtist);
 
-        String artistURL = "https://www.songsterr.com/a/ra/songs.json?pattern="+searchedArtist;
+        String artistURL = "https://www.songsterr.com/a/ra/songs.json?pattern=" + searchedArtist;
 
         Songsearch findReq = new Songsearch();
         findReq.execute(artistURL);
+//        final ImageButton song_likebtn = findViewById(R.id.song_likebtn);
+//        song_likebtn.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                boolean isFavourite = readState();
+//
+//                if (isFavourite) {
+//                    song_likebtn.setBackgroundResource(R.drawable.song_staroff);
+//                    isFavourite = false;
+//                    saveState(isFavourite);
+//
+//                } else {
+//                    song_likebtn.setBackgroundResource(R.drawable.song_staron);
+//                    isFavourite = true;
+//                    saveState(isFavourite);
+//
+//                }
+//
+//            }
+//        });
+//
+//    }
+//
+//    private void saveState(boolean isFavourite) {
+//        SharedPreferences aSharedPreferences = this.getSharedPreferences(
+//                "Favourite", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor aSharedPreferencesEdit = aSharedPreferences
+//                .edit();
+//        aSharedPreferencesEdit.putBoolean("State", isFavourite);
+//        aSharedPreferencesEdit.commit();
+//    }
+//
+//    private boolean readState() {
+//        SharedPreferences aSharedPreferences = this.getSharedPreferences(
+//                "Favourite", Context.MODE_PRIVATE);
+//        return aSharedPreferences.getBoolean("State", true);
+//    }
+//}
+//}
+//        song_lv.setOnItemClickListener((parent, view, row, id)->{
+//            Snackbar
+//                    .make(song_likebtn, getResources().getString(R.string.song_snackbar1), Snackbar.LENGTH_SHORT)
+//                    .setAction("Undo",click->sw.setChecked((!b)))
+//                    .show();
+//        });
+////
+//        song_lv.setOnItemLongClickListener((parent, view, row, id) -> {
+//            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+//            alertDialogBuilder.setTitle(getString(R.string.rm_title))
+//                    .setMessage( getString(R.string.rm_msg1)+ row +
+//                            "      "+getString(R.string.rm_msg2) + id)
+//                    .setPositiveButton(getString(R.string.p_msg1), (click, arg) -> {
+//                        songArrayList.remove(row);
+//                        songAdapter.notifyDataSetChanged();
+//                    })
+//                    .setNegativeButton(getString(R.string.n_msg2), (click, arg) -> {
+//                    })
+//                    .create().show();
+//            return true;
+//        });
+
     }
 
-    private class Songsearch extends AsyncTask< String, Integer, String>
-    {
+    private class Songsearch extends AsyncTask<String, Integer, String> {
+        ProgressBar song_pgbar = findViewById(R.id.song_progressBar);
+
+
+
         //Type3                Type1
-        public String doInBackground(String ... args)
-        {
+        public String doInBackground(String... args) {
+            publishProgress(25);
             try {
 
                 //create a URL object of what server to contact:
-                URL url = new URL(args[0]);
+                URL song_url = new URL(args[0]);
 
                 //open the connection
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                HttpURLConnection urlConnection = (HttpURLConnection) song_url.openConnection();
 
                 //wait for data:
                 InputStream response = urlConnection.getInputStream();
@@ -85,57 +150,88 @@ public class SongSearchActivity  extends AppCompatActivity {
                 StringBuilder sb = new StringBuilder();
 
                 String line = null;
-                while ((line = reader.readLine()) != null)
-                {
+                while ((line = reader.readLine()) != null) {
                     sb.append(line + "\n");
                 }
                 String result = sb.toString(); //result is the whole string
+                publishProgress(50);
 
+                JSONArray array = new JSONArray(result);
 
-                // convert string to JSON: Look at slide 27:
-                JSONObject SongObject = new JSONObject(result);
-                JSONArray jsonArray = SongObject.getJSONArray(result);
+                for (int i = 0; i < array.length(); i++) {
+                    try{
+                    JSONObject jsonObject = array.getJSONObject(i);
+                    String songid = jsonObject.getString("id");
+                    String songtitle = jsonObject.getString("title");
+                    String artid = jsonObject.getJSONObject("artist").getString("id");
+                    String artsname = jsonObject.getJSONObject("artist").getString("nameWithoutThePrefix");
+                    SongMessage song_message = new SongMessage(i + 1, songid, songtitle, artid,artsname);
+                    songArrayList.add(song_message);
 
-                for(int i=0; i<jsonArray.length(); i++){
-                    JSONObject eachObject = (JSONObject)jsonArray.getJSONObject(i);
-                    String songID = eachObject.getString("id");
-                    String songTitle = eachObject.getString("title");
-
-                    JSONObject innerObject = (JSONObject)eachObject.getJSONObject("artist");
-                    String artistID = innerObject.getString("id");
-                    String artistName = innerObject.getString("name");
-
-
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-
-
-                //get the double associated with "value"
-                double uvRating = uvReport.getDouble("value");
-
-                Log.i("MainActivity", "The uv is now: " + uvRating) ;
-
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-            catch (Exception e)
-            {
-
-            }
-
+            publishProgress(100);
             return "Done";
+
         }
+
+
 
         //Type 2
-        public void onProgressUpdate(Integer ... args)
-        {
+        public void onProgressUpdate(Integer... args) {
 
         }
+
         //Type3
-        public void onPostExecute(String fromDoInBackground)
-        {
+        public void onPostExecute(String fromDoInBackground) {
+            super.onPostExecute(fromDoInBackground);
             Log.i("HTTP", fromDoInBackground);
+            System.out.println(songArrayList.size());
+            songAdapter.notifyDataSetChanged();
+            Log.e("======", "onPostExecute: "+songArrayList.get(1).toString() );
         }
     }
-    }
 
+    public class SonglistAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return songArrayList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return songArrayList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return songArrayList.get(position).getId();
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = getLayoutInflater();
+            View itemlistView;
+            itemlistView = inflater.inflate(R.layout.song_item_list, parent, false);
+            TextView song_item_id = itemlistView.findViewById(R.id.song_item_id);
+            song_item_id.setText(""+ songArrayList.get(position).getId());
+            TextView song_title = itemlistView.findViewById(R.id.song_title);
+            song_title.setText(songArrayList.get(position).songTitle());
+            TextView song_artsname = itemlistView.findViewById(R.id.song_artistname);
+            song_artsname.setText(songArrayList.get(position).artistName);
+            ImageButton likebtn = itemlistView.findViewById(R.id.song_likebtn);
+            songAdapter.notifyDataSetChanged();
+
+            return itemlistView;
+        }
+    }
+}
 
 
 

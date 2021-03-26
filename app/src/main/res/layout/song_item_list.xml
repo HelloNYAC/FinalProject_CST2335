@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+        <TextView
+            android:id="@+id/song_item_id"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_marginRight="5dp"
+            android:text="i am id "
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/song_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/song_item_id"
+            android:text="i am song title"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/song_artistname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/song_title"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="61dp"
+            android:layout_marginTop="2dp"
+            android:text="i am artistname"
+            android:textStyle="italic"
+            android:textSize="11sp"
+            />
+        <ImageButton android:id="@+id/song_likebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/song_staroff"
+            android:background="#00ffffff"
+            android:onClick="onToggleStar"
+            android:clickable="true"
+            android:layout_toRightOf="@id/song_artistname"
+            />
+</RelativeLayout>

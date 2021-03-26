@@ -1,52 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dfe6f5"
     tools:context=".Song.SongSearchActivity">
 
-    <TextView
-        android:id="@+id/song_artistNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp"
-        android:textColor="#446366"/>
 
     <EditText
         android:id="@+id/search_rst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="151dp"
+        android:layout_height="79dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="to save search result"
-        android:layout_below="@+id/song_artistNameText"/>
+        android:textSize="30dp" />
 
-        <ProgressBar
-            android:id="@+id/song_progressBar"
-            style="@style/Theme.AppCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:visibility="invisible"
-            tools:visibility="visible"
-            android:layout_below="@+id/search_rst"/>
 
-        <Button
-            android:id="@+id/song_searchbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:layout_below="@+id/song_progressBar"
-            />
+    <ProgressBar
+        android:id="@+id/song_progressBar"
+        style="@style/Theme.AppCompat"
+        android:layout_width="383dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        android:layout_below="@id/search_rst"/>
 
     <ListView
         android:id="@+id/song_searchlistview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/song_searchbutton" />
+        android:layout_below="@id/song_progressBar" />
 </RelativeLayout>
