@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class TriviaQuestion {
-    private String question, corrAns, type;
-    protected int id;
+    private String question, corrAns, type, userSelectedAns;
+    protected int id, count=0;
     private ArrayList<String> incorrArray;
 
     public TriviaQuestion(int id, String question, String type, String corrAns, ArrayList incorrArray){
@@ -40,10 +40,29 @@ public class TriviaQuestion {
         return type;
     }
 
+    public void setCorrAns(String corrAns) {
+        this.corrAns = corrAns;
+    }
+
     public ArrayList getAnswer(){
         incorrArray.add(corrAns);
         Collections.shuffle(incorrArray);
         return incorrArray;
     }
 
+    public String getUserSelectedAns() {
+        return userSelectedAns;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count){
+        this.count = count;
+    }
+
+    public void setUserSelectedAns(String userSelectedAns) {
+        this.userSelectedAns = userSelectedAns;
+    }
 }

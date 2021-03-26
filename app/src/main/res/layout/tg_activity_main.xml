@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="@string/email_ph"
+        android:text="@string/tg_email_ph"
         android:inputType="textEmailAddress"
         android:singleLine="true"/>
 

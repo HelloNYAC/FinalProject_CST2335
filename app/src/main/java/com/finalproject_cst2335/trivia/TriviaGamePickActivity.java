@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +43,8 @@ public class TriviaGamePickActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 question_num = parent.getItemAtPosition(position).toString();
+                Snackbar.make(spinner1, "You selected "+question_num, Snackbar.LENGTH_SHORT)
+                        .show();
             }
 
             @Override
@@ -61,6 +64,8 @@ public class TriviaGamePickActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 question_type = parent.getItemAtPosition(position).toString();
+                Snackbar.make(spinner2, "You selected "+question_type, Snackbar.LENGTH_SHORT)
+                        .show();
             }
 
             @Override
@@ -81,6 +86,8 @@ public class TriviaGamePickActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 question_level = parent.getItemAtPosition(position).toString();
+                Snackbar.make(spinner3, "You selected "+question_level, Snackbar.LENGTH_SHORT)
+                        .show();
             }
 
             @Override

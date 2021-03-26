@@ -51,7 +51,6 @@
         <item>高级</item>
     </string-array>
 
-
     <string name="tg_select_q_number">问题数量</string>
     <string name="tg_select_q_type">喜欢的题目类型</string>
     <string name="tg_select_q_level">难易程度</string>
@@ -65,24 +64,21 @@
     <string name="tg_clname">请输入姓名</string>
     <string name="tg_name_ph">在这里输入姓名</string>
     <string name="tg_enter_email">请输入Email地址</string>
-    <string name="email_ph">在这里输入Email</string>
-    <string name="enter_pswd">请输入密码</string>
     <string name="tg_login">登录</string>
 
     <string name="app_profile">你的资料</string>
     <string name="tg_name_grt">你好, </string>
     <string name="tg_name_ph2">您的姓名</string>
-    <string name="email_hd">Email地址</string>
-    <string name="email_ph2">输入电子邮箱地址</string>
-    <string name="pic">你的照片</string>
     <string name="tg_set_chlg">请定制您的挑战计划</string>
     <string name="tg_q_go">发起挑战！</string>
+    <string name="tg_email_ph">在这里输入Email</string>
 
     <string name="tg_select_5_number">问题数量: 5 </string>
     <string name="tg_select_10_number">问题数量: 10 </string>
     <string name="tg_select_15_number">问题数量: 15 </string>
     <string name="tg_select_20_number">问题数量: 20 </string>
-
+    <string name="tg_reset">重置选项</string>
+    <string name="tg_submit">提交答案</string>
 
 
     </resources>

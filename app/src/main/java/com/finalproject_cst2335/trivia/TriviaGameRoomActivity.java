@@ -2,6 +2,7 @@ package com.finalproject_cst2335.trivia;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -128,18 +130,9 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
             return true;
         });
 
-//        RadioGroup radioGroup = findViewById(R.id.tg_qust_radioGroup);
-//        radioGroup.setOnClickListener(click->{
-//               // get selected radio button from radioGroup
-//                int selectedId = radioGroup.getCheckedRadioButtonId();
-//
-//                // find the radiobutton by returned id
-//                RadioButton radioButton = (RadioButton) findViewById(selectedId);
-//                Toast.makeText(this,
-//                        radioButton.getText(),
-//                        Toast.LENGTH_LONG).show();
-//            });
     }
+
+
 
     public class TriviaGameQuery extends AsyncTask<String, Integer, String> {
 
@@ -166,9 +159,9 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
 
                 JSONObject gameDB = new JSONObject(result);
                 JSONArray jArray = gameDB.getJSONArray("results");
-                ArrayList incorrctArray =new ArrayList();
+                ArrayList incorrctArray = new ArrayList();
 
-                for (int i=0; i < jArray.length(); i++) {
+                for (int i = 0; i < jArray.length(); i++) {
 
                     try {
                         JSONObject anObject = (JSONObject) jArray.get(i);
@@ -179,7 +172,7 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
                         for (int j = 0; j < incorr.length(); j++) {
                             incorrctArray.add(incorr.getString(j));
                         }
-                        TriviaQuestion tg_qust = new TriviaQuestion((i+1), qus, typ, corr, incorrctArray);
+                        TriviaQuestion tg_qust = new TriviaQuestion((i + 1), qus, typ, corr, incorrctArray);
                         questList.add(tg_qust);
                         myAdapter.notifyDataSetChanged();
 
@@ -192,27 +185,26 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
                     System.out.println(questList.get(i).getId());
                 }
             } catch (Exception e) {
-                Log.i("Exception", "Exception!! " );
+                Log.i("Exception", "Exception!! ");
             }
             publishProgress(100);
             return "Done";
         }
 
-        public void onProgressUpdate(Integer ... args)
-        {
+        public void onProgressUpdate(Integer... args) {
             super.onProgressUpdate(args);
             //Update GUI stuff only:
             try {
                 loadProgress.setVisibility(View.VISIBLE);
                 loadProgress.setProgress(args[0]);
                 Thread.sleep(1000);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
         //Type3
-        public void onPostExecute(String fromDoInBackground)
-        {
+        public void onPostExecute(String fromDoInBackground) {
             super.onPostExecute(fromDoInBackground);
             Log.i("HTTP", fromDoInBackground);
             loadProgress.setVisibility(View.VISIBLE);
@@ -222,7 +214,7 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
 
 
     public class TriviaAdapter extends BaseAdapter {
-        
+
         @Override
         public int getCount() {
             return questList.size();
@@ -234,7 +226,7 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
         }
 
         @Override
-        public long getItemId ( int position){
+        public long getItemId(int position) {
             return questList.get(position).getId();
         }
 
@@ -243,22 +235,36 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
             TriviaQuestion qust = getItem(position);
             LayoutInflater inflater = getLayoutInflater();
             View qustView;
+            Button tg_reset_btn = findViewById(R.id.tg_reset_btn);
+            Button tg_submit_btn = findViewById(R.id.tg_submit_btn);
 
-            if(qust.getType().equals("boolean")){
+            if (qust.getType().equals("boolean")) {
                 qustView = inflater.inflate(R.layout.tg_acitivity_true_and_false, parent, false);
                 TextView tg_id = qustView.findViewById(R.id.qustls_id);
-                tg_id.setText(""+qust.getId());
+                tg_id.setText("" + qust.getId());
                 TextView question = qustView.findViewById(R.id.qustls_qust);
                 question.setText(qust.getQuestion());
                 TextView answer1 = qustView.findViewById(R.id.qustls_ans1);
                 answer1.setText(qust.getCorrAns());
                 TextView answer2 = qustView.findViewById(R.id.qustls_ans2);
                 answer2.setText(qust.getIncorrArray().get(0));
-            }
-            else{
+
+//                RadioGroup radioGroup = qustView.findViewById(R.id.tg_qust_radioGroup_tf);
+//                radioGroup.setOnCheckedChangeListener((RadioGroup group, int checkedId)-> {
+//                        RadioButton checkedRadioButton = radioGroup.findViewById(checkedId);
+//                        if(qust.getCorrAns().equals(checkedRadioButton.getText().toString())){
+//                               qust.setCount(qust.getCount()+1);
+//                        }
+//                        tg_reset_btn.setOnClickListener(click->{
+//                            radioGroup.clearCheck();
+//                    });
+//
+//                });
+
+                } else {
                 qustView = inflater.inflate(R.layout.tg_activity_multiple, parent, false);
                 TextView tg_id = qustView.findViewById(R.id.qustls_id);
-                tg_id.setText(""+qust.getId());
+                tg_id.setText("" + qust.getId());
                 TextView question = qustView.findViewById(R.id.qustls_qust);
                 question.setText(qust.getQuestion());
                 TextView answer1 = qustView.findViewById(R.id.qustls_ans1);
@@ -269,10 +275,25 @@ public class TriviaGameRoomActivity extends AppCompatActivity {
                 answer3.setText(qust.getIncorrArray().get(1));
                 TextView answer4 = qustView.findViewById(R.id.qustls_ans4);
                 answer4.setText(qust.getIncorrArray().get(2));
-            }
-            return qustView;
+
+//                RadioGroup radioGroup = qustView.findViewById(R.id.tg_answer_group_mul);
+//                radioGroup.setOnCheckedChangeListener((RadioGroup group, int checkedId)-> {
+//                    RadioButton checkedRadioButton = radioGroup.findViewById(checkedId);
+//                    if(qust.getCorrAns().equals(checkedRadioButton.getText().toString())){
+//                        qust.setCount(qust.getCount()+1);
+//                    }
+//                    tg_reset_btn.setOnClickListener(click->{
+//                        radioGroup.clearCheck();
+//                    });
+//
+//                });
 
             }
+
+
+            return qustView;
+
         }
 
     }
+}

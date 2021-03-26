@@ -59,7 +59,7 @@
     <string name="tg_select_q_type">Type of Questions</string>
     <string name="tg_select_q_level">Level of Questions</string>
     <string name="tg_type_ph">Type Here</string>
-
+    <string name="tg_email_ph">Please Enter Your Email Here</string>
 
     <string name="del_title">Do you want to delete this?</string>
     <string name="del_msg1">The selected row is: </string>
@@ -69,17 +69,16 @@
     <string name="tg_clname">Please enter your name</string>
     <string name="tg_name_ph">Lucky Name</string>
     <string name="tg_enter_email">Enter your email address</string>
-    <string name="email_ph">Type email here</string>
-    <string name="enter_pswd">Type your password</string>
     <string name="tg_login">Login</string>
     <string name="app_profile">Your Profile</string>
     <string name="tg_name_grt">Welcome, </string>
     <string name="tg_name_ph2">Your Name</string>
-    <string name="email_hd">Your email</string>
-    <string name="email_ph2">Enter your email</string>
-    <string name="pic">Your picture</string>
     <string name="tg_set_chlg">Please Choose Your Challenge Combo</string>
     <string name="tg_q_go">LET"S GO</string>
+    <string name="tg_reset">RESET</string>
+    <string name="tg_submit">SUBMIT</string>
+
+
 
 
 </resources>

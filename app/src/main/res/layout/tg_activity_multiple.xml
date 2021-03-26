@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
         android:id="@+id/qustls_id"
@@ -18,7 +19,7 @@
         android:layout_toRightOf="@id/qustls_id"/>
 
     <RadioGroup
-        android:id="@+id/tg_answer_group"
+        android:id="@+id/tg_answer_group_mul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/qustls_qust"
@@ -29,12 +30,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="answer1"/>
-
+s
         <RadioButton
             android:id="@+id/qustls_ans2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="anser 2"/>
+            android:text="anser 2" />
 
         <RadioButton
             android:id="@+id/qustls_ans3"
