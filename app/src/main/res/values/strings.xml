@@ -29,5 +29,15 @@
     <string name="soccerGames">Soccer Games</string>
     <string name="ss_mainbt">Go</string>
     <string name="song_snackbar1">Lovely song</string>
+    <string name="SONG_rm_title">Do you want to delete this？</string>
+    <string name="SONG_rm_msg1">"The selected row is: "</string>
+    <string name="SONG_rm_msg2">"The database id is: " </string>
+    <string name="SONG_p_msg1">"YES"</string>
+    <string name="SONG_n_msg2">"NO" </string>
+    <string name="songhidetext">Save to favorites</string>
+    <string name="title_activity_song_favourite_list">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

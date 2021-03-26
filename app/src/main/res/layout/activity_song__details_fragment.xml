@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dfe6f5"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Song_detail_item_ID"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/Song_detail_ArtID"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/Song_detail_item_ID"/>
+    <TextView
+        android:id="@+id/Song_detail_Songid"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/Song_detail_ArtID"/>
+    <TextView
+        android:id="@+id/Song_detail_Songtitle"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/Song_detail_Songid"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Song_detail_SavetoFv_Button"
+        android:layout_alignParentBottom="true"
+        android:text="@string/songhidetext"/>
+</RelativeLayout>
