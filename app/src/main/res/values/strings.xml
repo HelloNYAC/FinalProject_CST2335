@@ -1,6 +1,5 @@
 <resources>
-
-    <string name="app_name">Android Labs</string>
+    <string name="app_name">Final Project</string>
     <string name="GUI">Look at my GUI</string>
     <string name="Click">Click here</string>
     <string name="Check">Check this out!</string>
@@ -13,6 +12,7 @@
     <string name="enterEmailHeader"> Enter your email address </string>
     <string name="emailInputHint">Type your email here</string>
     <string name="enterpasswordHeader">Type your password</string>
+    <string name="enter_email">Enter email</string>
     <string name="login">Log in</string>
     <string name="your_profile">Your profile</string>
     <string name="your_name">Your name</string>
@@ -27,10 +27,12 @@
     <string name="songster">Songster</string>
     <string name="car">Car</string>
     <string name="soccerGames">Soccer Games</string>
-    <string name="search">Search</string>
+    <string name="search">SEARCH</string>
+    <string name="help">help</string>
+    <string name="back">back</string>
+    <string name="searchHint">Search here ...</string>
     <string name="link">Link</string>
     <string name="date">Date</string>
     <string name="description">Description</string>
-    <string name="help">Help</string>
-    <string name="back">Back</string>
 </resources>
+

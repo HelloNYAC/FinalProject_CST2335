@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".soccergames.SoccerNewsDetailPage">
+    tools:context=".SoccerNewsDetailPage">
     <TextView
         android:id="@+id/sc_news_title"
         android:layout_width="match_parent"

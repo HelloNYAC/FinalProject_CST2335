@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,8 +38,10 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -73,7 +76,6 @@ public class SoccerGameHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_game_home_page);
-
         newsList = new ArrayList<SoccerNews>();
         tb = findViewById(R.id.soccerMainPage_tb);
         setSupportActionBar(tb);
@@ -113,6 +115,35 @@ public class SoccerGameHomePage extends AppCompatActivity {
         });
         SoccerGamesQuery query = new SoccerGamesQuery();
         query.execute();
+
+        itemLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                SoccerNews message = adapter.getItem(position);
+                AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
+                builder.setTitle("Do you want to delete this?")
+                        .setMessage("The selected row is: "+position+"\nThe database id : "+ message.getId())
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                    Toast.makeText(SoccerGameHomePage.this,"Cannot delete message",Toast.LENGTH_SHORT).show();
+                                }
+
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).create().show();
+
+                return false;
+            }
+        });
+
+        //add a test case to list view
+//        newsList.add(testCase);
+
 
     }
 
@@ -173,11 +204,10 @@ public class SoccerGameHomePage extends AppCompatActivity {
         toggler.onConfigurationChanged(newConfig);
     }
 
-
     /**
      * adapter for handling items on list view
      */
-    private class ScAdapter extends BaseAdapter {
+    private class ScAdapter extends BaseAdapter{
 
         @Override
         public int getCount() {
@@ -212,7 +242,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
         }
     }
 
-    private class SoccerGamesQuery extends AsyncTask<String, Integer, String> {
+    private class SoccerGamesQuery extends AsyncTask<String, Integer, String>{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.finalproject_cst2335.car.CarMainActivity;
 import com.finalproject_cst2335.soccergames.SoccerGameHomePage;
 import com.google.android.material.navigation.NavigationView;
 
@@ -64,10 +63,10 @@ public class HomePage extends AppCompatActivity {
 //            startActivity(goToSoccerGame);
 //        }
 
-        if( item.getItemId() == R.id.toCar){
-            Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
-            startActivity(goToCar);
-        }
+//        if( item.getItemId() == R.id.toCar){
+//            Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
+//            startActivity(goToCar);
+//        }
 
         return super.onOptionsItemSelected(item);
     }
