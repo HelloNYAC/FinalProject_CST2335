@@ -188,34 +188,34 @@ public class CarsList extends AppCompatActivity {
 
         /**
          * @param position    it will set the value of list item at postions of the listview
-         * @param convertView it will get the view to set data and convert it into updated values
+         * @param convertView it will get the view to set data and convert it into upmodel_named values
          * @param parent      it will return the context of the parent
          * @return
          */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            final cars countrydatalist = trackDetailModels.get(position);
+            final cars dataList = trackDetailModels.get(position);
             View view;
-            view = getLayoutInflater().inflate(R.layout.countrydetail, parent, false);
+            view = getLayoutInflater().inflate(R.layout.activity_car_details_view, parent, false);
 
-            TextView tv_country_name, tv_province, tv_cases, tv_date;
-            tv_country_name = view.findViewById(R.id.tv_country_name);
-            tv_province = view.findViewById(R.id.tv_province);
-            tv_date = view.findViewById(R.id.tv_date);
-            tv_cases = view.findViewById(R.id.tv_cases);
+            TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
+            tv_make_id = view.findViewById(R.id.tv_make_id);
+            tv_make_name = view.findViewById(R.id.tv_make_name);
+            tv_model_name = view.findViewById(R.id.tv_model_name);
+            tv_model_id = view.findViewById(R.id.tv_model_id);
 
-            tv_country_name.setText(countrydatalist.getMake_ID() + "");
-            tv_province.setText(countrydatalist.getMake_Name() + "");
-            tv_cases.setText(countrydatalist.getModel_ID() + "");
-            tv_date.setText(countrydatalist.getModel_Name());
+            tv_make_id.setText(dataList.getMake_ID() + "");
+            tv_make_name.setText(dataList.getMake_Name() + "");
+            tv_model_id.setText(dataList.getModel_ID() + "");
+            tv_model_name.setText(dataList.getModel_Name());
             // It will send data to next Activity in the form of intents
             view.setOnClickListener(view1 -> {
-                Intent intent = new Intent(CarsList.this, Showcardetail.class);
+                Intent intent = new Intent(CarsList.this, CarResultsDetails.class);
 
-                intent.putExtra("id", String.valueOf(countrydatalist.getModel_ID()));
-                intent.putExtra("name", String.valueOf(countrydatalist.getModel_Name()));
-                intent.putExtra("makeID", String.valueOf(countrydatalist.getMake_ID()));
-                intent.putExtra("makeName", String.valueOf((countrydatalist.getMake_Name())));
+                intent.putExtra("id", String.valueOf(dataList.getModel_ID()));
+                intent.putExtra("name", String.valueOf(dataList.getModel_Name()));
+                intent.putExtra("makeID", String.valueOf(dataList.getMake_ID()));
+                intent.putExtra("makeName", String.valueOf((dataList.getMake_Name())));
                 startActivity(intent);
             });
             return view;

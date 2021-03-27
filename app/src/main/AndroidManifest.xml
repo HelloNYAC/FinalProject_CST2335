@@ -15,7 +15,7 @@
         <activity android:name="com.finalproject_cst2335.car.ShowFavourtiesDetail"/>
         <activity android:name="com.finalproject_cst2335.car.Showfavourites"/>
         <activity android:name="com.finalproject_cst2335.car.CarsList" />
-        <activity android:name="com.finalproject_cst2335.car.Showcardetail" />
+        <activity android:name="com.finalproject_cst2335.car.CarResultsDetails" />
         <activity android:name="com.finalproject_cst2335.car.CarMainActivity"/>
         <activity android:name=".HomePage">
             <intent-filter>

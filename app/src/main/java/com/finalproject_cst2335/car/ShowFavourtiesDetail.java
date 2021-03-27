@@ -11,27 +11,31 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.finalproject_cst2335.R;
 
 public class ShowFavourtiesDetail extends AppCompatActivity {
     Bundle id;
     String makeName, name, makeiD, carID;
-    TextView tv_country_name, tv_province, tv_cases, tv_date, del_from_Favorites, findcar;
+    TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name, del_from_Favorites, findcar;
     CarsDB carsDB;
     int ide;
+    private Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_favourties_detail);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tb = findViewById(R.id.carShowFavoritesDetail_tb);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         del_from_Favorites = findViewById(R.id.del_from_Favorites);
-        tv_country_name = findViewById(R.id.tv_country_name);
+        tv_make_id = findViewById(R.id.tv_make_id);
         findcar = findViewById(R.id.findcar);
-        tv_province = findViewById(R.id.tv_province);
-        tv_date = findViewById(R.id.tv_date);
-        tv_cases = findViewById(R.id.tv_cases);
+        tv_make_name = findViewById(R.id.tv_make_name);
+        tv_model_name = findViewById(R.id.tv_model_name);
+        tv_model_id = findViewById(R.id.tv_model_id);
         carsDB = new CarsDB(ShowFavourtiesDetail.this);
         getdata();
         carsDB = new CarsDB(ShowFavourtiesDetail.this);
@@ -100,10 +104,10 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
             makeName = intent.getStringExtra("makeName");
             ide = Integer.parseInt(makeiD);
 
-            tv_country_name.setText(carID);
-            tv_province.setText(name);
-            tv_cases.setText(makeiD);
-            tv_date.setText(makeName);
+            tv_make_id.setText(carID);
+            tv_make_name.setText(name);
+            tv_model_id.setText(makeiD);
+            tv_model_name.setText(makeName);
 
         } catch (Exception e) {
             Toast.makeText(ShowFavourtiesDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
