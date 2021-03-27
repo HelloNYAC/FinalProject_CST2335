@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.finalproject_cst2335">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject_CST2335">
+        <activity android:name="com.finalproject_cst2335.car.ShowFavourtiesDetail"/>
+        <activity android:name="com.finalproject_cst2335.car.Showfavourites"/>
+        <activity android:name="com.finalproject_cst2335.car.CarsList" />
+        <activity android:name="com.finalproject_cst2335.car.Showcardetail" />
+        <activity android:name="com.finalproject_cst2335.car.CarMainActivity"/>
         <activity android:name=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
