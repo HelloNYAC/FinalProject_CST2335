@@ -14,9 +14,6 @@ import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 
 public class SoccerNewsDetailPage extends AppCompatActivity {
 
-    /**
-     * components
-     */
     private TextView titleTv;
     private TextView linkTv;
     private TextView dateTv;
@@ -24,15 +21,10 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
     private SoccerNews soccerNews;
     private Toolbar tb;
 
-    /**
-     * method for initiation
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_news_detail_page);
-
         titleTv = findViewById(R.id.sc_news_title);
         linkTv = findViewById(R.id.sc_detail_link);
         dateTv = findViewById(R.id.sc_detail_date);
