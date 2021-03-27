@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -58,12 +60,15 @@ public class SoccerGameHomePage extends AppCompatActivity {
     private Button searchBtn;
     private ProgressBar progressBar;
     private ListView itemLv;
+    private SharedPreferences sp;
 
     private List<SoccerNews> newsList;
     private ScAdapter adapter;
 
     public static final String SOCCER_NEWS_DETAIL = "SOCCER_NEWS_DETAIL";
     private static final String SOCCER_GAMES_URL = "https://www.goal.com/en/feeds/news?fmt=rss";
+    private static final String SEARCH_HISTORY = "SEARCH_HISTORY";
+    private static final String LAST_SEARCH = "LAST_SEARCH";
 
     /**
      * init soccer game home page and variables
@@ -73,6 +78,18 @@ public class SoccerGameHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_game_home_page);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
+        builder.setTitle("Please rate our app").setView(R.layout.soccergames_rating_layout);
+        builder.show();
+
+        sp = getSharedPreferences(SEARCH_HISTORY, Context.MODE_PRIVATE);
+        String searchHistory = sp.getString(LAST_SEARCH,"");
+        searchBox = findViewById(R.id.sc_searchBox);
+        if( searchHistory!=null && !searchHistory.equals("")){
+            searchBox.setHint("Last search : "+searchHistory);
+        }
+
 
         newsList = new ArrayList<SoccerNews>();
         tb = findViewById(R.id.soccerMainPage_tb);
@@ -98,6 +115,10 @@ public class SoccerGameHomePage extends AppCompatActivity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String searchItem = searchBox.getText().toString();
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString(LAST_SEARCH, searchItem);
+                editor.commit();
                 Toast.makeText(SoccerGameHomePage.this,"Searching ... ", Toast.LENGTH_SHORT).show();
             }
         });

@@ -34,4 +34,8 @@
     <string name="description">Description</string>
     <string name="help">Help</string>
     <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="addToFav">添加到我的最爱</string>
+    <string name="rating">打分</string>
+    <string name="later">以后再说</string>
     </resources>
