@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
     TextView date_from, date_to;
     Button search;
     TextView last_country_names;
+    private Toolbar tb;
     private NavigationView sidenavigationview;
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -67,6 +69,8 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);// it will show side navigation tool bar on action bar
         drawerLayout.addDrawerListener(actionBarDrawerToggle);// it it set on click listeners
         actionBarDrawerToggle.syncState();// it is for sync
+        tb = findViewById(R.id.carMain_tb);
+        setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.finalproject_cst2335.R;
 import com.google.gson.Gson;
@@ -36,11 +37,14 @@ public class CarsList extends AppCompatActivity {
     static String url;// url to make API call
     List<cars> posts;
     private List<cars> list;
+    private Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_country_cases);
+        setContentView(R.layout.activity_cars_lists);
+        tb = findViewById(R.id.carsList_tb);
+        setSupportActionBar(tb);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         listview = findViewById(R.id.listview);
         try {

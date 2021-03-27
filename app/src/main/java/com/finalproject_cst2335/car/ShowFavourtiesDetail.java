@@ -25,7 +25,7 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_favourties_detail);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         del_from_Favorites = findViewById(R.id.del_from_Favorites);
         tv_country_name = findViewById(R.id.tv_country_name);
         findcar = findViewById(R.id.findcar);

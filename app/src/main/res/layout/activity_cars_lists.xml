@@ -7,11 +7,18 @@
     android:layout_height="match_parent"
     tools:context="com.finalproject_cst2335.car.CarsList">
 
-   <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/carsList_tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary" />
+
+    <LinearLayout
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
-       <TextView
+
+        <TextView
            android:layout_margin="10dp"
            android:textColor="@color/purple_500"
            android:textSize="36sp"
@@ -20,8 +27,6 @@
            android:layout_height="wrap_content"
            android:text="Cars Detail"
            />
-
-
    </LinearLayout>
 
     <ListView

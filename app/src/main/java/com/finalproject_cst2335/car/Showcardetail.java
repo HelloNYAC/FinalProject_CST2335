@@ -30,7 +30,7 @@ public class Showcardetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showcountrydetail);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findcar = findViewById(R.id.findcar);
         postal = findViewById(R.id.postal);
         linear_View = findViewById(R.id.linear_View);
