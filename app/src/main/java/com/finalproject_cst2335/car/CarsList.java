@@ -103,7 +103,7 @@ public class CarsList extends AppCompatActivity {
                     CarsModel carsModel = gson.fromJson(jsonOutput, listType);
                     posts = carsModel.Results;
 
-
+                    //test
                     runOnUiThread(() -> {
                         ListAdapter listAdapter;
                         listAdapter = new theListAdapter(CarsList.this, posts);
