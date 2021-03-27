@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/Helpus"
+        android:background="@android:color/white"
+        android:textColor="#417C6D"
+        android:text="Help us"
+        android:textSize="36sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        android:textColor="#417C6D"
+        android:text="Search by cars"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_below="@id/Helpus"
+        android:id="@+id/searchartist"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To search by Model name"
+        android:maxLines="7"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        android:textColor="#417C6D"
+        android:text="Add some data here"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_below="@id/Helpus"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="after searching by country"
+        android:maxLines="7"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
+        />
+</LinearLayout>

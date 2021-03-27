@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ShowFavrouties"
+            android:icon="@drawable/favourites"
+            android:title="Saved">
+        </item>
+        <item
+            android:id="@+id/iconSearchArtist"
+            android:icon="@drawable/help"
+            android:title="Search by Car Model"/>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/search"
+            android:title="Find a car"/>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/help_fragment"
+            android:icon="@drawable/help"
+            android:title="help us"/>
+    </group>
+</menu>
