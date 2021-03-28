@@ -19,7 +19,7 @@ import com.finalproject_cst2335.R;
 
 import java.util.List;
 
-public class CarShowfavourites extends AppCompatActivity {
+public class CarSavedListsView extends AppCompatActivity {
 
     ListView favlistview;
     ProgressDialog progressDialog;
@@ -48,7 +48,7 @@ public class CarShowfavourites extends AppCompatActivity {
     }
 
     public void showProgreesbar() {
-        progressDialog = new ProgressDialog(CarShowfavourites.this, R.style.MyTheme);
+        progressDialog = new ProgressDialog(CarSavedListsView.this, R.style.MyTheme);
         progressDialog.setCancelable(false);
 
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
@@ -57,7 +57,7 @@ public class CarShowfavourites extends AppCompatActivity {
         List<Cars> favouritesModels;
         favouritesModels = carsDB.get_favourites();
         favListAdapter listAdapter;
-        listAdapter = new favListAdapter(CarShowfavourites.this, favouritesModels);
+        listAdapter = new favListAdapter(CarSavedListsView.this, favouritesModels);
         favlistview.setAdapter(listAdapter);
         progressDialog.dismiss();
     }
@@ -108,7 +108,7 @@ public class CarShowfavourites extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(CarShowfavourites.this, CarShowFavourtiesDetail.class);
+                    Intent intent = new Intent(CarSavedListsView.this, CarSavedListsDetail.class);
 
                     intent.putExtra("id", String.valueOf(favouritesModel.getModel_ID()));
                     intent.putExtra("name", favouritesModel.getModel_Name());

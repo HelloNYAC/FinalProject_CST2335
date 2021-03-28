@@ -23,12 +23,20 @@
 
     <ListView
         android:id="@+id/favlistview"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:dividerHeight="0dp" />
+
+    <FrameLayout
+        android:id="@+id/favlistview_frameLayout"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@+id/favlistview"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@id/favlistview"/>
 
 
 </LinearLayout>

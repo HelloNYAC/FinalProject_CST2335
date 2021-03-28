@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.finalproject_cst2335.R;
 import com.google.android.material.snackbar.Snackbar;
 
-public class CarResultsDetails extends AppCompatActivity {
+public class CarListsDetail extends AppCompatActivity {
     View linear_View;
     //views and variables declarations
     String id;
@@ -42,7 +42,7 @@ public class CarResultsDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (postal.getText().toString().isEmpty() || postal.getText().toString().equalsIgnoreCase("")) {
-                    Toast.makeText(CarResultsDetails.this, "Please Enter postal code!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarListsDetail.this, "Please Enter postal code!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String url = "https://www.autotrader.ca/cars/?mdl=" + Make_name + "&make=" + Model_name + "&loc=" + postal.getText().toString().trim() + ",";
@@ -58,7 +58,7 @@ public class CarResultsDetails extends AppCompatActivity {
         tv_make_name = findViewById(R.id.tv_make_name);
         tv_model_name = findViewById(R.id.tv_model_name);
         tv_model_id = findViewById(R.id.tv_model_id);
-        carsDB = new CarsDB(CarResultsDetails.this);
+        carsDB = new CarsDB(CarListsDetail.this);
 
         //This Action will send data to the database
         Add_to_Favorites.setOnClickListener(v -> {
@@ -78,7 +78,7 @@ public class CarResultsDetails extends AppCompatActivity {
             tv_model_id.setText(Model_ID);
             tv_model_name.setText(Model_name);
         } catch (Exception e) {
-            Toast.makeText(CarResultsDetails.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(CarListsDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

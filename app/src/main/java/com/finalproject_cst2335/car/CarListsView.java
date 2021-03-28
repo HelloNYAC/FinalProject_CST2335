@@ -31,7 +31,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 
-public class CarsList extends AppCompatActivity {
+public class CarListsView extends AppCompatActivity {
     ListView listview;// Initialize variable to set view for later use
     ProgressDialog progressDialog;// for progress bar
     static String url;// url to make API call
@@ -42,7 +42,7 @@ public class CarsList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cars_lists);
+        setContentView(R.layout.activity_car_lists);
         tb = findViewById(R.id.carsList_tb);
         setSupportActionBar(tb);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -52,7 +52,7 @@ public class CarsList extends AppCompatActivity {
             url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/" + country + "?format=json";
             new getCarsData().execute(url);
         } catch (Exception ex) {
-            Toast.makeText(CarsList.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(CarListsView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -76,7 +76,7 @@ public class CarsList extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = new ProgressDialog(CarsList.this, R.style.MyTheme);
+            progressDialog = new ProgressDialog(CarListsView.this, R.style.MyTheme);
             progressDialog.setCancelable(false);
 
             progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
@@ -106,7 +106,7 @@ public class CarsList extends AppCompatActivity {
                     //test
                     runOnUiThread(() -> {
                         ListAdapter listAdapter;
-                        listAdapter = new theListAdapter(CarsList.this, posts);
+                        listAdapter = new theListAdapter(CarListsView.this, posts);
                         listview.setAdapter(listAdapter);
                     });
                 }
@@ -210,7 +210,7 @@ public class CarsList extends AppCompatActivity {
             tv_model_name.setText(dataList.getModel_Name());
             // It will send data to next Activity in the form of intents
             view.setOnClickListener(view1 -> {
-                Intent intent = new Intent(CarsList.this, CarResultsDetails.class);
+                Intent intent = new Intent(CarListsView.this, CarListsDetail.class);
 
                 intent.putExtra("id", String.valueOf(dataList.getModel_ID()));
                 intent.putExtra("name", String.valueOf(dataList.getModel_Name()));

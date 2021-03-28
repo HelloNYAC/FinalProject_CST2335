@@ -55,7 +55,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
                 Toast.makeText(CarMainActivity.this, "fill_fields", Toast.LENGTH_LONG).show();
 
             } else {
-                Intent intent = new Intent(CarMainActivity.this, CarsList.class);
+                Intent intent = new Intent(CarMainActivity.this, CarListsView.class);
                 intent.putExtra("country", country_name.getText().toString());
                 startActivity(intent);
             }
@@ -93,7 +93,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
                 startActivity(new Intent(getApplicationContext(), CarMainActivity.class));
                 break;
             case R.id.ShowFavrouties:
-                startActivity(new Intent(getApplicationContext(), CarShowfavourites.class));
+                startActivity(new Intent(getApplicationContext(), CarSavedListsView.class));
                 break;
             case R.id.help:
                 String url = "https://www.autotrader.ca/cars/?mdl=accord&make=honda&loc=K2G1V8, ";

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.finalproject_cst2335.car.CarsList">
+    tools:context="com.finalproject_cst2335.car.CarListsView">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/carsList_tb"
