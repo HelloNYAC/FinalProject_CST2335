@@ -139,7 +139,6 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
         SharedPreferences prefs = getSharedPreferences("Shared preferences", MODE_PRIVATE);
         String name = prefs.getString("name", "No name defined");//"No name defined" is the default value.
         last_country_names.setText(name);
-
     }
 
     @Override
