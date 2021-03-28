@@ -1,10 +1,12 @@
 package com.finalproject_cst2335.car;
 
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.finalproject_cst2335.R;
 import com.google.gson.Gson;
@@ -210,13 +213,32 @@ public class CarListsView extends AppCompatActivity {
             tv_model_name.setText(dataList.getModel_Name());
             // It will send data to next Activity in the form of intents
             view.setOnClickListener(view1 -> {
-                Intent intent = new Intent(CarListsView.this, CarListsDetail.class);
+                if (findViewById(R.id.listview_framelayout) != null) {
+                    Toast.makeText(CarListsView.this, "Loading fragment", Toast.LENGTH_SHORT).show();
+                    CarFragment carFragment = new CarFragment();
+                    Bundle bundle = new Bundle(); //save the data in the bundle for later retrieval.
+                    bundle.putString("id", String.valueOf(dataList.getModel_ID()));
+                    bundle.putString("name", String.valueOf(dataList.getModel_Name()));
+                    bundle.putString("makeID", String.valueOf(dataList.getMake_ID()));
+                    bundle.putString("makeName", String.valueOf((dataList.getMake_Name())));
+                    carFragment.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.listview_framelayout, carFragment)
+                            .commit();
+                    //FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    //ft.replace(R.id.listview_framelayout, carFragment);
+                    //ft.addToBackStack("A string");
+                    //ft.commit();
+                }
+                else {
+                    Intent intent = new Intent(CarListsView.this, CarListsDetail.class);
 
-                intent.putExtra("id", String.valueOf(dataList.getModel_ID()));
-                intent.putExtra("name", String.valueOf(dataList.getModel_Name()));
-                intent.putExtra("makeID", String.valueOf(dataList.getMake_ID()));
-                intent.putExtra("makeName", String.valueOf((dataList.getMake_Name())));
-                startActivity(intent);
+                    intent.putExtra("id", String.valueOf(dataList.getModel_ID()));
+                    intent.putExtra("name", String.valueOf(dataList.getModel_Name()));
+                    intent.putExtra("makeID", String.valueOf(dataList.getMake_ID()));
+                    intent.putExtra("makeName", String.valueOf((dataList.getMake_Name())));
+                    startActivity(intent);
+                }
             });
             return view;
         }

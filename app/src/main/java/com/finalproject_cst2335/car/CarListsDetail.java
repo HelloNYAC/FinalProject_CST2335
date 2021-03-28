@@ -1,6 +1,8 @@
 package com.finalproject_cst2335.car;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -32,12 +34,29 @@ public class CarListsDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_lists_detail_fragment);
-        tb = findViewById(R.id.car_searchResults_tb);
-        setSupportActionBar(tb);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //tb = findViewById(R.id.car_searchResults_tb);
+        //setSupportActionBar(tb);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            finish();
+        }
+
+        CarFragment carFragment = new CarFragment();
+        Bundle bundle = new Bundle(); //save the data in the bundle for later retrieval.
+        bundle.putString("id", getIntent().getStringExtra("id"));
+        bundle.putString("name", getIntent().getStringExtra("name"));
+        bundle.putString("makeID", getIntent().getStringExtra("makeID"));
+        bundle.putString("makeName", getIntent().getStringExtra("makeName"));
+        carFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.listview_framelayout, carFragment)
+                .commit();
+
         findcar = findViewById(R.id.findcar);
         postal = findViewById(R.id.postal);
         linear_View = findViewById(R.id.linear_View);
+        /*
         findcar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +70,7 @@ public class CarListsDetail extends AppCompatActivity {
                 startActivity(i);
             }
         });
+         */
 
         //Views Initializer
         Add_to_Favorites = findViewById(R.id.Add_to_Favorites);
@@ -60,6 +80,16 @@ public class CarListsDetail extends AppCompatActivity {
         tv_model_id = findViewById(R.id.tv_model_id);
         carsDB = new CarsDB(CarListsDetail.this);
 
+
+
+
+        NutritionFragment fragment = new NutritionFragment();
+        fragment.setArguments(bundle);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.detail_frameLayout, fragment);
+        ft.commit();
+
+        /*
         //This Action will send data to the database
         Add_to_Favorites.setOnClickListener(v -> {
             Snackbar.make(linear_View, R.string.adder, Snackbar.LENGTH_SHORT).show();
@@ -80,6 +110,7 @@ public class CarListsDetail extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(CarListsDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+        */
     }
 
     @Override
