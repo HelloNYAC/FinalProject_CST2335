@@ -13,9 +13,6 @@ public class Cars {
         Model_Name = model_Name;
     }
 
-    public Cars(String country, String countryCode, String province, String city, String cityCode, String lat, String lon, String cases, String status, String date) {
-    }
-
     public int getMake_ID() {
         return Make_ID;
     }

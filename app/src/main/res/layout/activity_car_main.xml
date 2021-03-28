@@ -34,7 +34,7 @@
 
 
         <TextView
-            android:id="@+id/SearchByCountry"
+            android:id="@+id/SearchByModel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -46,22 +46,22 @@
             android:textSize="30sp" />
 
         <EditText
-            android:id="@+id/country_name"
+            android:id="@+id/car_make_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="@string/enter_car_model"
+            android:hint="@string/enter_car_make"
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/last_country_name"
+            android:id="@+id/last_search_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="@string/last_search" />
 
         <TextView
-            android:id="@+id/last_country_names"
+            android:id="@+id/last_search_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

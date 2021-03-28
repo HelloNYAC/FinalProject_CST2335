@@ -61,7 +61,7 @@
     <string name="help_us">Help us</string>
     <string name="find_a_car">Find a car</string>
     <string name="search_by_model">Search by Model</string>
-    <string name="enter_car_model">Enter car Model</string>
+    <string name="enter_car_make">Enter a car manufacturer</string>
     <string name="find_this_car">Find this car</string>
     <string name="android">Android</string>
     <string name="cars_project">Cars project</string>

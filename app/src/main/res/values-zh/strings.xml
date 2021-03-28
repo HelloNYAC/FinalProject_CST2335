@@ -59,7 +59,7 @@
     <string name="help_us">帮助我们</string>
     <string name="find_a_car">搜索车</string>
     <string name="search_by_model">根据车型搜索</string>
-    <string name="enter_car_model">输入车型</string>
+    <string name="enter_car_make">输入汽车品牌</string>
     <string name="shop_this_car">购买这辆车</string>
     <string name="enter_postal_code">输入邮编</string>
     <string name="car_detail">基本信息</string>

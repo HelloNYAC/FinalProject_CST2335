@@ -48,8 +48,8 @@ public class CarListsView extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         listview = findViewById(R.id.listview);
         try {
-            String country = getIntent().getStringExtra("country");
-            url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/" + country + "?format=json";
+            String car = getIntent().getStringExtra("car");
+            url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/" + car + "?format=json";
             new getCarsData().execute(url);
         } catch (Exception ex) {
             Toast.makeText(CarListsView.this, ex.getMessage(), Toast.LENGTH_LONG).show();

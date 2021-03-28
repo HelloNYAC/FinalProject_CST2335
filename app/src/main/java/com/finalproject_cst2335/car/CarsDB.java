@@ -43,13 +43,13 @@ public class CarsDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertCountry(Cars countryModel) {
+    public long insertCar(Cars carModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("Make_ID", countryModel.getMake_ID());
-        values.put("Make_Name", countryModel.getMake_Name());
-        values.put("Model_ID", countryModel.getModel_ID());
-        values.put("Model_Name", countryModel.getModel_Name());
+        values.put("Make_ID", carModel.getMake_ID());
+        values.put("Make_Name", carModel.getMake_Name());
+        values.put("Model_ID", carModel.getModel_ID());
+        values.put("Model_Name", carModel.getModel_Name());
 
         long n = db.insert("cars", null, values);
         return n;
@@ -64,12 +64,12 @@ public class CarsDB extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
 
-                String id = (cursor.getString(cursor.getColumnIndex("Make_ID")));
-                String Country = cursor.getString(cursor.getColumnIndex("Make_Name"));
-                String CountryCode = cursor.getString(cursor.getColumnIndex("Model_ID"));
-                String Province = cursor.getString(cursor.getColumnIndex("Model_Name"));
+                String make_id = (cursor.getString(cursor.getColumnIndex("Make_ID")));
+                String make_name = cursor.getString(cursor.getColumnIndex("Make_Name"));
+                String model_id = cursor.getString(cursor.getColumnIndex("Model_ID"));
+                String model_name = cursor.getString(cursor.getColumnIndex("Model_Name"));
 
-                Cars favouritesModel = new Cars(parseInt(id), Country, Integer.parseInt(CountryCode), Province);
+                Cars favouritesModel = new Cars(parseInt(make_id), make_name, Integer.parseInt(model_id), model_name);
                 Favourites.add(favouritesModel);
             } while (cursor.moveToNext());
         }

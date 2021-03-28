@@ -34,13 +34,11 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
     RelativeLayout toreplace;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    EditText country_name;
-    TextView date_from, date_to;
+    EditText car_make_name;
     Button search;
-    TextView last_country_names;
+    TextView last_search_results;
     private Toolbar tb;
     private NavigationView sidenavigationview;
-    DatePickerDialog.OnDateSetListener setListener;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -49,14 +47,14 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_car_main);
         viewinnitilisers();
 
-        last_country_names.setOnClickListener(v -> country_name.setText(last_country_names.getText().toString()));
+        last_search_results.setOnClickListener(v -> car_make_name.setText(last_search_results.getText().toString()));
         search.setOnClickListener(v -> {
-            if (country_name.getText().toString().isEmpty()) {
+            if (car_make_name.getText().toString().isEmpty()) {
                 Toast.makeText(CarMainActivity.this, "fill_fields", Toast.LENGTH_LONG).show();
 
             } else {
                 Intent intent = new Intent(CarMainActivity.this, CarListsView.class);
-                intent.putExtra("country", country_name.getText().toString());
+                intent.putExtra("car", car_make_name.getText().toString());
                 startActivity(intent);
             }
         });
@@ -124,21 +122,21 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
 
     void viewinnitilisers() {
         search = findViewById(R.id.search);
-        country_name = findViewById(R.id.country_name);
+        car_make_name = findViewById(R.id.car_make_name);
         toreplace = findViewById(R.id.toreplace);
-        last_country_names = findViewById(R.id.last_country_names);
+        last_search_results = findViewById(R.id.last_search_results);
     }
 
     public void savedata() {
         SharedPreferences.Editor editor = getSharedPreferences("Shared preferences", MODE_PRIVATE).edit();
-        editor.putString("name", country_name.getText().toString());
+        editor.putString("name", car_make_name.getText().toString());
         editor.apply();
     }
 
     public void loaddata() {
         SharedPreferences prefs = getSharedPreferences("Shared preferences", MODE_PRIVATE);
         String name = prefs.getString("name", "No name defined");//"No name defined" is the default value.
-        last_country_names.setText(name);
+        last_search_results.setText(name);
     }
 
     @Override
