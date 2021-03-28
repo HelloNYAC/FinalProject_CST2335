@@ -8,34 +8,33 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="22sp"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android"
-        />
-    <TextView
         android:layout_margin="5dp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cars project"
-        />
-    <TextView
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:textStyle="bold"
+        android:text="@string/android"
         android:textColor="@color/black"
         android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Java"
-        />
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="@string/cars_project"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="@string/java"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 </LinearLayout>

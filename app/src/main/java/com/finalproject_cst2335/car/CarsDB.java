@@ -43,7 +43,7 @@ public class CarsDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertCountry(cars countryModel) {
+    public long insertCountry(Cars countryModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Make_ID", countryModel.getMake_ID());
@@ -55,8 +55,8 @@ public class CarsDB extends SQLiteOpenHelper {
         return n;
     }
 
-    public List<cars> get_favourites() {
-        List<cars> Favourites = new ArrayList<>();
+    public List<Cars> get_favourites() {
+        List<Cars> Favourites = new ArrayList<>();
         String sql = "SELECT * FROM cars";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
@@ -69,7 +69,7 @@ public class CarsDB extends SQLiteOpenHelper {
                 String CountryCode = cursor.getString(cursor.getColumnIndex("Model_ID"));
                 String Province = cursor.getString(cursor.getColumnIndex("Model_Name"));
 
-                cars favouritesModel = new cars(parseInt(id), Country, Integer.parseInt(CountryCode), Province);
+                Cars favouritesModel = new Cars(parseInt(id), Country, Integer.parseInt(CountryCode), Province);
                 Favourites.add(favouritesModel);
             } while (cursor.moveToNext());
         }

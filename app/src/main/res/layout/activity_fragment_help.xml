@@ -1,65 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
     <TextView
-        android:layout_marginBottom="10dp"
         android:id="@+id/Helpus"
-        android:background="@android:color/white"
-        android:textColor="#417C6D"
-        android:text="Help us"
-        android:textSize="36sp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="@string/help_us"
+        android:textColor="#417C6D"
+        android:textSize="36sp" />
+
     <TextView
-        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/white"
+        android:gravity="center"
+        android:text="@string/search_by_cars"
         android:textColor="#417C6D"
-        android:text="Search by cars"
         android:textSize="16sp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:textStyle="bold" />
+
     <TextView
-        android:layout_below="@id/Helpus"
         android:id="@+id/searchartist"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="To search by Model name"
-        android:maxLines="7"
+        android:layout_margin="10dp"
         android:gravity="start"
-        android:inputType="textMultiLine"
+        android:maxLines="7"
+        android:text="@string/to_search_by_model_name"
         android:textSize="14sp"
-        />
+        tools:ignore="TextViewEdits" />
+
     <TextView
-        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/white"
-        android:textColor="#417C6D"
-        android:text="Add some data here"
-        android:textSize="14sp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:layout_below="@id/Helpus"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="after searching by country"
-        android:maxLines="7"
-        android:gravity="start"
-        android:inputType="textMultiLine"
+        android:text="@string/add_some_data_here"
+        android:textColor="#417C6D"
         android:textSize="14sp"
-        />
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:maxLines="7"
+        android:text="@string/after_searching_by_car"
+        android:textSize="14sp" />
 </LinearLayout>

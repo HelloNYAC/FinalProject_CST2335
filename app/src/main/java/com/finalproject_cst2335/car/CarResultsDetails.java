@@ -63,7 +63,7 @@ public class CarResultsDetails extends AppCompatActivity {
         //This Action will send data to the database
         Add_to_Favorites.setOnClickListener(v -> {
             Snackbar.make(linear_View, R.string.adder, Snackbar.LENGTH_SHORT).show();
-            carsDB.insertCountry(new cars(Integer.parseInt(Make_ID), Make_name, Integer.parseInt(Model_ID), Model_name));
+            carsDB.insertCountry(new Cars(Integer.parseInt(Make_ID), Make_name, Integer.parseInt(Model_ID), Model_name));
         });
         try {
             Intent intent = getIntent();

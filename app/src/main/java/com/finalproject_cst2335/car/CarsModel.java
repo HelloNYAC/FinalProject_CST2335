@@ -6,7 +6,7 @@ public class CarsModel {
     private float Count;
     private String Message;
     private String SearchCriteria;
-   public ArrayList <cars> Results = new ArrayList<cars>();
+   public ArrayList <Cars> Results = new ArrayList<Cars>();
 
 
     // Getter Methods

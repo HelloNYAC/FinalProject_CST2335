@@ -35,8 +35,8 @@ public class CarsList extends AppCompatActivity {
     ListView listview;// Initialize variable to set view for later use
     ProgressDialog progressDialog;// for progress bar
     static String url;// url to make API call
-    List<cars> posts;
-    private List<cars> list;
+    List<Cars> posts;
+    private List<Cars> list;
     private Toolbar tb;
 
     @Override
@@ -156,9 +156,9 @@ public class CarsList extends AppCompatActivity {
      */
     private class theListAdapter extends BaseAdapter {
         Context context;
-        List<cars> trackDetailModels;
+        List<Cars> trackDetailModels;
 
-        public theListAdapter(Context context, List<cars> trackDetailModels) {
+        public theListAdapter(Context context, List<Cars> trackDetailModels) {
             this.context = context;
             this.trackDetailModels = trackDetailModels;
         }
@@ -194,7 +194,7 @@ public class CarsList extends AppCompatActivity {
          */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            final cars dataList = trackDetailModels.get(position);
+            final Cars dataList = trackDetailModels.get(position);
             View view;
             view = getLayoutInflater().inflate(R.layout.activity_car_details_view, parent, false);
 

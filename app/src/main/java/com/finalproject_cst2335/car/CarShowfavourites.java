@@ -19,7 +19,7 @@ import com.finalproject_cst2335.R;
 
 import java.util.List;
 
-public class Showfavourites extends AppCompatActivity {
+public class CarShowfavourites extends AppCompatActivity {
 
     ListView favlistview;
     ProgressDialog progressDialog;
@@ -48,16 +48,16 @@ public class Showfavourites extends AppCompatActivity {
     }
 
     public void showProgreesbar() {
-        progressDialog = new ProgressDialog(Showfavourites.this, R.style.MyTheme);
+        progressDialog = new ProgressDialog(CarShowfavourites.this, R.style.MyTheme);
         progressDialog.setCancelable(false);
 
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         progressDialog.show();
 
-        List<cars> favouritesModels;
+        List<Cars> favouritesModels;
         favouritesModels = carsDB.get_favourites();
         favListAdapter listAdapter;
-        listAdapter = new favListAdapter(Showfavourites.this, favouritesModels);
+        listAdapter = new favListAdapter(CarShowfavourites.this, favouritesModels);
         favlistview.setAdapter(listAdapter);
         progressDialog.dismiss();
     }
@@ -65,9 +65,9 @@ public class Showfavourites extends AppCompatActivity {
     //this adapter will set the view after getting data in the form of list
     private class favListAdapter extends BaseAdapter {
         Context context;
-        List<cars> favouritesModels;
+        List<Cars> favouritesModels;
 
-        public favListAdapter(Context context, List<cars> trackDetailModels) {
+        public favListAdapter(Context context, List<Cars> trackDetailModels) {
             this.context = context;
             this.favouritesModels = trackDetailModels;
         }
@@ -90,7 +90,7 @@ public class Showfavourites extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            final cars favouritesModel = favouritesModels.get(position);
+            final Cars favouritesModel = favouritesModels.get(position);
             View view = convertView;
             view = getLayoutInflater().inflate(R.layout.activity_car_details_view, parent, false);
 
@@ -108,7 +108,7 @@ public class Showfavourites extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Showfavourites.this, ShowFavourtiesDetail.class);
+                    Intent intent = new Intent(CarShowfavourites.this, CarShowFavourtiesDetail.class);
 
                     intent.putExtra("id", String.valueOf(favouritesModel.getModel_ID()));
                     intent.putExtra("name", favouritesModel.getModel_Name());

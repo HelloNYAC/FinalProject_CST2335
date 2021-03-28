@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.finalproject_cst2335.car.CarMainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:id="@+id/reletivelayoutone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,19 +16,19 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/carMain_tb"
-            android:background="@color/design_default_color_primary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_primary" />
 
         <TextView
-            android:id="@+id/CovidTitile"
+            android:id="@+id/CarTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
             android:background="@android:color/white"
             android:gravity="center"
-            android:text="Find a car"
+            android:text="@string/find_a_car"
             android:textColor="#417C6D"
             android:textSize="36sp" />
 
@@ -38,13 +37,11 @@
             android:id="@+id/SearchByCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/CovidTitile"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:hint="Search by Model"
-            android:inputType="text"
+            android:hint="@string/search_by_model"
             android:textColor="@android:color/white"
             android:textSize="30sp" />
 
@@ -52,15 +49,14 @@
             android:id="@+id/country_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/SearchByCountry"
             android:layout_margin="10dp"
-            android:hint="Enter car Model" />
+            android:hint="@string/enter_car_model"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/last_country_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/country_name"
             android:layout_margin="15dp"
             android:text="@string/last_search" />
 
@@ -68,7 +64,6 @@
             android:id="@+id/last_country_names"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/last_country_name"
             android:layout_margin="10dp"
             android:gravity="center"
             android:text="@string/last_search" />
@@ -100,8 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer"
-        />
+        app:menu="@menu/drawer" />
     <!-- style="@style/NavigationDrawerStyle"
         android:theme="@style/NavigationDrawerStyle"
         app:headerLayout="@layout/nav_header_main"-->

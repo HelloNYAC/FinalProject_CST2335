@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.finalproject_cst2335.R;
 
-public class ShowFavourtiesDetail extends AppCompatActivity {
+public class CarShowFavourtiesDetail extends AppCompatActivity {
     Bundle id;
     String makeName, name, makeiD, carID;
     TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name, del_from_Favorites, findcar;
@@ -36,9 +36,9 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
         tv_make_name = findViewById(R.id.tv_make_name);
         tv_model_name = findViewById(R.id.tv_model_name);
         tv_model_id = findViewById(R.id.tv_model_id);
-        carsDB = new CarsDB(ShowFavourtiesDetail.this);
+        carsDB = new CarsDB(CarShowFavourtiesDetail.this);
         getdata();
-        carsDB = new CarsDB(ShowFavourtiesDetail.this);
+        carsDB = new CarsDB(CarShowFavourtiesDetail.this);
         findcar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
         del_from_Favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(ShowFavourtiesDetail.this);
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(CarShowFavourtiesDetail.this);
                 builder1.setMessage(R.string.deleteoption);
                 builder1.setCancelable(true);
                 builder1.setPositiveButton(
@@ -60,8 +60,8 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 int get = carsDB.delete(ide);
-                                Toast.makeText(ShowFavourtiesDetail.this, R.string.del, Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(ShowFavourtiesDetail.this, Showfavourites.class));
+                                Toast.makeText(CarShowFavourtiesDetail.this, R.string.del, Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(CarShowFavourtiesDetail.this, CarShowfavourites.class));
                                 dialog.cancel();
 
                             }
@@ -110,7 +110,7 @@ public class ShowFavourtiesDetail extends AppCompatActivity {
             tv_model_name.setText(makeName);
 
         } catch (Exception e) {
-            Toast.makeText(ShowFavourtiesDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(CarShowFavourtiesDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }

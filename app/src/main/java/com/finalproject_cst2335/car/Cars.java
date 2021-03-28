@@ -1,19 +1,19 @@
 package com.finalproject_cst2335.car;
 
-public class cars {
+public class Cars {
     int Make_ID;
     String Make_Name;
     int Model_ID;
     String Model_Name;
 
-    public cars(int make_ID, String make_Name, int model_ID, String model_Name) {
+    public Cars(int make_ID, String make_Name, int model_ID, String model_Name) {
         Make_ID = make_ID;
         Make_Name = make_Name;
         Model_ID = model_ID;
         Model_Name = model_Name;
     }
 
-    public cars(String country, String countryCode, String province, String city, String cityCode, String lat, String lon, String cases, String status, String date) {
+    public Cars(String country, String countryCode, String province, String city, String cityCode, String lat, String lon, String cases, String status, String date) {
     }
 
     public int getMake_ID() {

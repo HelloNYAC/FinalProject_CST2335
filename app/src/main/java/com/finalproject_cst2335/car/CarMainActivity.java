@@ -93,7 +93,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
                 startActivity(new Intent(getApplicationContext(), CarMainActivity.class));
                 break;
             case R.id.ShowFavrouties:
-                startActivity(new Intent(getApplicationContext(), Showfavourites.class));
+                startActivity(new Intent(getApplicationContext(), CarShowfavourites.class));
                 break;
             case R.id.help:
                 String url = "https://www.autotrader.ca/cars/?mdl=accord&make=honda&loc=K2G1V8, ";
@@ -103,7 +103,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
                 break;
 
             case R.id.help_fragment:
-                fragment = new HelpFragment();
+                fragment = new CarHelpFragment();
                 reletivelayoutone = findViewById(R.id.reletivelayoutone);
                 reletivelayoutone.setVisibility(View.GONE);
                 toreplace.setVisibility(View.VISIBLE);
