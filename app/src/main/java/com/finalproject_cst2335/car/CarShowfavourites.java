@@ -29,7 +29,7 @@ public class CarShowfavourites extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_showfavourites);
+        setContentView(R.layout.activity_car_saved_lists);
         tb = findViewById(R.id.carShowFavorites_tb);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

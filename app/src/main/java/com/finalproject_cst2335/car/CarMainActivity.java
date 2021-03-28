@@ -46,7 +46,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_car_main);
         viewinnitilisers();
 
         last_country_names.setOnClickListener(v -> country_name.setText(last_country_names.getText().toString()));
