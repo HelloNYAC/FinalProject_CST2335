@@ -359,7 +359,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
 
                             if( name.equals("item")){
                                 if( soccerNews!=null){
-                                    Log.i("Soccer news item", soccerNews.toString());
+//                                    Log.i("Soccer news item", soccerNews.toString());
                                     newsList.add(soccerNews);
                                 }else{
                                     Log.i("Soccer news item", "Null object");

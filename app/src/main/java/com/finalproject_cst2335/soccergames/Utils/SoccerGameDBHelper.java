@@ -1,8 +1,11 @@
 package com.finalproject_cst2335.soccergames.Utils;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 
 public class SoccerGameDBHelper extends SQLiteOpenHelper {
 
@@ -38,5 +41,16 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DROP_SQL);
         db.execSQL(CREATE_TABLE_SQL);
+    }
+
+    public long addNewSoccerGame(SoccerNews news){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, news.getTitle());
+        cv.put(COLUMN_DATE,news.getDate());
+        cv.put(COLUMN_LINK,news.getArticleUrl());
+        cv.put(COLUMN_DESCRIPTION,news.getDescription());
+        cv.put(COLUMN_THUMBNAIL,news.getImage());
+        return db.insert(TABLE_NAME,null,cv);
     }
 }
