@@ -7,7 +7,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 import com.finalproject_cst2335.soccergames.entities.SoccerNews;
@@ -20,6 +23,7 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
     private TextView descTv;
     private SoccerNews soccerNews;
     private Toolbar tb;
+    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,14 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
             dateTv.setText(soccerNews.getDate());
             descTv.setText(soccerNews.getDescription());
         }
+
+        saveBtn = findViewById(R.id.sc_save_fav);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SoccerNewsDetailPage.this,"Test ...", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

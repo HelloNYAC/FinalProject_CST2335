@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
     private ProgressBar progressBar;
     private ListView itemLv;
     private SharedPreferences sp;
+    private ProgressBar pb;
 
     private List<SoccerNews> newsList;
     private ScAdapter adapter;
@@ -69,6 +71,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
     private static final String SOCCER_GAMES_URL = "https://www.goal.com/en/feeds/news?fmt=rss";
     private static final String SEARCH_HISTORY = "SEARCH_HISTORY";
     private static final String LAST_SEARCH = "LAST_SEARCH";
+    private static final String LAST_RATING = "LAST_RATING";
 
     /**
      * init soccer game home page and variables
@@ -78,10 +81,49 @@ public class SoccerGameHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_game_home_page);
+        pb = findViewById(R.id.sc_prograssBar);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
         builder.setTitle("Please rate our app").setView(R.layout.soccergames_rating_layout);
-        builder.show();
+
+        AlertDialog dialog = builder.show();
+        RatingBar ratingBar = dialog.findViewById(R.id.sc_ratingBar);
+
+        sp = getSharedPreferences(SEARCH_HISTORY, Context.MODE_PRIVATE);
+        float lastRating = sp.getFloat(LAST_RATING,0);
+        ratingBar.setRating(lastRating);
+
+        Button rateBtn = dialog.findViewById(R.id.sc_rating_btn);
+        rateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float theRating = ratingBar.getRating();
+//                int numOfStart = ratingBar.getNumStars();
+                sp = getSharedPreferences(SEARCH_HISTORY, Context.MODE_PRIVATE);
+                SharedPreferences.Editor ratingEditor = sp.edit();
+                ratingEditor.putFloat(LAST_RATING,theRating);
+                ratingEditor.commit();
+//                Toast.makeText(SoccerGameHomePage.this,"Rating ...Number of stars : "+theRating,Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(SoccerGameHomePage.this);
+                dialog.dismiss();
+                builder2.setTitle("Thank you for your rating");
+                builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder2.show();
+            }
+        });
+        Button cancelBtn = dialog.findViewById(R.id.sc_cancel_rating_btn);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SoccerGameHomePage.this,"Cancel rating ...",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
 
         sp = getSharedPreferences(SEARCH_HISTORY, Context.MODE_PRIVATE);
         String searchHistory = sp.getString(LAST_SEARCH,"");
@@ -89,7 +131,6 @@ public class SoccerGameHomePage extends AppCompatActivity {
         if( searchHistory!=null && !searchHistory.equals("")){
             searchBox.setHint("Last search : "+searchHistory);
         }
-
 
         newsList = new ArrayList<SoccerNews>();
         tb = findViewById(R.id.soccerMainPage_tb);
@@ -243,6 +284,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             adapter.notifyDataSetChanged();
+            pb.setVisibility(View.INVISIBLE);
         }
 
         @Override

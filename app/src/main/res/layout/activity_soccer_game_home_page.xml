@@ -6,7 +6,7 @@
     android:id="@+id/sc_drawerL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cst2335.HomePage">
+    tools:context="com.finalproject_cst2335.soccergames.SoccerGameHomePage">
 
 
     <RelativeLayout

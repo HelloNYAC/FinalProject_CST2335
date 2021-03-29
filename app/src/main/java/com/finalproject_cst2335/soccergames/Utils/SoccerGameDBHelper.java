@@ -15,8 +15,8 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_THUMBNAIL = "thumbnail";
 
-    private static final String DROP_SQL = "DROP TABLE IF EXIST "+TABLE_NAME;
-    private static final String CREATE_TABLE_SQL = " CREATE TABLE IF NOT EXIST "+TABLE_NAME+" ( "
+    private static final String DROP_SQL = "DROP TABLE IF EXISTS "+TABLE_NAME;
+    private static final String CREATE_TABLE_SQL = " CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ( "
                                                     + COLUMN_ID + " INTEGER PRIMARY KEY, "
                                                     + COLUMN_TITLE + " TEXT NOT NULL, "
                                                     + COLUMN_DATE + " TEXT NOT NULL, "
