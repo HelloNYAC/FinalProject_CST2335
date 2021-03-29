@@ -220,6 +220,12 @@ public class SoccerGameHomePage extends AppCompatActivity {
             }).show();
         }
 
+        if( item.getItemId() == R.id.sc_fav_list){
+//            Toast.makeText(SoccerGameHomePage.this,"Fav list ... ", Toast.LENGTH_SHORT).show();
+            Intent toFavListActivity = new Intent(SoccerGameHomePage.this, FavSoccerGames.class);
+            startActivity(toFavListActivity);
+        }
+
         return true;
     }
 

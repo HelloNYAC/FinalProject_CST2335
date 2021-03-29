@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/sc_fav_list"
+        android:title="@string/favorite"
+        android:icon="@drawable/likes_folder"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/sc_help_menu"
         android:title="@string/help"
         android:icon="@drawable/help"

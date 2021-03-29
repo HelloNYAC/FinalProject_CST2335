@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.finalproject_cst2335">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject_CST2335">
-        <activity android:name=".soccergames.SoccerNewsDetailPage"></activity>
+        <activity android:name=".soccergames.FavSoccerGames"></activity>
+        <activity android:name=".soccergames.SoccerNewsDetailPage" />
         <activity android:name=".soccergames.SoccerGameHomePage" />
         <activity android:name=".HomePage">
             <intent-filter>
