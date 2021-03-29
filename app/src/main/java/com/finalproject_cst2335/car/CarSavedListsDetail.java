@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,8 @@ import com.finalproject_cst2335.R;
 public class CarSavedListsDetail extends AppCompatActivity {
     Bundle id;
     String makeName, name, makeiD, carID;
-    TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name, del_from_Favorites, findcar;
+    TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
+    Button btn_shopcar, btn_view_detail, btn_del_to_favorites;
     CarsDB carsDB;
     int ide;
     private Toolbar tb;
@@ -30,26 +32,39 @@ public class CarSavedListsDetail extends AppCompatActivity {
         tb = findViewById(R.id.carShowFavoritesDetail_tb);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        del_from_Favorites = findViewById(R.id.del_from_Favorites);
+        btn_del_to_favorites = findViewById(R.id.del_from_Favorites);
         tv_make_id = findViewById(R.id.tv_make_id);
-        findcar = findViewById(R.id.findcar);
+        btn_shopcar = findViewById(R.id.shopcar);
         tv_make_name = findViewById(R.id.tv_make_name);
         tv_model_name = findViewById(R.id.tv_model_name);
         tv_model_id = findViewById(R.id.tv_model_id);
         carsDB = new CarsDB(CarSavedListsDetail.this);
         getdata();
         carsDB = new CarsDB(CarSavedListsDetail.this);
-        findcar.setOnClickListener(new View.OnClickListener() {
+        btn_view_detail = findViewById(R.id.view_car_detail);
+
+        btn_view_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String url = "https://www.google.com/search?q=" + name + makeName + "";
+                String url = "https://www.google.com/search?q=" + makeName + "+" + name;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
         });
-        del_from_Favorites.setOnClickListener(new View.OnClickListener() {
+
+        btn_shopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.autotrader.ca/cars/?mdl=" + name + "&make=" + makeName + "&loc=K2G1V8";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        btn_del_to_favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(CarSavedListsDetail.this);
