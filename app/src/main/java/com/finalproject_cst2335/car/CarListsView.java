@@ -211,10 +211,11 @@ public class CarListsView extends AppCompatActivity {
             tv_make_name.setText(dataList.getMake_Name() + "");
             tv_model_id.setText(dataList.getModel_ID() + "");
             tv_model_name.setText(dataList.getModel_Name());
+
             // It will send data to next Activity in the form of intents
             view.setOnClickListener(view1 -> {
                 if (findViewById(R.id.listview_framelayout) != null) {
-                    Toast.makeText(CarListsView.this, "Loading fragment", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarListsView.this, "Loading car detail, please wait", Toast.LENGTH_SHORT).show();
                     CarFragment carFragment = new CarFragment();
                     Bundle bundle = new Bundle(); //save the data in the bundle for later retrieval.
                     bundle.putString("id", String.valueOf(dataList.getModel_ID()));
@@ -225,10 +226,6 @@ public class CarListsView extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.listview_framelayout, carFragment)
                             .commit();
-                    //FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    //ft.replace(R.id.listview_framelayout, carFragment);
-                    //ft.addToBackStack("A string");
-                    //ft.commit();
                 }
                 else {
                     Intent intent = new Intent(CarListsView.this, CarListsDetail.class);

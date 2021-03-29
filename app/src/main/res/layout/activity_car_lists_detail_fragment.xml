@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical">
-
+<!--   android:fitsSystemWindows="true"-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/car_searchResults_tb"
             android:layout_width="match_parent"
@@ -17,6 +17,7 @@
             android:background="@color/design_default_color_primary"
             android:minHeight="?actionBarSize"
             android:visibility="visible" />
+            -->
 
         <LinearLayout
             android:id="@+id/linear_View"
