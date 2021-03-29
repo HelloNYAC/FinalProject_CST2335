@@ -121,7 +121,7 @@
         </LinearLayout>
     </LinearLayout>
 
-
+    <!--
     <EditText
         android:id="@+id/postal"
         android:layout_width="match_parent"
@@ -130,9 +130,23 @@
         android:layout_margin="5dp"
         android:hint="@string/enter_postal_code"
         android:inputType="text" />
+        -->
 
     <Button
-        android:id="@+id/findcar"
+        android:id="@+id/view_car_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/shopcar"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/purple_500"
+        android:text="@string/view_car_details"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/shopcar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/Add_to_Favorites"

@@ -66,6 +66,7 @@
     <string name="android">Android</string>
     <string name="cars_project">Cars project</string>
     <string name="java">Java</string>
+    <string name="view_car_details">View car details</string>
     <!--CARDB END-->
 
 </resources>

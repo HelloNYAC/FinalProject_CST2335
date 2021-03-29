@@ -24,9 +24,9 @@ public class CarListsDetail extends AppCompatActivity {
     String id;
     String Model_name, Make_name, Model_ID, Make_ID;
     EditText postal;
-    TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name, Add_to_Favorites;
+    TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
     CarsDB carsDB;
-    Button findcar;
+    Button btn_shopcar, btn_view_detail, btn_add_to_favorites;
     int ide;
     private Toolbar tb;
 
@@ -38,53 +38,18 @@ public class CarListsDetail extends AppCompatActivity {
         //setSupportActionBar(tb);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /*
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            finish();
-        }
-
-        CarFragment carFragment = new CarFragment();
-        Bundle bundle = new Bundle(); //save the data in the bundle for later retrieval.
-        bundle.putString("id", getIntent().getStringExtra("id"));
-        bundle.putString("name", getIntent().getStringExtra("name"));
-        bundle.putString("makeID", getIntent().getStringExtra("makeID"));
-        bundle.putString("makeName", getIntent().getStringExtra("makeName"));
-        carFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.listview_framelayout, carFragment)
-                .commit();
-*/
-        findcar = findViewById(R.id.findcar);
-        postal = findViewById(R.id.postal);
-        linear_View = findViewById(R.id.linear_View);
-
-        findcar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (postal.getText().toString().isEmpty() || postal.getText().toString().equalsIgnoreCase("")) {
-                    Toast.makeText(CarListsDetail.this, "Please Enter postal code!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                String url = "https://www.autotrader.ca/cars/?mdl=" + Make_name + "&make=" + Model_name + "&loc=" + postal.getText().toString().trim() + ",";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
-
         //Views Initializer
-        Add_to_Favorites = findViewById(R.id.Add_to_Favorites);
+        btn_add_to_favorites = findViewById(R.id.Add_to_Favorites);
         tv_make_id = findViewById(R.id.tv_make_id);
         tv_make_name = findViewById(R.id.tv_make_name);
         tv_model_name = findViewById(R.id.tv_model_name);
         tv_model_id = findViewById(R.id.tv_model_id);
         carsDB = new CarsDB(CarListsDetail.this);
+        btn_shopcar = findViewById(R.id.shopcar);
+        //postal = findViewById(R.id.postal);
+        linear_View = findViewById(R.id.linear_View);
+        btn_view_detail = findViewById(R.id.view_car_detail);
 
-        //This Action will send data to the database
-        Add_to_Favorites.setOnClickListener(v -> {
-            Snackbar.make(linear_View, R.string.adder, Snackbar.LENGTH_SHORT).show();
-            carsDB.insertCar(new Cars(Integer.parseInt(Make_ID), Make_name, Integer.parseInt(Model_ID), Model_name));
-        });
         try {
             Intent intent = getIntent();
 
@@ -100,6 +65,40 @@ public class CarListsDetail extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(CarListsDetail.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        btn_view_detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "https://www.google.com/search?q=" + Make_name + "+" + Model_name;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        btn_shopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                if (postal.getText().toString().isEmpty() || postal.getText().toString().equalsIgnoreCase("")) {
+                    Toast.makeText(CarListsDetail.this, "Please Enter postal code!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                 */
+                String url = "https://www.autotrader.ca/cars/?mdl=" + Model_name + "&make=" + Make_name + "&loc=K2G1V8";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        //This Action will send data to the database
+        btn_add_to_favorites.setOnClickListener(v -> {
+            Snackbar.make(linear_View, R.string.adder, Snackbar.LENGTH_SHORT).show();
+            carsDB.insertCar(new Cars(Integer.parseInt(Make_ID), Make_name, Integer.parseInt(Model_ID), Model_name));
+        });
+
     }
 
     @Override

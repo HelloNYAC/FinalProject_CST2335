@@ -67,5 +67,6 @@
     <string name="android">安卓</string>
     <string name="cars_project">Cars project</string>
     <string name="java">Java</string>
+    <string name="view_car_details">查看汽车参数</string>
     <!--CARDB END-->
 </resources>

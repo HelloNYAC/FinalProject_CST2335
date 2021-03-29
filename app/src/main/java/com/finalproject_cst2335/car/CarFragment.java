@@ -26,9 +26,9 @@ public class CarFragment extends Fragment {
     //views and variables declarations
     private String Model_name, Make_name, Model_ID, Make_ID;
     private EditText postal;
-    private TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name, Add_to_Favorites;
+    private TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
     private CarsDB carsDB;
-    private Button findcar;
+    private Button btn_shopcar, btn_view_detail, btn_add_to_favorites;
     private int ide;
     private Toolbar tb;
 
@@ -49,15 +49,16 @@ public class CarFragment extends Fragment {
         view = inflater.inflate(R.layout.activity_car_lists_detail_fragment, container, false);
 
         //Views Initializer
-        Add_to_Favorites = view.findViewById(R.id.Add_to_Favorites);
+        btn_add_to_favorites = view.findViewById(R.id.Add_to_Favorites);
         tv_make_id = view.findViewById(R.id.tv_make_id);
         tv_make_name = view.findViewById(R.id.tv_make_name);
         tv_model_name = view.findViewById(R.id.tv_model_name);
         tv_model_id = view.findViewById(R.id.tv_model_id);
-        findcar = view.findViewById(R.id.findcar);
-        postal = view.findViewById(R.id.postal);
+        btn_shopcar = view.findViewById(R.id.shopcar);
+        //postal = view.findViewById(R.id.postal);
         linear_View = view.findViewById(R.id.linear_View);
         carsDB = new CarsDB(getContext());
+        btn_view_detail = view.findViewById(R.id.view_car_detail);
 
         try {
             Make_name = this.getArguments().getString("makeName");
@@ -73,14 +74,27 @@ public class CarFragment extends Fragment {
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        findcar.setOnClickListener(new View.OnClickListener() {
+        btn_view_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String url = "https://www.google.com/search?q=" + Make_name + "+" + Model_name;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        btn_shopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
                 if (postal.getText().toString().isEmpty() || postal.getText().toString().equalsIgnoreCase("")) {
                     Toast.makeText(getActivity(), "Please Enter postal code!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String url = "https://www.autotrader.ca/cars/?mdl=" + Make_name + "&make=" + Model_name + "&loc=" + postal.getText().toString().trim();
+                */
+                String url = "https://www.autotrader.ca/cars/?mdl=" + Model_name + "&make=" + Make_name + "&loc=K2G1V8";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
@@ -88,7 +102,7 @@ public class CarFragment extends Fragment {
         });
 
         //This Action will send data to the database
-        Add_to_Favorites.setOnClickListener(v -> {
+        btn_add_to_favorites.setOnClickListener(v -> {
             Snackbar.make(linear_View, R.string.adder, Snackbar.LENGTH_SHORT).show();
             carsDB.insertCar(new Cars(Integer.parseInt(Make_ID), Make_name, Integer.parseInt(Model_ID), Model_name));
         });
