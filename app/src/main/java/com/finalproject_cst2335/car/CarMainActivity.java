@@ -70,6 +70,7 @@ public class CarMainActivity extends AppCompatActivity implements NavigationView
         tb = findViewById(R.id.carMain_tb);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //tb.setNavigationIcon();
     }
 
     public void onBackPressed() {
