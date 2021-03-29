@@ -37,4 +37,5 @@
     <string name="addToFav">Add to favorites</string>
     <string name="rating">RATE THIS APP</string>
     <string name="later">LATER</string>
+    <string name="openInBrowser">Open in browser</string>
 </resources>
