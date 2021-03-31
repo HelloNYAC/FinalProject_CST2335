@@ -5,11 +5,14 @@
     android:layout_height="match_parent"
 
     >
-
+<RelativeLayout
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/song_group">
         <TextView
             android:id="@+id/song_item_id"
             android:layout_width="wrap_content"
-            android:layout_height="39dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:text="i am id "
             android:textSize="14sp" />
@@ -37,17 +40,6 @@
             android:textStyle="italic"
             android:textSize="12sp"
             />
+</RelativeLayout>
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/song_likebtn"-->
-<!--            android:layout_width="25dp"-->
-<!--            android:layout_height="27dp"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginLeft="231dp"-->
-<!--            android:layout_marginTop="9dp"-->
-<!--            android:layout_toRightOf="@id/song_artistname"-->
-<!--            android:background="#00ffffff"-->
-<!--            android:clickable="true"-->
-<!--            android:onClick="onToggleStar"-->
-<!--            android:src="@drawable/song_staroff" />-->
 </RelativeLayout>

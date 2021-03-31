@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -87,7 +88,7 @@ public class SongSearchActivity  extends AppCompatActivity {
         });
 
 
-//        final ImageButton song_likebtn = findViewById(R.id.song_likebtn);
+      // final ImageButton song_favbtn = findViewById(R.id.song_favbtn);
 //        song_likebtn.setOnClickListener(new View.OnClickListener() {
 //
 //            @Override
@@ -192,6 +193,7 @@ public class SongSearchActivity  extends AppCompatActivity {
                     String artid = jsonObject.getJSONObject("artist").getString("id");
                     String artsname = jsonObject.getJSONObject("artist").getString("nameWithoutThePrefix");
                     SongMessage song_message = new SongMessage(i + 1, songid, songtitle, artid,artsname);
+
                     songArrayList.add(song_message);
 
                     } catch (JSONException e) {
@@ -247,14 +249,14 @@ public class SongSearchActivity  extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
             View itemlistView;
             itemlistView = inflater.inflate(R.layout.song_item_list, parent, false);
+
             TextView song_item_id = itemlistView.findViewById(R.id.song_item_id);
             song_item_id.setText(""+ songArrayList.get(position).getId());
             TextView song_title = itemlistView.findViewById(R.id.Song_detail_Songtitle);
             song_title.setText(songArrayList.get(position).getSongTitle());
             TextView song_artsname = itemlistView.findViewById(R.id.song_artistname);
             song_artsname.setText(songArrayList.get(position).artistName);
-//            //ImageButton likebtn = itemlistView.findViewById(R.id.song_likebtn);
-            songAdapter.notifyDataSetChanged();
+           songAdapter.notifyDataSetChanged();
 
             return itemlistView;
         }

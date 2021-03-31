@@ -45,8 +45,8 @@ public class SongDetailsFragment extends Fragment {
 
 
         // get the delete button, and add a click listener:
-        Button hide = (Button)result.findViewById(R.id.Song_detail_SavetoFv_Button);
-        hide.setOnClickListener( clk -> {
+        Button songDtlsavetofvbtn = (Button)result.findViewById(R.id.Song_detail_SavetoFv_Button);
+        songDtlsavetofvbtn.setOnClickListener( clk -> {
 
             parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
         });

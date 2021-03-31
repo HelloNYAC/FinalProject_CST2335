@@ -38,6 +38,18 @@
         android:textSize="14sp"
         android:layout_below="@+id/Song_detail_Songid"/>
 
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/song_favbtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_toRightOf="@id/Song_detail_Songtitle"-->
+<!--        android:background="#00ffffff"-->
+<!--        android:clickable="true"-->
+<!--        android:onClick="onToggleStar"-->
+<!--        android:src="@drawable/ic_baseline_favorite_border_24" />-->
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
