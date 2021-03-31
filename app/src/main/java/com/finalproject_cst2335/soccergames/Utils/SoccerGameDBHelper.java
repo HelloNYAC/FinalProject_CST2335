@@ -90,4 +90,10 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
 
         return games;
     }
+
+    public long removeNews(SoccerNews news){
+        SQLiteDatabase db = getWritableDatabase();
+        long affectedRows = db.delete(TABLE_NAME,COLUMN_ID+" = ? ", new String[]{news.getId()+""});
+        return affectedRows;
+    }
 }
