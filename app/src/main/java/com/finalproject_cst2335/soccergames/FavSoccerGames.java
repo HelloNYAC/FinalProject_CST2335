@@ -27,6 +27,7 @@ public class FavSoccerGames extends AppCompatActivity {
     private ListView lv;
     private List<SoccerNews> favNewsList = new ArrayList<>();
     private SoccerGameDBHelper dbHelper;
+    public static final String NEWS_TO_PASS = "NEWS_TO_PASS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class FavSoccerGames extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);
+                SoccerNews newsToBePassed = (SoccerNews) adapter.getItem(position);
+                goToDetailPage.putExtra(NEWS_TO_PASS, newsToBePassed);
                 startActivity(goToDetailPage);
             }
         });
