@@ -2,10 +2,14 @@ package com.finalproject_cst2335.soccergames.Utils;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.finalproject_cst2335.soccergames.entities.SoccerNews;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SoccerGameDBHelper extends SQLiteOpenHelper {
 
@@ -52,5 +56,34 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_DESCRIPTION,news.getDescription());
         cv.put(COLUMN_THUMBNAIL,news.getImage());
         return db.insert(TABLE_NAME,null,cv);
+    }
+
+    public List<SoccerNews> getAllGames(){
+        ArrayList<SoccerNews> games = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, null,null,null,null,null);
+        if( cursor!=null){
+
+            while ( cursor.moveToNext()){
+
+                long id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID));
+                String title = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE));
+                String date = cursor.getString(cursor.getColumnIndex(COLUMN_DATE));
+                String ariticleUrl = cursor.getString(cursor.getColumnIndex(COLUMN_LINK));
+                String desc = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION));
+                String thumbnailLink = cursor.getString(cursor.getColumnIndex(COLUMN_THUMBNAIL));
+                SoccerNews news = new SoccerNews();
+                news.setTitle(title);
+                news.setArticleUrl(ariticleUrl);
+                news.setDate(date);
+                news.setDescription(desc);
+                news.setImage(thumbnailLink);
+                games.add(news);
+
+            }
+
+        }
+
+        return games;
     }
 }

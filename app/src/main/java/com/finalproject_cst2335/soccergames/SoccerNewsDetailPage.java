@@ -74,6 +74,12 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(SoccerNewsDetailPage.this,"Test ...", Toast.LENGTH_SHORT).show();
+                long affectRows = dbHelper.addNewSoccerGame(soccerNews);
+                if( affectRows >= 1){
+                    Toast.makeText(SoccerNewsDetailPage.this,"Add successfully", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(SoccerNewsDetailPage.this,"Unable to save this news", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
