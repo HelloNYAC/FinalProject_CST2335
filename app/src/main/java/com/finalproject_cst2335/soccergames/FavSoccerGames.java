@@ -3,10 +3,12 @@ package com.finalproject_cst2335.soccergames;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,11 +35,19 @@ public class FavSoccerGames extends AppCompatActivity {
 
         tb = findViewById(R.id.sc_fav_page_tb);
         setSupportActionBar(tb);
-        dbHelper = new SoccerGameDBHelper(FavSoccerGames.this);
+        dbHelper = new SoccerGameDBHelper(getApplicationContext());
         favNewsList = dbHelper.getAllGames();
         lv = findViewById(R.id.sc_fav_page_list);
         FavListAdapter adapter = new FavListAdapter();
         lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);
+                startActivity(goToDetailPage);
+            }
+        });
     }
 
     private class FavListAdapter extends BaseAdapter{

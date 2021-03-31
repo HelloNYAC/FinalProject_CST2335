@@ -52,7 +52,7 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
         tb = findViewById(R.id.sc_detail_tb);
         setSupportActionBar(tb);
 
-        dbHelper = new SoccerGameDBHelper(SoccerNewsDetailPage.this);
+        dbHelper = new SoccerGameDBHelper(getApplicationContext());
 
         soccerNews = (SoccerNews) getIntent().getSerializableExtra(SoccerGameHomePage.SOCCER_NEWS_DETAIL);
 

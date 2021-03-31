@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class SoccerGameDBHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "SoccerGames";
+    public static final String DB_NAME = "SoccerGamesDatabase";
     private static final int DEFAULT_VERSION = 1;
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_TITLE = "title";
@@ -32,12 +34,12 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
                                                     + COLUMN_THUMBNAIL + " TEXT NOT NULL )";
 
     public SoccerGameDBHelper( Context ctx){
-        super(ctx,null,null,DEFAULT_VERSION);
+        super(ctx,DB_NAME,null,DEFAULT_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DROP_SQL);
+//        db.execSQL(DROP_SQL);
         db.execSQL(CREATE_TABLE_SQL);
     }
 
@@ -55,15 +57,16 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_LINK,news.getArticleUrl());
         cv.put(COLUMN_DESCRIPTION,news.getDescription());
         cv.put(COLUMN_THUMBNAIL,news.getImage());
-        return db.insert(TABLE_NAME,null,cv);
+        long affectedRow = db.insert(TABLE_NAME,null,cv);
+        return affectedRow;
     }
 
     public List<SoccerNews> getAllGames(){
         ArrayList<SoccerNews> games = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, null, null,null,null,null,null);
+        Log.i("Number of rows", String.valueOf(cursor.getCount()));
         if( cursor!=null){
-
             while ( cursor.moveToNext()){
 
                 long id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID));
@@ -78,6 +81,7 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
                 news.setDate(date);
                 news.setDescription(desc);
                 news.setImage(thumbnailLink);
+                Log.i("News", news.toString());
                 games.add(news);
 
             }

@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.FinalProject_CST2335">
-        <activity android:name=".soccergames.FavSoccerGames"></activity>
+        android:theme="@style/Theme.FinalProject_CST2335"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".soccergames.FavoriteNewsDetailPage"></activity>
+        <activity android:name=".soccergames.FavSoccerGames" />
         <activity android:name=".soccergames.SoccerNewsDetailPage" />
         <activity android:name=".soccergames.SoccerGameHomePage" />
         <activity android:name=".HomePage">

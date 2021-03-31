@@ -38,5 +38,6 @@
     <string name="addToFav">添加到我的最爱</string>
     <string name="rating">打分</string>
     <string name="later">以后再说</string>
-    <string name="openInBrowser">Open in browser</string>
+    <string name="openInBrowser">用浏览器打开</string>
+    <string name="removeFromFav">移出最爱列表</string>
     </resources>
