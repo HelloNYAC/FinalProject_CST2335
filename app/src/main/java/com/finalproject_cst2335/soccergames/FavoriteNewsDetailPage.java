@@ -3,15 +3,19 @@ package com.finalproject_cst2335.soccergames;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
+import com.finalproject_cst2335.soccergames.Utils.SoccerGameDBHelper;
 import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 
 import java.io.IOException;
@@ -32,6 +36,7 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
     private Button openBrowserBtn;
     private String thumbnailURL;
     private SoccerNews news;
+    private SoccerGameDBHelper dbHelper;
 
 
     @Override
@@ -47,6 +52,7 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
         descTv= findViewById(R.id.sc_fav_detail_desc);
         removeBtn = findViewById(R.id.sc_remove_fav);
         openBrowserBtn = findViewById(R.id.sc_fav_open_browser);
+        dbHelper = new SoccerGameDBHelper(getApplicationContext());
 
         news = (SoccerNews) getIntent().getSerializableExtra(FavSoccerGames.NEWS_TO_PASS);
 
@@ -58,6 +64,21 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
             descTv.setText(news.getDescription());
             ImageDownloader downloader = new ImageDownloader();
             downloader.execute();
+
+            removeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    long affectedRows = dbHelper.removeNews( news);
+                    if( affectedRows >= 1 ){
+                        Toast.makeText(FavoriteNewsDetailPage.this,"Remove successfully",Toast.LENGTH_SHORT).show();
+                        Intent back = new Intent(FavoriteNewsDetailPage.this,FavSoccerGames.class);
+                        startActivity(back);
+                    }else{
+                        Toast.makeText(FavoriteNewsDetailPage.this,"Failed to remove this news record",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
         }
 
 

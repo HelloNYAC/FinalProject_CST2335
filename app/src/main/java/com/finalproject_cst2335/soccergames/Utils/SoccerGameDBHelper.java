@@ -76,6 +76,7 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
                 String desc = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION));
                 String thumbnailLink = cursor.getString(cursor.getColumnIndex(COLUMN_THUMBNAIL));
                 SoccerNews news = new SoccerNews();
+                news.setId(id);
                 news.setTitle(title);
                 news.setArticleUrl(ariticleUrl);
                 news.setDate(date);
