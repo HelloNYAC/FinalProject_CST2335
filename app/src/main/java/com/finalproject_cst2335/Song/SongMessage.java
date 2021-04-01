@@ -15,7 +15,7 @@ public class SongMessage {
         this.artistName = artistName;
     }
 
-    public int getId() {
+     public int getId() {
         return id;
     }
 

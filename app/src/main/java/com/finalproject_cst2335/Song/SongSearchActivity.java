@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -205,8 +204,6 @@ public class SongSearchActivity  extends AppCompatActivity {
             }
             publishProgress(100);
             return "Done";
-
-
 
         }
 
