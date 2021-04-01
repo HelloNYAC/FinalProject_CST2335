@@ -39,4 +39,6 @@
     <string name="later">LATER</string>
     <string name="openInBrowser">Open in browser</string>
     <string name="removeFromFav">Remove from favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

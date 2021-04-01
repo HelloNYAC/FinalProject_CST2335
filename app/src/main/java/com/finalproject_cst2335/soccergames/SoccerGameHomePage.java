@@ -24,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -62,6 +63,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
     private ProgressBar progressBar;
     private ListView itemLv;
     private SharedPreferences sp;
+    private FrameLayout detailFrame;
     private ProgressBar pb;
 
     private List<SoccerNews> newsList;
@@ -82,6 +84,8 @@ public class SoccerGameHomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_game_home_page);
         pb = findViewById(R.id.sc_prograssBar);
+        detailFrame = findViewById(R.id.sc_detail_frame);
+        boolean isTablet = detailFrame != null;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
         builder.setTitle("Please rate our app").setView(R.layout.soccergames_rating_layout);
@@ -168,9 +172,13 @@ public class SoccerGameHomePage extends AppCompatActivity {
         itemLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent goToDetail = new Intent(SoccerGameHomePage.this, SoccerNewsDetailPage.class);
-                goToDetail.putExtra(SOCCER_NEWS_DETAIL, adapter.getItem(position));
-                startActivity(goToDetail);
+                if( isTablet){
+
+                }else {
+                    Intent goToDetail = new Intent(SoccerGameHomePage.this, SoccerNewsDetailPage.class);
+                    goToDetail.putExtra(SOCCER_NEWS_DETAIL, adapter.getItem(position));
+                    startActivity(goToDetail);
+                }
             }
         });
         SoccerGamesQuery query = new SoccerGamesQuery();
