@@ -1,21 +1,28 @@
 package com.finalproject_cst2335.Song;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 
@@ -37,9 +44,37 @@ public class SongSearchActivity  extends AppCompatActivity {
     public static final String SONG_TITLE= "SONG_TITLE";
 
 
+
     ArrayList<SongMessage> songArrayList = new ArrayList<>();
     private SonglistAdapter songAdapter;
     String searchedArtist;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.song_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.songtosearch:
+                Toast.makeText(this,"search result selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongSearchActivity.class));
+                break;
+            case R.id.songtofvlist:
+                Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongfavList.class));
+                break;
+            case R.id.songtohome:
+                Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongMainActivity.class));
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +82,8 @@ public class SongSearchActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_song_search);
         ListView song_lv = findViewById(R.id.song_searchlistview);
 
+        Toolbar songtbar = findViewById(R.id.song_tbar);
+        setSupportActionBar(songtbar);
 
         songAdapter = new SonglistAdapter();
         song_lv.setAdapter(songAdapter);
@@ -55,7 +92,7 @@ public class SongSearchActivity  extends AppCompatActivity {
 
         Intent fromMain = getIntent();
         searchedArtist = fromMain.getStringExtra("NAME");
-        searchRst.setText(searchedArtist);
+ //       searchRst.setText(searchedArtist);
         FrameLayout frameLayout = findViewById(R.id.Song_fragmentLocation);
         boolean isTablet = frameLayout != null;
 
@@ -85,6 +122,9 @@ public class SongSearchActivity  extends AppCompatActivity {
                 startActivity(nextActivity); //make the transition
             }
         });
+
+
+
 
 
       // final ImageButton song_favbtn = findViewById(R.id.song_favbtn);

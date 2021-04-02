@@ -36,4 +36,8 @@
     <string name="SONG_rm_msg2">"选择的数据是" </string>
     <string name="SONG_p_msg1">"是"</string>
     <string name="SONG_n_msg2">"否" </string>
+    <string name="song_myfvbtn">My favourites</string>
+    <string name="song_menu_search">My favourites</string>
+    <string name="song_menu_home">My favourites</string>
+    <string name="song_menu_fav">My favourites</string>
     </resources>

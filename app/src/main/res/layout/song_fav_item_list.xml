@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/song_group">
+
+
+        <TextView
+            android:id="@+id/song_fvlist_songid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="5dp"
+            android:text="i am id "
+            android:textIsSelectable="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/song_fvlist_artisid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Song_detail_Songtitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="2dp"
+            android:text="i am artistname"
+            android:textSize="12sp"
+            android:textIsSelectable="true"
+            android:textStyle="italic" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/song_fvlist_btn"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            android:layout_alignParentRight="true">
+
+        </ImageButton>
+    </RelativeLayout>
+
+</RelativeLayout>

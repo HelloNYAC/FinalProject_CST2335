@@ -7,10 +7,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Final Project"
+        android:label="Songsterr"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject_CST2335">
+        <activity android:name=".Song.SongfavList"></activity>
         <activity android:name=".Song.SongEmptyActivty" />
         <activity android:name=".Song.SongDetailsFragment" />
         <activity android:name=".Song.SongSearchActivity" />

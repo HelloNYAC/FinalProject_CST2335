@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,20 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".Song.SongSearchActivity">
 
+    <include
+        android:id="@+id/song_tbar"
+        layout="@layout/song_toolbar"/>
 
-    <EditText
-        android:id="@+id/search_rst"
-        android:layout_width="151dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@null"
-        android:text="to save search result"
-        android:textSize="30dp" />
+<!--    <EditText-->
+<!--        android:id="@+id/search_rst"-->
+<!--        android:layout_width="151dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="22dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="to save search result"-->
+<!--        android:textSize="30dp"-->
+<!--        android:layout_below="@+id/song_toolbar"-->
+<!--        />-->
 
+
+<!--    <Button-->
+<!--        android:id="@+id/song_myfvlistbutton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="11dp"-->
+<!--        android:layout_marginRight="23dp"-->
+<!--        android:text="@string/song_myfvbtn"-->
+<!--        android:layout_below="@+id/song_toolbar"-->
+<!--        />-->
 
     <ProgressBar
         android:id="@+id/song_progressBar"
@@ -30,12 +47,15 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:visibility="visible"
-        android:layout_below="@id/search_rst"/>
+        android:visibility="visible"/>
 
     <ListView
         android:id="@+id/song_searchlistview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/song_progressBar" />
+        android:layout_below="@id/song_progressBar"
+        android:layout_marginTop="20dp"
+        />
+
+
 </RelativeLayout>

@@ -39,5 +39,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-
+    <string name="song_myfvbtn">My favourites</string>
+    <string name="song_menu_search">My favourites</string>
+    <string name="song_menu_home">My favourites</string>
+    <string name="song_menu_fav">My favourites</string>
 </resources>
