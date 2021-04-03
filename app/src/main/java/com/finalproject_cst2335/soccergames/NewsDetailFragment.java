@@ -1,7 +1,10 @@
 package com.finalproject_cst2335.soccergames;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +14,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.finalproject_cst2335.R;
+import com.finalproject_cst2335.soccergames.Utils.SoccerGameDBHelper;
 import com.finalproject_cst2335.soccergames.entities.SoccerNews;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class NewsDetailFragment extends Fragment {
 
@@ -29,11 +40,14 @@ public class NewsDetailFragment extends Fragment {
 
     private SoccerNews news;
     private AppCompatActivity parent;
+    private ImageView thumbnail;
+    private SoccerGameDBHelper dbHelper;
 
     public NewsDetailFragment( SoccerNews news, AppCompatActivity parent) {
         // Required empty public constructor
         this.news = news;
         this.parent = parent;
+        this.dbHelper = new SoccerGameDBHelper(this.parent);
     }
 
     @Override
@@ -57,6 +71,7 @@ public class NewsDetailFragment extends Fragment {
         Button addToFavBtn = view.findViewById(R.id.sc_detailfragment_save_fav);
         Button hideBtn = view.findViewById(R.id.sc_detailfragment_hide);
         Button openBrowserBtn = view.findViewById(R.id.sc_detailfragment_open_browser);
+        thumbnail = view.findViewById(R.id.sc_detailfragment_thumbnail);
 
         hideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +88,13 @@ public class NewsDetailFragment extends Fragment {
         dateTv.setText(this.news.getDate());
         descTv.setText(this.news.getDescription());
 
+        addToFavBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHelper.addNewSoccerGame(news);
+            }
+        });
+
         openBrowserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +103,41 @@ public class NewsDetailFragment extends Fragment {
             }
         });
 
+        ImageDownloader downloader = new ImageDownloader(this.news.getImage());
+        downloader.execute();
+
         return view;
+    }
+
+    private class ImageDownloader extends AsyncTask<String,Integer,String> {
+        Bitmap image = null;
+        String thumbnailURL;
+
+        private ImageDownloader(String thumbnailURL){
+            this.thumbnailURL = thumbnailURL;
+        }
+        @Override
+        protected String doInBackground(String... strings) {
+            if( thumbnailURL != null && !thumbnailURL.equals("")){
+                try {
+                    URL url = new URL(thumbnailURL);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    InputStream inputStream = connection.getInputStream();
+                    image = BitmapFactory.decodeStream(inputStream);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return "done";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if( image!=null){
+                thumbnail.setImageBitmap(image);
+            }
+        }
     }
 }
