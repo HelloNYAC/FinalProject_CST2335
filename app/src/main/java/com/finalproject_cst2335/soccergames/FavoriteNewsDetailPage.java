@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -76,6 +77,14 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
                     }else{
                         Toast.makeText(FavoriteNewsDetailPage.this,"Failed to remove this news record",Toast.LENGTH_SHORT).show();
                     }
+                }
+            });
+
+            openBrowserBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(news.getArticleUrl()));
+                    startActivity(browserIntent);
                 }
             });
 

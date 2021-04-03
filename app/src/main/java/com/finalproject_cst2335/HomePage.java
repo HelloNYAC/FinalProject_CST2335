@@ -39,6 +39,19 @@ public class HomePage extends AppCompatActivity {
 //        getActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if( item.getItemId() == R.id.nav_toSoccerGame){
+                    Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+                    startActivity(goToSoccerGame);
+                }
+
+                return false;
+            }
+        });
     }
 
     @Override

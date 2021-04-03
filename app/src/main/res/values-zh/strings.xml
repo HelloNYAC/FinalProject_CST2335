@@ -42,4 +42,9 @@
     <string name="removeFromFav">移出最爱列表</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide">隐藏</string>
+    <string name="app_title">App名称</string>
+    <string name="final_project">Final Project CST2335</string>
+    <string name="version">版本</string>
+    <string name="author">作者</string>
+    <string name="one">1</string>
     </resources>

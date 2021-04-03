@@ -228,7 +228,9 @@ public class SoccerGameHomePage extends AppCompatActivity {
 
         if( item.getItemId() == R.id.sc_help_menu){
             AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
-            builder.setTitle("Instruction").setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
+            builder.setTitle("Instruction")
+                    .setMessage("This activity show you some soccer news. By clicking on each news in list view, you can view news and save it to your favorite")
+                    .setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 

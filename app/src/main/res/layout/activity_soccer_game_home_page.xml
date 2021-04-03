@@ -50,6 +50,8 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/soccerMainPageNavView"
+        app:headerLayout="@layout/nav_view_header"
+        app:menu="@menu/nav_view_items"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start">

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/nav_toTrivia"
+            android:title="@string/trival"
+            android:icon="@drawable/trivia"
+            />
+        <item
+            android:id="@+id/nav_toSongster"
+            android:title="@string/songster" android:icon="@drawable/songster"
+            />
+        <item
+            android:id="@+id/nav_toCar"
+            android:title="@string/car"
+            android:icon="@drawable/car"
+            />
+        <item
+            android:id="@+id/nav_toSoccerGame"
+            android:title="@string/soccerGames"
+            android:icon="@drawable/soccer"
+            />
+    </group>
+
+</menu>

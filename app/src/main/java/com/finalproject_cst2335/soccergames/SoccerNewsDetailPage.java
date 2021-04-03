@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +38,7 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
     private SoccerNews soccerNews;
     private Toolbar tb;
     private Button saveBtn;
+    private Button openInBrowserBtn;
     private SoccerGameDBHelper dbHelper;
     private ImageView thumbnail;
     private String thumbnailURL;
@@ -80,6 +83,15 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
                 }else{
                     Toast.makeText(SoccerNewsDetailPage.this,"Unable to save this news", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        openInBrowserBtn = findViewById(R.id.sc_open_browser);
+        openInBrowserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(soccerNews.getArticleUrl()));
+                startActivity(browserIntent);
             }
         });
     }

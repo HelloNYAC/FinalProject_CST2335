@@ -1,5 +1,7 @@
 package com.finalproject_cst2335.soccergames;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,6 +56,7 @@ public class NewsDetailFragment extends Fragment {
         TextView descTv = view.findViewById(R.id.sc_detailfragment_desc);
         Button addToFavBtn = view.findViewById(R.id.sc_detailfragment_save_fav);
         Button hideBtn = view.findViewById(R.id.sc_detailfragment_hide);
+        Button openBrowserBtn = view.findViewById(R.id.sc_detailfragment_open_browser);
 
         hideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +72,15 @@ public class NewsDetailFragment extends Fragment {
         linkTv.setText(this.news.getArticleUrl());
         dateTv.setText(this.news.getDate());
         descTv.setText(this.news.getDescription());
+
+        openBrowserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(news.getArticleUrl()));
+                startActivity(browserIntent);
+            }
+        });
+
         return view;
     }
 }
