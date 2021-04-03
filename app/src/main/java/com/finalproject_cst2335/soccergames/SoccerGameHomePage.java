@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -74,6 +75,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
     private static final String SEARCH_HISTORY = "SEARCH_HISTORY";
     private static final String LAST_SEARCH = "LAST_SEARCH";
     private static final String LAST_RATING = "LAST_RATING";
+    private static final String CURRENT_FRAME = "CURRENT_FRAME";
 
     /**
      * init soccer game home page and variables
@@ -173,6 +175,12 @@ public class SoccerGameHomePage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if( isTablet){
+                    SoccerNews newsToBePass = adapter.getItem(position);
+                    NewsDetailFragment newsDetailFragment = new NewsDetailFragment(newsToBePass, SoccerGameHomePage.this);
+                    FragmentManager manager = getSupportFragmentManager();
+                    manager.beginTransaction().
+                            replace(R.id.sc_detail_frame,newsDetailFragment, CURRENT_FRAME)
+                            .commit();
 
                 }else {
                     Intent goToDetail = new Intent(SoccerGameHomePage.this, SoccerNewsDetailPage.class);

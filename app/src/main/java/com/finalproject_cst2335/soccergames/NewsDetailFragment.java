@@ -2,19 +2,18 @@ package com.finalproject_cst2335.soccergames;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.finalproject_cst2335.R;
+import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NewsDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class NewsDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -26,26 +25,13 @@ public class NewsDetailFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public NewsDetailFragment() {
-        // Required empty public constructor
-    }
+    private SoccerNews news;
+    private AppCompatActivity parent;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment NewsDetailFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static NewsDetailFragment newInstance(String param1, String param2) {
-        NewsDetailFragment fragment = new NewsDetailFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public NewsDetailFragment( SoccerNews news, AppCompatActivity parent) {
+        // Required empty public constructor
+        this.news = news;
+        this.parent = parent;
     }
 
     @Override
@@ -61,6 +47,28 @@ public class NewsDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_news_detail, container, false);
+        TextView titleTv = view.findViewById(R.id.sc_detailfragment_news_title);
+        TextView linkTv = view.findViewById(R.id.sc_detailfragment_link);
+        TextView dateTv = view.findViewById(R.id.sc_detailfragment_date);
+        TextView descTv = view.findViewById(R.id.sc_detailfragment_desc);
+        Button addToFavBtn = view.findViewById(R.id.sc_detailfragment_save_fav);
+        Button hideBtn = view.findViewById(R.id.sc_detailfragment_hide);
+
+        hideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parent.getSupportFragmentManager()
+                        .beginTransaction()
+                        .remove(NewsDetailFragment.this)
+                        .commit();
+            }
+        });
+
+        titleTv.setText(this.news.getTitle());
+        linkTv.setText(this.news.getArticleUrl());
+        dateTv.setText(this.news.getDate());
+        descTv.setText(this.news.getDescription());
+        return view;
     }
 }
