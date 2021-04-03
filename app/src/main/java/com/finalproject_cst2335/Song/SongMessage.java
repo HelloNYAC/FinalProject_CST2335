@@ -7,6 +7,10 @@ public class SongMessage {
     String artistID;
     String artistName;
 
+    public SongMessage(){
+
+    }
+
     public SongMessage(int id, String songID, String songTitle, String artistID, String artistName){
         this.id = id;
         this.songID = songID;
@@ -17,6 +21,22 @@ public class SongMessage {
 
      public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSongID(String songID) {
+        this.songID = songID;
+    }
+
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
+    }
+
+    public void setArtistID(String artistID) {
+        this.artistID = artistID;
     }
 
     public String getSongID() {

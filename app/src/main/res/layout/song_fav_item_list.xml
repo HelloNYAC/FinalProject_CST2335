@@ -3,46 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:id="@+id/song_fvgroup"
     >
-    <RelativeLayout
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/song_group">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp">
 
         <TextView
             android:id="@+id/song_fvlist_songid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
+            android:layout_height="match_parent"
             android:layout_marginRight="5dp"
-            android:text="i am id "
-            android:textIsSelectable="true"
+            android:text="i am songid "
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/song_fvlist_artisid"
+            android:id="@+id/song_fvlist_artid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Song_detail_Songtitle"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="118dp"
-            android:layout_marginTop="2dp"
-            android:text="i am artistname"
-            android:textSize="12sp"
-            android:textIsSelectable="true"
-            android:textStyle="italic" />
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="130dp"
+            android:layout_toRightOf="@+id/song_item_id"
+            android:text="i am artid"
+            android:textStyle="bold"
+            android:textSize="14sp" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/song_fvlist_btn"
-            android:src="@drawable/ic_baseline_favorite_border_24"
-            android:layout_alignParentRight="true">
 
-        </ImageButton>
-    </RelativeLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

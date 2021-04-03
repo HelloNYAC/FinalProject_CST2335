@@ -6,21 +6,13 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Song_detail_item_ID"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="start"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"/>
-
-    <TextView
         android:id="@+id/Song_detail_ArtID"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:gravity="start"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
-        android:layout_below="@+id/Song_detail_item_ID"/>
+        android:textSize="14sp" />
+
     <TextView
         android:id="@+id/Song_detail_Songid"
         android:layout_width="match_parent"
@@ -29,6 +21,7 @@
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:layout_below="@+id/Song_detail_ArtID"/>
+
     <TextView
         android:id="@+id/Song_detail_Songtitle"
         android:layout_width="match_parent"
@@ -37,6 +30,15 @@
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:layout_below="@+id/Song_detail_Songid"/>
+
+    <TextView
+        android:id="@+id/Song_detail_Songname"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/Song_detail_Songtitle"/>
 
 
 <!--    <ImageButton-->
@@ -51,9 +53,14 @@
 <!--        android:src="@drawable/ic_baseline_favorite_border_24" />-->
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Song_detail_SavetoFv_Button"
+        android:id="@+id/Song_detail_ToggleButton"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:checked="false"
         android:text="@string/songhidetext"/>
+<!--        android:textOff="Unfavourite"-->
+<!--        android:textOn="Favourite"-->
+
 </RelativeLayout>

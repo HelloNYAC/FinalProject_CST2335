@@ -24,9 +24,9 @@ public class SongOpener extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "  (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + SONG_ID + "  INTEGER,"
+                + SONG_ID + "  TEXT,"
                 + SONG_TITLE  + "  TEXT,"
-                + ARTIST_ID + "  INTEGER,"
+                + ARTIST_ID + "  TEXT,"
                 + ARTIST_NAME  + "  TEXT);");
 
     }

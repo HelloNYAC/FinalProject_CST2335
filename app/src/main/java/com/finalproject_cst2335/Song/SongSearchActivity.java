@@ -42,6 +42,8 @@ public class SongSearchActivity  extends AppCompatActivity {
     public static final String SONG_ARTISTID="ARTIST_ID";
     public static final String SONG_ID = "SONG_ID";
     public static final String SONG_TITLE= "SONG_TITLE";
+    public static final String ARTIST_NAME = "ARTIST_NAME";
+    public static final String TO_SAVE = "TO_SAVE";
 
 
 
@@ -104,9 +106,12 @@ public class SongSearchActivity  extends AppCompatActivity {
         song_lv.setOnItemClickListener((list, item, position, id) -> {
             Bundle song_dataToPass = new Bundle();
             song_dataToPass.putLong(SONG_ITEM_ID, id);
-            song_dataToPass.putString(SONG_ARTISTID, songArrayList.get(position).getArtistID());
             song_dataToPass.putString(SONG_ID, songArrayList.get(position).getSongID());
             song_dataToPass.putString(SONG_TITLE, songArrayList.get(position).getSongTitle());
+            song_dataToPass.putString(SONG_ARTISTID, songArrayList.get(position).getArtistID());
+            song_dataToPass.putString(ARTIST_NAME, songArrayList.get(position).getArtistName());
+            song_dataToPass.putString(TO_SAVE, "TO_SAVE");
+//            Log.e("-----", "onCreate: "+ ARTIST_NAME );
 
             if (isTablet) {
                 SongDetailsFragment song_dFragment = new SongDetailsFragment(); //add a DetailFragment
@@ -124,57 +129,6 @@ public class SongSearchActivity  extends AppCompatActivity {
         });
 
 
-
-
-
-      // final ImageButton song_favbtn = findViewById(R.id.song_favbtn);
-//        song_likebtn.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                boolean isFavourite = readState();
-//
-//                if (isFavourite) {
-//                    song_likebtn.setBackgroundResource(R.drawable.song_staroff);
-//                    isFavourite = false;
-//                    saveState(isFavourite);
-//
-//                } else {
-//                    song_likebtn.setBackgroundResource(R.drawable.song_staron);
-//                    isFavourite = true;
-//                    saveState(isFavourite);
-//
-//                }
-//
-//            }
-//        });
-//
-//    }
-//
-//    private void saveState(boolean isFavourite) {
-//        SharedPreferences aSharedPreferences = this.getSharedPreferences(
-//                "Favourite", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor aSharedPreferencesEdit = aSharedPreferences
-//                .edit();
-//        aSharedPreferencesEdit.putBoolean("State", isFavourite);
-//        aSharedPreferencesEdit.commit();
-//    }
-//
-//    private boolean readState() {
-//        SharedPreferences aSharedPreferences = this.getSharedPreferences(
-//                "Favourite", Context.MODE_PRIVATE);
-//        return aSharedPreferences.getBoolean("State", true);
-//    }
-//
-
-//        song_lv.setOnItemClickListener((parent, view, row, id)->{
-//            Snackbar
-//                    .make(song_likebtn, getResources().getString(R.string.song_snackbar1), Snackbar.LENGTH_SHORT)
-//                    .setAction("Undo",click->sw.setChecked((!b)))
-//                    .show();
-//        });
-
-//
         song_lv.setOnItemLongClickListener((parent, view, row, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle(getString(R.string.SONG_rm_title))
@@ -299,23 +253,5 @@ public class SongSearchActivity  extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -11,33 +11,6 @@
         android:id="@+id/song_tbar"
         layout="@layout/song_toolbar"/>
 
-<!--    <EditText-->
-<!--        android:id="@+id/search_rst"-->
-<!--        android:layout_width="151dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="22dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:text="to save search result"-->
-<!--        android:textSize="30dp"-->
-<!--        android:layout_below="@+id/song_toolbar"-->
-<!--        />-->
-
-
-<!--    <Button-->
-<!--        android:id="@+id/song_myfvlistbutton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_marginTop="11dp"-->
-<!--        android:layout_marginRight="23dp"-->
-<!--        android:text="@string/song_myfvbtn"-->
-<!--        android:layout_below="@+id/song_toolbar"-->
-<!--        />-->
-
     <ProgressBar
         android:id="@+id/song_progressBar"
         style="@style/Theme.AppCompat"
