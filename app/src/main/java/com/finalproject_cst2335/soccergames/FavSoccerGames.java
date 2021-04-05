@@ -57,7 +57,7 @@ public class FavSoccerGames extends AppCompatActivity {
                     FavNewsDetailFragment newsDetailFragment = new FavNewsDetailFragment(newsToBePass, FavSoccerGames.this);
                     FragmentManager manager = getSupportFragmentManager();
                     manager.beginTransaction().
-                            replace(R.id.sc_detail_frame,newsDetailFragment, CURRENT_FRAME)
+                            replace(R.id.sc_fav_detail_fragment,newsDetailFragment, CURRENT_FRAME)
                             .commit();
                 }else{
                     Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);

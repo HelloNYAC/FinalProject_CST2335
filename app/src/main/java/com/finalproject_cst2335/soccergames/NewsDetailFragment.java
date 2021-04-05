@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 import com.finalproject_cst2335.soccergames.Utils.SoccerGameDBHelper;
@@ -91,7 +92,12 @@ public class NewsDetailFragment extends Fragment {
         addToFavBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbHelper.addNewSoccerGame(news);
+                long affectedRows = dbHelper.addNewSoccerGame(news);
+                if(affectedRows >= 1){
+                    Toast.makeText(parent,"Add this news to favorite list successfully",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(parent,"Failed to add this news to favorite list",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
