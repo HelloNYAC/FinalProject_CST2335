@@ -1,9 +1,12 @@
 package com.finalproject_cst2335.Song;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,6 +28,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +42,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class SongSearchActivity  extends AppCompatActivity {
+public class SongSearchActivity  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener{
     public static final String SONG_ITEM_ID= "ITEM_ID";
     public static final String SONG_ARTISTID="ARTIST_ID";
     public static final String SONG_ID = "SONG_ID";
@@ -90,7 +95,19 @@ public class SongSearchActivity  extends AppCompatActivity {
         songAdapter = new SonglistAdapter();
         song_lv.setAdapter(songAdapter);
 
-        EditText searchRst = findViewById(R.id.search_rst);
+        DrawerLayout song_drawer = findViewById(R.id.song_drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
+                song_drawer,songtbar,R.string.fv_open,R.string.fv_close);
+        song_drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView songnavView = findViewById(R.id.song_nav_view);
+        songnavView.setNavigationItemSelectedListener(this);
+
+        BottomNavigationView songbtmView = findViewById(R.id.song_bnv);
+        songbtmView.setOnNavigationItemSelectedListener(this);
+
+   //     EditText searchRst = findViewById(R.id.search_rst);
 
         Intent fromMain = getIntent();
         searchedArtist = fromMain.getStringExtra("NAME");
@@ -145,10 +162,31 @@ public class SongSearchActivity  extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.songtosearch:
+                Toast.makeText(this,"search result selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongSearchActivity.class));
+                break;
+            case R.id.songtofvlist:
+                Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongfavList.class));
+                break;
+            case R.id.songtohome:
+                Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
+                startActivity(new Intent(this, SongMainActivity.class));
+                break;
+        }
+        DrawerLayout drawerLayout = findViewById(R.id.song_drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
+        Toast.makeText(this,"NavigationDrawer", Toast.LENGTH_LONG).show();
+        return false;
+    }
+
     private class Songsearch extends AsyncTask<String, Integer, String> {
         ProgressBar song_pgbar = findViewById(R.id.song_progressBar);
-
-
 
         //Type3                Type1
         public String doInBackground(String... args) {

@@ -48,7 +48,7 @@
         android:fontFamily="cursive"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="WHere words fail,\n music speak"
+        android:text="Where words fail,\n music speak"
         android:textColor="@color/white"
         android:textSize="50dp"
         android:layout_below="@id/ss_inputname"

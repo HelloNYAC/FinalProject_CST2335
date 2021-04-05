@@ -7,7 +7,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +26,11 @@ import android.widget.Toast;
 import com.finalproject_cst2335.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class SongfavList extends AppCompatActivity {
+
+
     public ArrayList<SongMessage> songElements = new ArrayList<>();
     SQLiteDatabase dbfav;
     favListAdapter favAdapter;
@@ -32,7 +40,8 @@ public class SongfavList extends AppCompatActivity {
     public static final String SONG_TITLE= "SONG_TITLE";
     public static final String ARTIST_NAME = "ARTIST_NAME";
     public static final String TO_REMOVE = "TO_REMOVE";
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +53,8 @@ public class SongfavList extends AppCompatActivity {
 
         loadDataFromDatabase();
         favAdapter.notifyDataSetChanged();
+
+
 
         songfvlistview.setOnItemClickListener((list, item, position, id) -> {
             Bundle song_dataToRemove = new Bundle();
@@ -134,7 +145,10 @@ public class SongfavList extends AppCompatActivity {
             favAdapter.notifyDataSetChanged();
 
             return favListView;
+
+
         }
+
     }
 
 

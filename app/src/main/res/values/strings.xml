@@ -40,7 +40,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="song_myfvbtn">My favourites</string>
-    <string name="song_menu_search">My favourites</string>
-    <string name="song_menu_home">My favourites</string>
-    <string name="song_menu_fav">My favourites</string>
+    <string name="song_menu_search">Search</string>
+    <string name="song_menu_home">Home</string>
+    <string name="song_menu_fav">Favourites</string>
+    <string name="fv_open">open</string>
+    <string name="fv_close">off</string>
 </resources>

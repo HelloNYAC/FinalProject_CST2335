@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +44,6 @@ public class SongDetailsFragment extends Fragment {
         // Inflate the layout for this fragmentArtistID
         songDataFromAnyWhere = getArguments();
 
-
         //  songDataFav= getArguments();
         // long idfav = songDataFav.getLong(SongfavList.SONG_ITEM_ID);SONG_ITEM_ID
         if (songDataFromAnyWhere.containsKey("TO_SAVE")) {
@@ -52,17 +53,28 @@ public class SongDetailsFragment extends Fragment {
             favBtn = result.findViewById(R.id.Song_detail_ToggleButton);
             favBtn.setText("ADD TO FAVORITE");
             //show the message
-            ArtID = (TextView) result.findViewById(R.id.Song_detail_ArtID);
-            ArtID.setText("ArtID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID));
+            songID = result.findViewById(R.id.Song_detail_Songid);
+            ArtID = result.findViewById(R.id.Song_detail_ArtID);
+     //       ArtID.setText("ArtID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID));
+
+            String fSongID =songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID);
+            String idStr="<a href=\"http://www.songsterr.com/a/wa/song?id="+fSongID+"\">songID="+fSongID+"</a>";
+            songID.setMovementMethod(LinkMovementMethod.getInstance());
+            songID.setText(Html.fromHtml(idStr));
+
+            String fAratistID = songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID);
+            String artistIDStr = "<a href=\"http://www.songsterr.com/a/wa/artist?id="+fAratistID +"\">ArtID="+fAratistID +"</a>";
+            ArtID.setMovementMethod(LinkMovementMethod.getInstance());
+            ArtID.setText(Html.fromHtml(artistIDStr));
 
             //show the id:
-            songID = (TextView) result.findViewById(R.id.Song_detail_Songid);
-            songID.setText("SongID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID));
 
-            songTitle = (TextView) result.findViewById(R.id.Song_detail_Songtitle);
+//            songID.setText("SongID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID));
+
+            songTitle = result.findViewById(R.id.Song_detail_Songtitle);
             songTitle.setText("SongTitle = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_TITLE));
 
-            artName = (TextView) result.findViewById(R.id.Song_detail_Songname);
+            artName = result.findViewById(R.id.Song_detail_Songname);
             artName.setText("artName = " + songDataFromAnyWhere.getString(SongSearchActivity.ARTIST_NAME));
         } else if (songDataFromAnyWhere.containsKey("TO_REMOVE")) {
             id = songDataFromAnyWhere.getLong(SongfavList.SONG_ITEM_ID);
@@ -73,17 +85,27 @@ public class SongDetailsFragment extends Fragment {
             favBtn.setText("UNFAVORITE");
             //show the message
             ArtID = (TextView) result.findViewById(R.id.Song_detail_ArtID);
-            ArtID.setText("ArtID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID));
+            ArtID.setText(songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID));
 
             //show the id:
             songID = (TextView) result.findViewById(R.id.Song_detail_Songid);
-            songID.setText("SongID = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID));
+            songID.setText(songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID));
+
+            String fSongID =songDataFromAnyWhere.getString(SongSearchActivity.SONG_ID);
+            String idStr="<a href=\"http://www.songsterr.com/a/wa/song?id="+fSongID+"\">"+fSongID+"</a>";
+            songID.setMovementMethod(LinkMovementMethod.getInstance());
+            songID.setText(Html.fromHtml(idStr));
+
+            String fArtistID = songDataFromAnyWhere.getString(SongSearchActivity.SONG_ARTISTID);
+            String artistIDStr = "<a href=\"http://www.songsterr.com/a/wa/artist?id="+fArtistID +"\">"+fArtistID +"</a>";
+            ArtID.setMovementMethod(LinkMovementMethod.getInstance());
+            ArtID.setText(Html.fromHtml(artistIDStr));
 
             songTitle = (TextView) result.findViewById(R.id.Song_detail_Songtitle);
-            songTitle.setText("SongTitle = " + songDataFromAnyWhere.getString(SongSearchActivity.SONG_TITLE));
+            songTitle.setText(songDataFromAnyWhere.getString(SongSearchActivity.SONG_TITLE));
 
             artName = (TextView) result.findViewById(R.id.Song_detail_Songname);
-            artName.setText("artName = " + songDataFromAnyWhere.getString(SongSearchActivity.ARTIST_NAME));
+            artName.setText(songDataFromAnyWhere.getString(SongSearchActivity.ARTIST_NAME));
         }
 
 
@@ -117,6 +139,7 @@ public class SongDetailsFragment extends Fragment {
                     if(c.getString(songidIndex).equals(songID.getText().toString())){
                         Toast.makeText(getActivity(), "The song is already in your favorite list", Toast.LENGTH_LONG).show();
                         c.moveToLast();
+
                     }
                 }
                 if (stop) {
@@ -124,8 +147,8 @@ public class SongDetailsFragment extends Fragment {
 
                     Toast.makeText(getActivity(), "The following song is added to your favorite list" + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
                 }
-                Intent nextActivity = new Intent(getActivity(), SongfavList.class);
-                startActivity(nextActivity);
+//                Intent nextActivity = new Intent(getActivity(), SongfavList.class);
+//                startActivity(nextActivity);
                 parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
 
             }
@@ -133,8 +156,8 @@ public class SongDetailsFragment extends Fragment {
         private void removeFavFmDB(){
             db.delete(SongOpener.TABLE_NAME, SongOpener.COL_ID + "= ?", new String[] {Long.toString(songDataFromAnyWhere.getLong(SongfavList.SONG_ITEM_ID))});
             Toast.makeText(getActivity(), "Removed to your favorite list" + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
-            Intent nextActivity = new Intent(getActivity(), SongfavList.class);
-            startActivity(nextActivity);
+//            Intent nextActivity = new Intent(getActivity(), SongfavList.class);
+//            startActivity(nextActivity);
             parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 

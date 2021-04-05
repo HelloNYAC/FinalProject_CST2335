@@ -40,4 +40,6 @@
     <string name="song_menu_search">My favourites</string>
     <string name="song_menu_home">My favourites</string>
     <string name="song_menu_fav">My favourites</string>
+    <string name="fv_open">open</string>
+    <string name="fv_close">off</string>
     </resources>
