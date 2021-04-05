@@ -2,6 +2,7 @@ package com.finalproject_cst2335.soccergames;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +29,10 @@ public class FavSoccerGames extends AppCompatActivity {
     private ListView lv;
     private List<SoccerNews> favNewsList = new ArrayList<>();
     private SoccerGameDBHelper dbHelper;
+    private FrameLayout favDetailFrame;
     public static final String NEWS_TO_PASS = "NEWS_TO_PASS";
+    private boolean isTablet;
+    private static final String CURRENT_FRAME = "CURRENT_FRAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,8 @@ public class FavSoccerGames extends AppCompatActivity {
         setContentView(R.layout.activity_fav_soccer_games);
 
         tb = findViewById(R.id.sc_fav_page_tb);
+        favDetailFrame = findViewById(R.id.sc_fav_detail_fragment);
+        isTablet = favDetailFrame != null;
         setSupportActionBar(tb);
         dbHelper = new SoccerGameDBHelper(getApplicationContext());
         favNewsList = dbHelper.getAllGames();
@@ -45,10 +52,20 @@ public class FavSoccerGames extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);
-                SoccerNews newsToBePassed = (SoccerNews) adapter.getItem(position);
-                goToDetailPage.putExtra(NEWS_TO_PASS, newsToBePassed);
-                startActivity(goToDetailPage);
+                if(isTablet){
+                    SoccerNews newsToBePass = (SoccerNews) adapter.getItem(position);
+                    FavNewsDetailFragment newsDetailFragment = new FavNewsDetailFragment(newsToBePass, FavSoccerGames.this);
+                    FragmentManager manager = getSupportFragmentManager();
+                    manager.beginTransaction().
+                            replace(R.id.sc_detail_frame,newsDetailFragment, CURRENT_FRAME)
+                            .commit();
+                }else{
+                    Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);
+                    SoccerNews newsToBePassed = (SoccerNews) adapter.getItem(position);
+                    goToDetailPage.putExtra(NEWS_TO_PASS, newsToBePassed);
+                    startActivity(goToDetailPage);
+                }
+
             }
         });
     }
