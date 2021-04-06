@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
 import com.finalproject_cst2335.trivia.TriviaMainActivity;
 import com.google.android.material.navigation.NavigationView;
 

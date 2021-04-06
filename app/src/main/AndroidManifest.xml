@@ -19,10 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".trivia.TriviaMainActivity"/>
-        <activity android:name=".trivia.TriviaGameRoomActivity"/>
+        <activity android:name=".trivia.TriviaPlayRoomActivity"/>
         <activity android:name=".trivia.TriviaEmptyActivity"/>
-        <activity android:name=".trivia.TriviaGamePickActivity"/>
+        <activity android:name=".trivia.TriviaRankingPage"/>
+        <activity android:name=".trivia.TriviaMainActivity"/>
     </application>
 
 </manifest>

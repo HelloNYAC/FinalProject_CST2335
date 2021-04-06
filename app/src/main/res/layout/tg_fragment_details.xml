@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".trivia.TriviaEmptyActivity">
+    tools:context=".trivia.TriviaDetailsFragment">
 
-    <TextView
-        android:id="@+id/frag_msg"
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="fragment_msg"
-        android:textSize="20dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/frag_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="fragment_id"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/frag_msg"
-        android:textSize="15dp"/>
+        <TextView
+            android:id="@+id/ttlQuestionNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:layout_marginTop="15dp"
+            android:text="@string/tg_total_quest" />
 
-    <CheckBox
-        android:id="@+id/frag_ckbx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="fragment_ckbx"
-        android:layout_below="@+id/frag_id"/>
+        <TextView
+            android:id="@+id/idHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="Questioni ID" />
 
-    <Button
-        android:id="@+id/frag_hdbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="fragment_hide"
-        />
+        <TextView
+            android:id="@+id/questionInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="@string/tg_total_quest" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/numQsnAnswered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="@string/tg_total_answered" />
+
+        <TextView
+            android:id="@+id/numQsnUnanswered"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="@string/tg_total_unanswered"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="BACK" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

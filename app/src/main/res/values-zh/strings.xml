@@ -72,6 +72,16 @@
     <string name="tg_set_chlg">请定制您的挑战计划</string>
     <string name="tg_q_go">发起挑战！</string>
     <string name="tg_email_ph">在这里输入Email</string>
+    <string name="tg_total_quest">问题总数</string>
+    <string name="tg_total_correct">回答正确</string>
+    <string name="tg_total_incorrect">回答错误</string>
+    <string name="tg_total_unanswered">待回答</string>
+    <string name="tg_total_score">共计得分</string>
+    <string name="tg_total_unanswered_cnt">未回答数量</string>
+    <string name="tg_QuestionNum_cnt">问题总数数量</string>
+    <string name="tg_total_answered">已回答</string>
+    <string name="tg_total_answered_cnt">已回答数量</string>
+    <string name="tg_question_num">问题: </string>
 
     <string name="tg_select_5_number">问题数量: 5 </string>
     <string name="tg_select_10_number">问题数量: 10 </string>
@@ -79,6 +89,10 @@
     <string name="tg_select_20_number">问题数量: 20 </string>
     <string name="tg_reset">重置选项</string>
     <string name="tg_submit">提交答案</string>
+    <string name="tg_ranking_tleRK">排名</string>
+    <string name="tg_ranking_tleNM">姓名</string>
+    <string name="tg_ranking_tleSC">成绩</string>
+    <string name="tg_blank_line">   ------------------------------------------------------------------------------------------  </string>
 
 
     </resources>

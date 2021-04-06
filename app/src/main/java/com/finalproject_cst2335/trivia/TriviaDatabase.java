@@ -4,16 +4,17 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class TriviaMyOpener extends SQLiteOpenHelper {
+public class TriviaDatabase extends SQLiteOpenHelper {
 
-    protected final static String DATABASE_NAME = "MESSAGEDB";
-    protected final static int VERSION_NUM = 3;
-    public final static String TABLE_NAME = "MESSAGE_TABLE";
-    public final static String SEND_TYPE = "SEND_TYPE";
-    public final static String TEXT_MESSAGE = "TEXT_MESSAGE";
+    protected final static String DATABASE_NAME = "TRIVIADB";
+    protected final static int VERSION_NUM = 4;
+    public final static String TABLE_NAME = "RANK_TABLE";
+    public final static String PLAYER_NAME = "PLAYER_NAME";
+    public final static String GAME_LEVEL = "GAME_LEVEL";
+    public final static String GAME_SCORE = "GAME_SCORE";
     public final static String COL_ID = "_id";
 
-    public TriviaMyOpener(Context ctx)
+    public TriviaDatabase(Context ctx)
     {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
@@ -22,8 +23,9 @@ public class TriviaMyOpener extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TEXT_MESSAGE + " text,"
-                + SEND_TYPE  + " INTEGER);");
+                + PLAYER_NAME  + "  text,"
+                + GAME_LEVEL  + "  text,"
+                + GAME_SCORE + " INTEGER);");
     }
 
     @Override
