@@ -89,6 +89,7 @@ public class NewsDetailFragment extends Fragment {
         dateTv.setText(this.news.getDate());
         descTv.setText(this.news.getDescription());
 
+        //hit save button to save a news to db
         addToFavBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +102,7 @@ public class NewsDetailFragment extends Fragment {
             }
         });
 
+        //hit open button to open a link in browser
         openBrowserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

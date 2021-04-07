@@ -49,6 +49,11 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_SQL);
     }
 
+    /**
+     * save a news to db
+     * @param news
+     * @return
+     */
     public long addNewSoccerGame(SoccerNews news){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -61,6 +66,10 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
         return affectedRow;
     }
 
+    /**
+     * get all soccer games from db
+     * @return
+     */
     public List<SoccerNews> getAllGames(){
         ArrayList<SoccerNews> games = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -92,6 +101,11 @@ public class SoccerGameDBHelper extends SQLiteOpenHelper {
         return games;
     }
 
+    /**
+     * remove a soccer news from db
+     * @param news
+     * @return
+     */
     public long removeNews(SoccerNews news){
         SQLiteDatabase db = getWritableDatabase();
         long affectedRows = db.delete(TABLE_NAME,COLUMN_ID+" = ? ", new String[]{news.getId()+""});

@@ -74,6 +74,7 @@ public class FavNewsDetailFragment extends Fragment {
         descTv.setText(this.news.getDescription());
         linkTv.setText(this.news.getArticleUrl());
 
+        //set remove event to remove a news from database
         removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +87,7 @@ public class FavNewsDetailFragment extends Fragment {
             }
         });
 
+        //hit hide button to hide a fragment
         hideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +97,7 @@ public class FavNewsDetailFragment extends Fragment {
                         .commit();
             }
         });
-
+        //set  on click event to openInBrowser button  to open a news link in browser
         openInBrowserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
