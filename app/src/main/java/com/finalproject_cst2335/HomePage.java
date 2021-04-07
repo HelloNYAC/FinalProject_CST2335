@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.finalproject_cst2335.Song.SongMainActivity;
 import com.finalproject_cst2335.car.CarMainActivity;
+import com.finalproject_cst2335.trivia.TriviaMainActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -31,11 +32,11 @@ public class HomePage extends AppCompatActivity {
         tb = findViewById(R.id.home_tb);
         setSupportActionBar(tb);
 
-//        trivia =findViewById(R.id.hmimgtivia);
-//        trivia.setOnClickListener(v -> {
-//            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-//            startActivity(goToSoccerGame);
-//        });
+        trivia =findViewById(R.id.hmimgtivia);
+        trivia.setOnClickListener(v -> {
+            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
+            startActivity(goToSoccerGame);
+        });
 //
 //        soccer =findViewById(R.id.hmimgsoccer);
 //        trivia.setOnClickListener(v -> {
@@ -51,8 +52,8 @@ public class HomePage extends AppCompatActivity {
 //
         songsterr = findViewById(R.id.hmimgsong);
         songsterr.setOnClickListener(v -> {
-                    Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
-                    startActivity(goToSoccerGame);
+                    Intent goToSongster = new Intent(HomePage.this, SongMainActivity.class);
+                    startActivity(goToSongster);
         });
 
         drawL = findViewById(R.id.drawerL);
@@ -77,7 +78,7 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(toggler.onOptionsItemSelected(item)){
+        if (toggler.onOptionsItemSelected(item)) {
             return true;
         }
 
@@ -86,23 +87,24 @@ public class HomePage extends AppCompatActivity {
 //            startActivity(goToSoccerGame);
 //        }
 
-       if( item.getItemId() == R.id.toTrivia){
-           Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-           startActivity(goToSoccerGame);
-       }
+        if (item.getItemId() == R.id.toTrivia) {
+            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
+            startActivity(goToSoccerGame);
+        }
 
 
-        if( item.getItemId() == R.id.toSongster){
+        if (item.getItemId() == R.id.toSongster) {
             Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
             startActivity(goToSoccerGame);
-
+        }
 //         if( item.getItemId() == R.id.toCar){
 //             Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
 //             startActivity(goToCar);
 //         }
 
-        return super.onOptionsItemSelected(item);
-    }
+            return super.onOptionsItemSelected(item);
+        }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
