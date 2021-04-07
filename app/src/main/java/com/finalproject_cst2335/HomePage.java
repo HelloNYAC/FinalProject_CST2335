@@ -27,6 +27,12 @@ public class HomePage extends AppCompatActivity {
     private ActionBarDrawerToggle toggler;
     private ImageView trivia,soccer,songsterr,car;
 
+    /**
+     * oncreate method of the whole project
+     * to setview of the activity
+     * to start jew activity on click of different images and toolbar icons
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +90,11 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
+    /**
+     * opoption to load menu
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -91,6 +102,11 @@ public class HomePage extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * opoption selected on toolbar
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (toggler.onOptionsItemSelected(item)) {
@@ -119,13 +135,20 @@ public class HomePage extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
 
-
+    /**
+     * onpost crete to save instancestate
+     * @param savedInstanceState
+     */
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         toggler.syncState();
     }
 
+    /**
+     * on configure method
+     * @param newConfig
+     */
     @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
