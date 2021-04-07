@@ -9,7 +9,7 @@
     <item
         android:id="@+id/sc_help_menu"
         android:title="@string/help"
-        android:icon="@drawable/help"
+        android:icon="@drawable/help_car"
         app:showAsAction="always"/>
     <item
         android:id="@+id/sc_backbtn"

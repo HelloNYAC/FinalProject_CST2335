@@ -39,13 +39,13 @@ public class HomePage extends AppCompatActivity {
             Intent goToTriviaGame = new Intent(HomePage.this, TriviaMainActivity.class);
             startActivity(goToTriviaGame);
         });
-//
-//        soccer =findViewById(R.id.hmimgsoccer);
-//        trivia.setOnClickListener(v -> {
-//            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
-//            startActivity(goToSoccerGame);
-//        });
-//
+
+        soccer =findViewById(R.id.hmimgsoccer);
+        soccer.setOnClickListener(v -> {
+            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+            startActivity(goToSoccerGame);
+        });
+
         car = findViewById(R.id.hmimgcar);
         car.setOnClickListener(v -> {
             Intent goToCarGame = new Intent(HomePage.this, CarMainActivity.class);
@@ -97,35 +97,20 @@ public class HomePage extends AppCompatActivity {
             return true;
         }
 
-//        if( item.getItemId() == R.id.toSoccerGame){
-//            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
-//            startActivity(goToSoccerGame);
-//        }
-
         if (item.getItemId() == R.id.toTrivia) {
-            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-            startActivity(goToSoccerGame);
+            Intent goToTriviaGame = new Intent(HomePage.this, TriviaMainActivity.class);
+            startActivity(goToTriviaGame);
         }
 
-
         if (item.getItemId() == R.id.toSongster) {
-            Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
-            startActivity(goToSoccerGame);
+            Intent goToSongster = new Intent(HomePage.this, SongMainActivity.class);
+            startActivity(goToSongster);
         }
         if( item.getItemId() == R.id.toSoccerGame){
             Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
             startActivity(goToSoccerGame);
         }
-//
-//        if( item.getItemId() == R.id.toTrivia){
-//            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-//            startActivity(goToSoccerGame);
-//        }
 
-//        if( item.getItemId() == R.id.toCar){
-//            Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
-//            startActivity(goToCar);
-//        }
          if( item.getItemId() == R.id.toCar){
              Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
              startActivity(goToCar);

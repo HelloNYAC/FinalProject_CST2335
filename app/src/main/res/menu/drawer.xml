@@ -10,7 +10,7 @@
         </item>
         <item
             android:id="@+id/iconSearchArtist"
-            android:icon="@drawable/help"
+            android:icon="@drawable/help_car"
             android:title="Search by Car Model"/>
     </group>
     <group android:checkableBehavior="single">
@@ -22,7 +22,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/help_fragment"
-            android:icon="@drawable/help"
+            android:icon="@drawable/help_car"
             android:title="help us"/>
     </group>
 </menu>
