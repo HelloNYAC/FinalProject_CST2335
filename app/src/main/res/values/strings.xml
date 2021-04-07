@@ -182,4 +182,23 @@
     <string name="view_car_details">View car details</string>
     <!--CARDB END-->
 
+    <string name="link">Link</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="help">Help</string>
+    <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="addToFav">Add to favorites</string>
+    <string name="rating">RATE THIS APP</string>
+    <string name="later">LATER</string>
+    <string name="openInBrowser">Open in browser</string>
+    <string name="removeFromFav">Remove from favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hide">Hide</string>
+    <string name="app_title">App Title</string>
+    <string name="final_project">Final Project CST2335</string>
+    <string name="version">Version</string>
+    <string name="author">Author</string>
+    <string name="one">1</string>
 </resources>

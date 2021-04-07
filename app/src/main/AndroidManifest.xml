@@ -22,6 +22,12 @@
         <activity android:name="com.finalproject_cst2335.car.CarListsView" />
         <activity android:name="com.finalproject_cst2335.car.CarListsDetail" />
         <activity android:name="com.finalproject_cst2335.car.CarMainActivity"/>
+        android:theme="@style/Theme.FinalProject_CST2335"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".soccergames.FavoriteNewsDetailPage"></activity>
+        <activity android:name=".soccergames.FavSoccerGames" />
+        <activity android:name=".soccergames.SoccerNewsDetailPage" />
+        <activity android:name=".soccergames.SoccerGameHomePage" />
         <activity android:name=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

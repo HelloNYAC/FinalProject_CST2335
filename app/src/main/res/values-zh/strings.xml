@@ -32,6 +32,26 @@
     <string name="songster">Songster</string>
     <string name="car">Car</string>
     <string name="soccerGames">Soccer Games</string>
+    <string name="search">Search</string>
+    <string name="link">Link</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="help">Help</string>
+    <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="addToFav">添加到我的最爱</string>
+    <string name="rating">打分</string>
+    <string name="later">以后再说</string>
+    <string name="openInBrowser">用浏览器打开</string>
+    <string name="removeFromFav">移出最爱列表</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hide">隐藏</string>
+    <string name="app_title">App名称</string>
+    <string name="final_project">Final Project CST2335</string>
+    <string name="version">版本</string>
+    <string name="author">作者</string>
+    <string name="one">1</string>
+
     <string name="ss_mainbt">Go</string>
     <string name="song_snackbar1">Lovely song</string>
     <string name="songhidetext">保存至喜欢</string>
@@ -144,7 +164,6 @@
     <!--CARDB-->
     <string name="Open">开</string>
     <string name="Close">关闭</string>
-    <string name="search">搜索</string>
     <string name="delete_from_favourites">从收藏夹删除</string>
     <string name="add_to_favourites">添加到收藏</string>
     <string name="favourites_lists">收藏夹</string>
