@@ -2,13 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.finalproject_cst2335">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Songsterr"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject_CST2335">
+        <activity android:name=".Song.SongfavList" />
+        <activity android:name=".Song.SongEmptyActivty" />
+        <activity android:name=".Song.SongDetailsFragment" />
+        <activity android:name=".Song.SongSearchActivity" />
+        <activity android:name=".Song.SongMainActivity" />
         <activity android:name=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

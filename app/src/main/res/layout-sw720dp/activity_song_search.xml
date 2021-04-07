@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dfe6f5"
+    tools:context=".Song.SongSearchActivity">
+
+    <EditText
+        android:id="@+id/search_rst"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to save search result"/>
+
+    <ListView
+        android:id="@+id/song_searchlistview"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_rst" >
+
+    </ListView>
+
+    <FrameLayout
+        android:id="@+id/Song_fragmentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+        layout_toRightOf="song_searchlistview"
+    </FrameLayout>
+
+</RelativeLayout>
