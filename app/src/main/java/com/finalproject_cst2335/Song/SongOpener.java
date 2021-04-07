@@ -15,10 +15,18 @@ public class SongOpener extends SQLiteOpenHelper {
     public final static String ARTIST_ID = "ARTIST_ID";
     public final static String ARTIST_NAME = "ARTIST_NAME";
 
-
+    /**
+     *
+     * @param ctx
+     */
     public SongOpener(Context ctx){
         super(ctx, DATABASE_NAME, null,VERSION_NUM);
     }
+
+    /**
+     *
+     * @param db
+     */
 
     @Override
     public void onCreate(SQLiteDatabase db)
@@ -31,6 +39,12 @@ public class SongOpener extends SQLiteOpenHelper {
 
     }
 
+    /**
+     *
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -38,6 +52,14 @@ public class SongOpener extends SQLiteOpenHelper {
         //Create the new table:
         onCreate(db);
     }
+
+    /**
+     *
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
+
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {   //Drop the old table:

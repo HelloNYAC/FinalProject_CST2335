@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/song_fvlist_songid"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:text="i am songid "
@@ -25,12 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="130dp"
             android:layout_toRightOf="@+id/song_item_id"
             android:text="i am artid"
             android:autoLink="web"
             android:linksClickable="true"
-            android:textStyle="bold"
             android:textSize="14sp" />
 
 

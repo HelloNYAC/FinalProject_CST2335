@@ -11,6 +11,10 @@
     <string name="on">开关是开的状态</string>
     <string name="off">开关是关的状态</string>
     <string name="undo">撤销</string>
+    <string name="title_activity_song_favourite_list">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string name="enterEmailHeader"> Enter your email address </string>
     <string name="emailInputHint">Type your email here</string>
     <string name="enterpasswordHeader">Type your password</string>
@@ -36,10 +40,18 @@
     <string name="SONG_rm_msg2">"选择的数据是" </string>
     <string name="SONG_p_msg1">"是"</string>
     <string name="SONG_n_msg2">"否" </string>
-    <string name="song_myfvbtn">My favourites</string>
-    <string name="song_menu_search">My favourites</string>
-    <string name="song_menu_home">My favourites</string>
-    <string name="song_menu_fav">My favourites</string>
-    <string name="fv_open">open</string>
-    <string name="fv_close">off</string>
+    <string name="song_myfvbtn">收藏键</string>
+    <string name="song_menu_search">查收</string>
+    <string name="song_menu_home">主页</string>
+    <string name="song_menu_fav">收藏</string>
+    <string name="ssfv_open">开</string>
+    <string name="ssfv_close">关</string>
+    <string name="ss_help">帮助</string>
+    <string name="song_helptitle">使用说明</string>
+    <string name="song_helpMsg1">查收你喜欢的音乐并添加收藏</string>
+    <string name="song_helpMsg2">点击songID，获得吉他曲谱页，点击artistID,获得艺术家的名字</string>
+    <string name="song_helpMsg3">点击心型键，查看收藏链接</string>
+    <string name="ss_game_name">Songster</string>
+    <string name="ss_author">Ying Li</string>
+    <string name="ss_version">版本 4.1</string>
     </resources>

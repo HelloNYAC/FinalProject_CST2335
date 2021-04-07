@@ -19,8 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -42,6 +40,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * This is the search activity for songster
+ */
 public class SongSearchActivity  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener{
     public static final String SONG_ITEM_ID= "ITEM_ID";
     public static final String SONG_ARTISTID="ARTIST_ID";
@@ -66,9 +67,18 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.songtosearch:
-                Toast.makeText(this,"search result selected",Toast.LENGTH_LONG);
-                startActivity(new Intent(this, SongSearchActivity.class));
+            case R.id.songhelp:
+                AlertDialog.Builder helpalert = new AlertDialog.Builder(this);
+                         helpalert.setTitle(getString(R.string.song_helptitle))
+                        .setMessage(getResources().getString(R.string.song_helpMsg1) + "\n" +
+                                getResources().getString(R.string.song_helpMsg2)+ "\n" +
+                                getResources().getString(R.string.song_helpMsg3)+ "\n")
+                                 .setPositiveButton(getResources().getString(R.string.ssfv_close), (click, arg) ->{
+                                   })
+                                 .create().show();
+
+//                Toast.makeText(this,"search result selected",Toast.LENGTH_LONG);
+//                startActivity(new Intent(this, SongSearchActivity.class));
                 break;
             case R.id.songtofvlist:
                 Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
@@ -83,21 +93,25 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_search);
         ListView song_lv = findViewById(R.id.song_searchlistview);
 
-        Toolbar songtbar = findViewById(R.id.song_tbar);
-        setSupportActionBar(songtbar);
-
         songAdapter = new SonglistAdapter();
         song_lv.setAdapter(songAdapter);
 
+        Toolbar songtbar = findViewById(R.id.song_tbar);
+        setSupportActionBar(songtbar);
+
         DrawerLayout song_drawer = findViewById(R.id.song_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
-                song_drawer,songtbar,R.string.fv_open,R.string.fv_close);
+                song_drawer,songtbar,R.string.ssfv_open,R.string.ssfv_close);
         song_drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -166,9 +180,15 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.songtosearch:
-                Toast.makeText(this,"search result selected",Toast.LENGTH_LONG);
-                startActivity(new Intent(this, SongSearchActivity.class));
+            case R.id.songhelp:
+                AlertDialog.Builder helpalert = new AlertDialog.Builder(this);
+                helpalert.setTitle(getString(R.string.song_helptitle))
+                        .setMessage(getResources().getString(R.string.song_helpMsg1) + "\n" +
+                                getResources().getString(R.string.song_helpMsg2)+ "\n" +
+                                getResources().getString(R.string.song_helpMsg3)+ "\n")
+                        .setPositiveButton(getResources().getString(R.string.ssfv_close), (click, arg) ->{
+                        })
+                        .create().show();
                 break;
             case R.id.songtofvlist:
                 Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
@@ -181,10 +201,12 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
         }
         DrawerLayout drawerLayout = findViewById(R.id.song_drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
-        Toast.makeText(this,"NavigationDrawer", Toast.LENGTH_LONG).show();
         return false;
     }
 
+    /**
+     * use this class to get date from the URL
+     */
     private class Songsearch extends AsyncTask<String, Integer, String> {
         ProgressBar song_pgbar = findViewById(R.id.song_progressBar);
 
@@ -240,22 +262,35 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
         }
 
 
-
         //Type 2
         public void onProgressUpdate(Integer... args) {
+            super.onProgressUpdate(args);
+            try{
+                song_pgbar.setVisibility(View.VISIBLE);
+                song_pgbar.setProgress(args[0]);
+                Thread.sleep(800);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
         }
-
-        //Type3
+        /**
+         *
+         * @param fromDoInBackground
+         * use JSON to extra the information of required attributes
+         */
         public void onPostExecute(String fromDoInBackground) {
             super.onPostExecute(fromDoInBackground);
             Log.i("HTTP", fromDoInBackground);
             System.out.println(songArrayList.size());
             songAdapter.notifyDataSetChanged();
-            Log.e("======", "onPostExecute: "+songArrayList.get(1).toString() );
+            song_pgbar.setVisibility(View.INVISIBLE);
+//            Log.e("======", "onPostExecute: "+songArrayList.get(1).toString() );
         }
     }
-
+    /**
+     * use Adapter to populate the attributes into ListView
+     */
     public class SonglistAdapter extends BaseAdapter {
 
         @Override
@@ -285,7 +320,7 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
             song_title.setText(songArrayList.get(position).getSongTitle());
             TextView song_artsname = itemlistView.findViewById(R.id.song_artistname);
             song_artsname.setText(songArrayList.get(position).artistName);
-           songAdapter.notifyDataSetChanged();
+            songAdapter.notifyDataSetChanged();
 
             return itemlistView;
         }

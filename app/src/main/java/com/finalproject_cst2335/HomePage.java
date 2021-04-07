@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.finalproject_cst2335.Song.SongMainActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -21,6 +23,7 @@ public class HomePage extends AppCompatActivity {
     private DrawerLayout drawL;
     private NavigationView navView;
     private ActionBarDrawerToggle toggler;
+    private ImageView trivia,soccer,songsterr,car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,30 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         tb = findViewById(R.id.home_tb);
         setSupportActionBar(tb);
+
+//        trivia =findViewById(R.id.hmimgtivia);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
+//            startActivity(goToSoccerGame);
+//        });
+//
+//        soccer =findViewById(R.id.hmimgsoccer);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+//            startActivity(goToSoccerGame);
+//        });
+//
+//        car = findViewById(R.id.hmimgcar);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToCarGame = new Intent(HomePage.this, CarGameHomePage.class);
+//            startActivity(goToCarGame);
+//        });
+//
+        songsterr = findViewById(R.id.hmimgsong);
+        songsterr.setOnClickListener(v -> {
+                    Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
+                    startActivity(goToSoccerGame);
+        });
 
         drawL = findViewById(R.id.drawerL);
         navView = findViewById(R.id.navView);

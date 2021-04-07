@@ -31,10 +31,10 @@
 
     </Button>
 
-    <ListView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ss_listView"
+        android:id="@+id/ss_snack"
         android:divider="#ad5"
         android:dividerHeight="2dp"
         android:visibility="invisible"

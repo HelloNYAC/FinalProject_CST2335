@@ -43,6 +43,15 @@
     <string name="song_menu_search">Search</string>
     <string name="song_menu_home">Home</string>
     <string name="song_menu_fav">Favourites</string>
-    <string name="fv_open">open</string>
-    <string name="fv_close">off</string>
+    <string name="ssfv_open">OPEN</string>
+    <string name="song_helptitle">Instruction</string>
+    <string name="song_helpMsg1">Search your favorite song and add to favorite</string>
+    <string name="song_helpMsg2">Click songID and ArtistID, you can get the guitar music of the song and artist name</string>
+    <string name="song_helpMsg3">Click heart button, check what you added in the favorite list.</string>
+        <string name="ssfv_close">CLOSE</string>
+    <string name="ss_help">Help</string>
+    <string name="ss_game_name">Songster</string>
+    <string name="ss_author">Ying Li</string>
+    <string name="ss_version">Version 4.1</string>
+
 </resources>

@@ -28,9 +28,13 @@ import com.finalproject_cst2335.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class SongfavList extends AppCompatActivity {
 
 
+    /**
+     * This class is used for save favorite songs in my list
+     */
     public ArrayList<SongMessage> songElements = new ArrayList<>();
     SQLiteDatabase dbfav;
     favListAdapter favAdapter;
@@ -87,6 +91,9 @@ public class SongfavList extends AppCompatActivity {
 
     }
 
+    /**
+     * get a database
+     */
     private void loadDataFromDatabase() {
         SongOpener dbOpener = new SongOpener(this);
         dbfav = dbOpener.getWritableDatabase();
@@ -110,25 +117,47 @@ public class SongfavList extends AppCompatActivity {
         }
     }
 
-
+    /**
+     *
+     */
 
     public class favListAdapter extends BaseAdapter {
-
+        /**
+         *
+         * @return
+         */
         @Override
         public int getCount() {
             return songElements.size();
         }
 
+        /**
+         *
+         * @param position
+         * @return
+         */
         @Override
         public SongMessage getItem(int position) {
             return songElements.get(position);
         }
 
+        /**
+         *
+         * @param position
+         * @return
+         */
         @Override
         public long getItemId(int position) {
             return songElements.get(position).getId();
         }
 
+        /**
+         *
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -150,6 +179,4 @@ public class SongfavList extends AppCompatActivity {
         }
 
     }
-
-
 }

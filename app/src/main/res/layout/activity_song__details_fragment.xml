@@ -4,53 +4,49 @@
     android:layout_height="match_parent"
     android:background="#dfe6f5"
     android:orientation="vertical">
-
+    <include
+        android:id="@+id/song_tbar"
+        layout="@layout/song_toolbar"/>
     <TextView
         android:id="@+id/Song_detail_ArtID"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="start"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/Song_detail_Songid"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:layout_below="@+id/Song_detail_ArtID"/>
 
     <TextView
         android:id="@+id/Song_detail_Songtitle"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:layout_below="@+id/Song_detail_Songid"/>
 
     <TextView
         android:id="@+id/Song_detail_Songname"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:layout_below="@+id/Song_detail_Songtitle"/>
 
-
-<!--    <ImageButton-->
-<!--        android:id="@+id/song_favbtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_toRightOf="@id/Song_detail_Songtitle"-->
-<!--        android:background="#00ffffff"-->
-<!--        android:clickable="true"-->
-<!--        android:onClick="onToggleStar"-->
-<!--        android:src="@drawable/ic_baseline_favorite_border_24" />-->
 
     <Button
         android:layout_width="fill_parent"
@@ -60,7 +56,6 @@
         android:layout_alignParentBottom="true"
         android:checked="false"
         android:text="@string/songhidetext"/>
-<!--        android:textOff="Unfavourite"-->
-<!--        android:textOn="Favourite"-->
+
 
 </RelativeLayout>
