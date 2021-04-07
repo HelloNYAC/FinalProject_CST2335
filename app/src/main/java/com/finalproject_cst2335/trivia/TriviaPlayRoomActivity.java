@@ -16,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,7 +76,7 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
     /**
      * onCreate method is used to when loading question layout
      * checking device is tablet or phone
-     *
+     *Hello
      * @param savedInstanceState save all usable button
      */
 
@@ -110,29 +109,23 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
         triviaAdapter = new MylistAdapter();
         triviaList.setAdapter(triviaAdapter);
 
-        TextView snackMsg = findViewById(R.id.tg_textSpace);
-        Button mainMenu = findViewById(R.id.tg_leaveBtn);
-        //toast message indication
-        mainMenu.setOnClickListener(v->{
-            Snackbar.make(snackMsg, "====Return main page, hold button for 5 seconds==", Snackbar.LENGTH_SHORT).show();
-        });
 
-        //alerdialog for reminder
-        mainMenu.setOnLongClickListener(v->{
+        Button backBtn = findViewById(R.id.tg_leaveBtn);
+        backBtn.setOnClickListener(v->{
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Do you want to return to main menu without saving data?")
                     .setPositiveButton("Yes", (click, arg)->{
-                        Intent goBackToTrivia = new Intent(this, TriviaMainActivity.class);
+                        Intent goBackToTrivia = new Intent(this, TriviaGamePickActivity.class);
                         startActivity(goBackToTrivia);
                     })
                     .setNegativeButton("No", (click, arg)->{ })
                     .setView(getLayoutInflater().inflate(R.layout.tg_acitivity_empty, null))
                     .create().show();
-            return true;
         });
 
+        TextView snackMsg = findViewById(R.id.tg_textSpace);
         triviaList.setOnItemLongClickListener((list, item, position, id)->{
-            Toast.makeText(this,"Clickced", Toast.LENGTH_SHORT).show();
+            Snackbar.make(snackMsg, "Checking details of the question", Snackbar.LENGTH_SHORT).show();
             return true;
         });
 
@@ -170,6 +163,7 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
             bundleToRank.putString("Player_Name", pl_name);
             bundleToRank.putString("Game_Level", quest_Level);
             bundleToRank.putInt("Game_Score", tg_score);
+            bundleToRank.putString("fromPlayRoom", "fromPlayRoom");
 
             Intent GoToRank = new Intent();
             GoToRank.putExtras(bundleToRank);
@@ -178,6 +172,10 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * update count is to update the question count of incorrect count, correct count, unanswered etc
+     * start from the total of questions, and update while user clicking on different answers
+     */
     public void updateCount() {
         int tg_size = triviaQustlist.size();
         tg_QuestionCount.setText(tg_size + "");
@@ -200,10 +198,10 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
         }
 //        double temp = correctAnswered + incorrectAnswered + unAnswered;
         tg_score = (int)((correctAnswered / ((correctAnswered + incorrectAnswered + unAnswered)* 1.0))*100);
-        Log.e("TAG===", "correctAnswered===: "+correctAnswered );
-        Log.e("TAG===", "unAnswered===: "+unAnswered );
-        Log.e("TAG===", "incorrectAnswered===: "+incorrectAnswered );
-        Log.e("TAG===", "tg_score===: "+ tg_score );
+//        Log.e("TAG===", "correctAnswered===: "+correctAnswered );
+//        Log.e("TAG===", "unAnswered===: "+unAnswered );
+//        Log.e("TAG===", "incorrectAnswered===: "+incorrectAnswered );
+//        Log.e("TAG===", "tg_score===: "+ tg_score );
     }
 
     /**
@@ -299,9 +297,13 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer ... args)
         {
             super.onProgressUpdate(args);
+            try {
             tg_progressBar.setVisibility(View.VISIBLE);
             tg_progressBar.setProgress(args[0]);
-
+            Thread.sleep(1000);
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         /**
@@ -379,10 +381,10 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
                 TextView trueFalseView = qustView.findViewById(R.id.qustls_qust);
                 trueFalseView.setText((position+1)+"  "+tg_qust.getQuestion());
                 Log.i("question=====", tg_qust.getQuestion());
-                Button buttT = qustView.findViewById(R.id.qustls_ans1);
-                buttT.setText(tg_qust.getAnswerSetArray().get(0));
-                Button buttF = qustView.findViewById(R.id.qustls_ans2);
-                buttF.setText(tg_qust.getAnswerSetArray().get(1));
+                Button trueBtn = qustView.findViewById(R.id.qustls_ans1);
+                trueBtn.setText(tg_qust.getAnswerSetArray().get(0));
+                Button falseBtn = qustView.findViewById(R.id.qustls_ans2);
+                falseBtn.setText(tg_qust.getAnswerSetArray().get(1));
 
             } else {
                 qustView = inflater.inflate(R.layout.tg_activity_multiple, parent,false);
@@ -406,14 +408,14 @@ public class TriviaPlayRoomActivity extends AppCompatActivity {
                 });
                 TextView multiView = qustView.findViewById(R.id.qustls_qust);
                 multiView.setText((position+1)+"  "+tg_qust.getQuestion());
-                Button buttA = qustView.findViewById(R.id.qustls_ans1);
-                buttA.setText(tg_qust.getAnswerSetArray().get(0));
-                Button buttB = qustView.findViewById(R.id.qustls_ans2);
-                buttB.setText(tg_qust.getAnswerSetArray().get(1));
-                Button buttC = qustView.findViewById(R.id.qustls_ans3);
-                buttC.setText(tg_qust.getAnswerSetArray().get(2));
-                Button buttD = qustView.findViewById(R.id.qustls_ans4);
-                buttD.setText(tg_qust.getAnswerSetArray().get(3));
+                Button tg_answer1 = qustView.findViewById(R.id.qustls_ans1);
+                tg_answer1.setText(tg_qust.getAnswerSetArray().get(0));
+                Button tg_answer2 = qustView.findViewById(R.id.qustls_ans2);
+                tg_answer2.setText(tg_qust.getAnswerSetArray().get(1));
+                Button tg_answer3 = qustView.findViewById(R.id.qustls_ans3);
+                tg_answer3.setText(tg_qust.getAnswerSetArray().get(2));
+                Button tg_answer4 = qustView.findViewById(R.id.qustls_ans4);
+                tg_answer4.setText(tg_qust.getAnswerSetArray().get(3));
             }
             triviaAdapter.notifyDataSetChanged();
             return qustView;

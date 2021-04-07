@@ -19,7 +19,7 @@ public class TriviaDetailsFragment extends Fragment{
     private AppCompatActivity parentActivity;
 
     /**
-     *
+     * To crteate fragement with data retrieved from URL
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -57,6 +57,10 @@ public class TriviaDetailsFragment extends Fragment{
 
     }
 
+    /**
+     * To activate fragement on attach
+     * @param context
+     */
     @Override
     public void onAttach( Context context) {
         super.onAttach(context);

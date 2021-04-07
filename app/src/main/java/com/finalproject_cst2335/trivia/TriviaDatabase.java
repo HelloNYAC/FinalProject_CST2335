@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class TriviaDatabase extends SQLiteOpenHelper {
 
     protected final static String DATABASE_NAME = "TRIVIADB";
-    protected final static int VERSION_NUM = 4;
+    protected final static int VERSION_NUM = 5;
     public final static String TABLE_NAME = "RANK_TABLE";
     public final static String PLAYER_NAME = "PLAYER_NAME";
     public final static String GAME_LEVEL = "GAME_LEVEL";
@@ -19,6 +19,10 @@ public class TriviaDatabase extends SQLiteOpenHelper {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
+    /**
+     * To create datebase with the table and columns
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db)
     {
@@ -28,6 +32,12 @@ public class TriviaDatabase extends SQLiteOpenHelper {
                 + GAME_SCORE + " INTEGER);");
     }
 
+    /**
+     * To drop table on upgrade
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
@@ -35,6 +45,12 @@ public class TriviaDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * To drop on downgrade
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {

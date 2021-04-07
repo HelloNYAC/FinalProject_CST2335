@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/tg_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject_CST2335">
@@ -22,7 +22,9 @@
         <activity android:name=".trivia.TriviaPlayRoomActivity"/>
         <activity android:name=".trivia.TriviaEmptyActivity"/>
         <activity android:name=".trivia.TriviaRankingPage"/>
+        <activity android:name=".trivia.TriviaGamePickActivity"/>
         <activity android:name=".trivia.TriviaMainActivity"/>
+
     </application>
 
 </manifest>

@@ -7,8 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.finalproject_cst2335.R;
 
+
 public class TriviaEmptyActivity extends AppCompatActivity {
     @Override
+
+    /**
+     * To pass bundle with data to fragement
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tg_acitivity_empty);

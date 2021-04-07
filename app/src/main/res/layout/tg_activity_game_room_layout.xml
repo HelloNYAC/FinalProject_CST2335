@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/backgroundcolor"
     tools:context=".trivia.TriviaPlayRoomActivity">
 
     <ProgressBar
@@ -17,10 +18,12 @@
 
     <TextView
         android:id="@+id/tg_grt_top"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome"
+        android:layout_below="@+id/tg_progressBar"
         android:textSize="20sp"
+        android:layout_marginBottom="10dp"
         android:textColor="#E91E63"/>
 
     <TextView
@@ -28,7 +31,7 @@
         android:paddingTop="10dp"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tg_progressBar"
+        android:layout_below="@id/tg_grt_top"
         android:text="@string/tg_total_quest" />
 
     <TextView
@@ -114,7 +117,7 @@
         android:paddingTop="10dp"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tg_progressBar"
+        android:layout_below="@id/tg_grt_top"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/tg_total_ques_num_tx"
@@ -130,7 +133,7 @@
         android:layout_alignBottom="@id/tg_theListView"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:text="QUIT" />
+        android:text="@string/tg_quitBtn"/>
 
     <TextView
         android:id="@+id/tg_textSpace"
@@ -143,7 +146,7 @@
         android:id="@+id/tg_nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEXT"
+        android:text="@string/tg_submit"
         android:layout_alignRight="@+id/tg_theListView"
         android:layout_alignBottom="@id/tg_theListView" />
 

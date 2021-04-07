@@ -2,59 +2,70 @@ package com.finalproject_cst2335.trivia;
 
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.finalproject_cst2335.HomePage;
 import com.finalproject_cst2335.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class TriviaRankingPage extends AppCompatActivity {
+public class TriviaRankingPage extends AppCompatActivity{
 
     private ArrayList<TriviaRankData> rankingList = new ArrayList<>();
     SQLiteDatabase db;
 
+    /**
+     * oncreate method to load data, if else to determine where the data bundle is coming from and set activity accordingly
+     * load data from database to listview
+     * insert game data from the game on submit
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tg_activity_ranking);
 
+        ListView ranking_lv = findViewById(R.id.tg_ranking_lv);
+
         TriviaDatabase dbOpener = new TriviaDatabase(this);
         db = dbOpener.getWritableDatabase();
 
         Intent fromPlayRoom = getIntent();
-        Bundle bundleFromPlay = fromPlayRoom.getExtras();
-        String player_name = bundleFromPlay.getString("Player_Name");
-        String game_Lv = bundleFromPlay.getString("Game_Level");
-        int game_Score = bundleFromPlay.getInt("Game_Score");
+        Bundle bundleFromAnywhere = fromPlayRoom.getExtras();
+        if(bundleFromAnywhere.containsKey("fromPlayRoom")) {
+            String player_name = bundleFromAnywhere.getString("Player_Name");
+            String game_Lv = bundleFromAnywhere.getString("Game_Level");
+            int game_Score = bundleFromAnywhere.getInt("Game_Score");
 
-        ContentValues newRowValues = new ContentValues();
-        newRowValues.put(TriviaDatabase.PLAYER_NAME, player_name);
-        newRowValues.put(TriviaDatabase.GAME_LEVEL, game_Lv);
-        newRowValues.put(TriviaDatabase.GAME_SCORE, game_Score );
-        Log.e("====","PLAYER_NAME: " + player_name  );
-        Log.e("====","GAME_SCORE: " + game_Score   );
-        Log.e("====","GAME_LEVEL: " + game_Lv  );
-        long newId = db.insert(TriviaDatabase.TABLE_NAME, null, newRowValues);
-
-        ListView ranking_lv = findViewById(R.id.tg_ranking_lv);
+            ContentValues newRowValues = new ContentValues();
+            newRowValues.put(TriviaDatabase.PLAYER_NAME, player_name);
+            newRowValues.put(TriviaDatabase.GAME_LEVEL, game_Lv);
+            newRowValues.put(TriviaDatabase.GAME_SCORE, game_Score);
+            Log.e("====", "PLAYER_NAME: " + player_name);
+            Log.e("====", "GAME_SCORE: " + game_Score);
+            Log.e("====", "GAME_LEVEL: " + game_Lv);
+            long newId = db.insert(TriviaDatabase.TABLE_NAME, null, newRowValues);
+        }
 
         TriviaRankAdapter rankAdapter = new TriviaRankAdapter();
         ranking_lv.setAdapter(rankAdapter);
@@ -76,6 +87,10 @@ public class TriviaRankingPage extends AppCompatActivity {
                             .create().show();
                     return true;
         });
+
+        Toolbar tg_myToolbar = (Toolbar)findViewById(R.id.tg_my_toolbar_rk);
+        setSupportActionBar(tg_myToolbar);
+
     }
 
     /**
@@ -86,7 +101,7 @@ public class TriviaRankingPage extends AppCompatActivity {
 //        db = dbOpener.getWritableDatabase();
 
         String[] columns = {TriviaDatabase.COL_ID, TriviaDatabase.PLAYER_NAME, TriviaDatabase.GAME_LEVEL,TriviaDatabase.GAME_SCORE};
-        Cursor results = db.query(false, TriviaDatabase.TABLE_NAME, columns,null,null,null,null, null,"10");
+        Cursor results = db.query(false, TriviaDatabase.TABLE_NAME, columns,null,null,null,null, null,"20");
 //        results.moveToFirst();
         int nameColumnIndex = results.getColumnIndex(TriviaDatabase.PLAYER_NAME);
         int levelColumnIndex = results.getColumnIndex(TriviaDatabase.GAME_LEVEL);
@@ -157,4 +172,60 @@ public class TriviaRankingPage extends AppCompatActivity {
             return rankView;
         }
     }
+
+    /**
+     * inflater of the menu
+     * @param menu
+     * @return
+     */
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.tg_main_activity_actions, menu);
+        return true;
+    }
+
+    /**
+     * opoption selected on toolbar
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String message = null;
+        //Look at your menu XML file. Put a case for every id in that file:
+        switch(item.getItemId())
+        {
+            //what to do when the menu item is selected:
+            case R.id.tg_homepage:
+                message = getResources().getString(R.string.tg_backtomainpage);
+                startActivity(new Intent(this, HomePage.class));
+                break;
+            case R.id.tg_ranking:
+                message = getResources().getString(R.string.tg_ranking);
+//                startActivity(new Intent(this, TriviaRankingPage.class));
+                break;
+            case R.id.tg_playagain:
+                message = getResources().getString(R.string.tg_playagain);
+                startActivity(new Intent(this, TriviaGamePickActivity.class));
+                break;
+            case R.id.tg_help:
+                message = getResources().getString(R.string.tg_help);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setTitle(getString(R.string.tg_alert_instr1))
+                        .setMessage(getString(R.string.tg_alert_instr2)+ "\n"
+                                + getString(R.string.tg_alert_instr3)+ "\n"
+                                + getString(R.string.tg_alert_instr4)+ "\n"
+                                + getString(R.string.tg_alert_instr5)+ "\n" + "\n"
+                                + getString(R.string.tg_alert_instr_ques)+ "\n" )
+                        .setPositiveButton(getString(R.string.tg_close), (click, arg) -> {
+                            startActivity(new Intent(this, TriviaGamePickActivity.class));
+                        })
+                        .create().show();
+                break;
+        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        return true;
+    }
+
     }
