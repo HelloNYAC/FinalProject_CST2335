@@ -34,8 +34,8 @@ public class HomePage extends AppCompatActivity {
 
         trivia =findViewById(R.id.hmimgtivia);
         trivia.setOnClickListener(v -> {
-            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
-            startActivity(goToSoccerGame);
+            Intent goToTriviaGame = new Intent(HomePage.this, TriviaMainActivity.class);
+            startActivity(goToTriviaGame);
         });
 //
 //        soccer =findViewById(R.id.hmimgsoccer);
@@ -44,12 +44,12 @@ public class HomePage extends AppCompatActivity {
 //            startActivity(goToSoccerGame);
 //        });
 //
-//        car = findViewById(R.id.hmimgcar);
-//        trivia.setOnClickListener(v -> {
-//            Intent goToCarGame = new Intent(HomePage.this, CarGameHomePage.class);
-//            startActivity(goToCarGame);
-//        });
-//
+        car = findViewById(R.id.hmimgcar);
+        car.setOnClickListener(v -> {
+            Intent goToCarGame = new Intent(HomePage.this, CarMainActivity.class);
+            startActivity(goToCarGame);
+        });
+
         songsterr = findViewById(R.id.hmimgsong);
         songsterr.setOnClickListener(v -> {
                     Intent goToSongster = new Intent(HomePage.this, SongMainActivity.class);
@@ -97,10 +97,11 @@ public class HomePage extends AppCompatActivity {
             Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
             startActivity(goToSoccerGame);
         }
-//         if( item.getItemId() == R.id.toCar){
-//             Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
-//             startActivity(goToCar);
-//         }
+
+         if( item.getItemId() == R.id.toCar){
+             Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
+             startActivity(goToCar);
+         }
 
             return super.onOptionsItemSelected(item);
         }
