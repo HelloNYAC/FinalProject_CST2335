@@ -140,4 +140,43 @@
     <string name="tg_author">作者: Nicole Yue</string>
     <string name="tg_version">版本: 5.0</string>
 
-    </resources>
+
+    <!--CARDB-->
+    <string name="Open">开</string>
+    <string name="Close">关闭</string>
+    <string name="search">搜索</string>
+    <string name="delete_from_favourites">从收藏夹删除</string>
+    <string name="add_to_favourites">添加到收藏</string>
+    <string name="favourites_lists">收藏夹</string>
+    <string name="fill_fields">请填写信息</string>
+    <string name="last_search">上次搜索</string>
+    <string name="searching">搜索中，请等待…</string>
+    <string name="insert_into_database">添加到数据库</string>
+    <string name="delete_from_database">从数据库中删除</string>
+    <string name="sync">同步</string>
+    <string name="saved_list">保存列表</string>
+    <string name="deleteoption">确定删除？</string>
+    <string name="del">从数据库中删除</string>
+    <string name="adder">已添加到数据库！</string>
+    <string name="make_id">品牌ID</string>
+    <string name="make_name">品牌</string>
+    <string name="model_id">型号ID</string>
+    <string name="model_name">型号</string>
+    <string name="to_search_by_model_name">根据车型搜索</string>
+    <string name="search_by_cars">根据车搜索</string>
+    <string name="add_some_data_here">添加一些数据</string>
+    <string name="after_searching_by_car">搜索车之后</string>
+    <string name="help_us">帮助我们</string>
+    <string name="find_a_car">搜索车</string>
+    <string name="search_by_model">根据车型搜索</string>
+    <string name="enter_car_make">输入汽车品牌</string>
+    <string name="shop_this_car">购买这辆车</string>
+    <string name="enter_postal_code">输入邮编</string>
+    <string name="car_detail">基本信息</string>
+    <string name="find_this_car">搜索这辆车</string>
+    <string name="android">安卓</string>
+    <string name="cars_project">Cars project</string>
+    <string name="java">Java</string>
+    <string name="view_car_details">查看汽车参数</string>
+    <!--CARDB END-->
+</resources>

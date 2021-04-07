@@ -76,8 +76,7 @@
     <string name="del_title">Do you want to delete this?</string>
     <string name="del_msg1">The selected row is: </string>
     <string name="del_msg2">The database id is: </string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
+
     <string name="tg_clname">Please Your Name to Play</string>
     <string name="tg_name_ph">Lucky Name</string>
     <string name="tg_enter_email">Enter your email address</string>
@@ -113,10 +112,6 @@
     <string name="tg_author">Author: Nicole Yue</string>
     <string name="tg_version">Version: 5.0</string>
 
-
-
-
-
     <string name="ss_mainbt">Go</string>
     <string name="song_snackbar1">Lovely song</string>
     <string name="SONG_rm_title">Do you want to delete this？</string>
@@ -143,5 +138,48 @@
     <string name="ss_game_name">Songster</string>
     <string name="ss_author">Ying Li</string>
     <string name="ss_version">Version 4.1</string>
+
+
+
+    <!--CARDB-->
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="search">Search</string>
+    <string name="delete_from_favourites">Delete From Favourites</string>
+    <string name="add_to_favourites">Add To Favourites</string>
+    <string name="favourites_lists">Favourites List</string>
+    <string name="fill_fields">Please fill in all the fields.</string>
+    <string name="last_search">Last Search</string>
+    <string name="searching">Searching please wait …</string>
+    <string name="insert_into_database">Insert into Database</string>
+    <string name="delete_from_database">Delete from Database</string>
+    <string name="sync">Sync</string>
+    <string name="saved_list">Saved List</string>
+    <string name="deleteoption">Are you sure you want to delete?</string>
+    <string name="del">Deleted from Database</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="adder">Added to database!</string>
+    <string name="make_id">Make ID</string>
+    <string name="make_name">Make Name</string>
+    <string name="model_id">Model ID</string>
+    <string name="model_name">Model Name</string>
+    <string name="shop_this_car">Shop this car</string>
+    <string name="enter_postal_code">Enter postal code</string>
+    <string name="car_detail">Car Detail</string>
+    <string name="to_search_by_model_name">To search by Model name</string>
+    <string name="search_by_cars">Search by cars</string>
+    <string name="add_some_data_here">Add some data here</string>
+    <string name="after_searching_by_car">after searching by Car</string>
+    <string name="help_us">Help us</string>
+    <string name="find_a_car">Find a car</string>
+    <string name="search_by_model">Search by Model</string>
+    <string name="enter_car_make">Enter a car manufacturer</string>
+    <string name="find_this_car">Find this car</string>
+    <string name="android">Android</string>
+    <string name="cars_project">Cars project</string>
+    <string name="java">Java</string>
+    <string name="view_car_details">View car details</string>
+    <!--CARDB END-->
 
 </resources>
