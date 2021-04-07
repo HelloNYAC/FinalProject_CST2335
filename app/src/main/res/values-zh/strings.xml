@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
     <resources>
-    <string name="app_name">安卓试验</string>
+    <string name="app_name">安卓终极Project</string>
     <string name="GUI">看我的GUI</string>
     <string name="Click">按这</string>
     <string name="Check">选中!</string>
@@ -28,4 +28,90 @@
     <string name="songster">Songster</string>
     <string name="car">Car</string>
     <string name="soccerGames">Soccer Games</string>
+
+    <string name="chat_app_name">Chat Room</string>
+    <string name="tg_enter_name">请输入姓名</string>
+
+    <string-array name="spin_qust_num">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="spin_qust_typ">
+        <item>True and False</item>
+        <item>Multiple Choice</item>
+        <item>Mixed</item>
+    </string-array>
+
+    <string-array name="spin_qust_lvl">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string name="tg_ranking_rk">英雄排名榜</string>
+    <string name="tg_select_q_number">问题数量</string>
+    <string name="tg_select_q_type">喜欢的题目类型</string>
+    <string name="tg_select_q_level">难易程度</string>
+    <string name="tg_type_ph">在这里输入</string>
+    <string name="del_title">确认删除记录吗？</string>
+    <string name="del_msg1">您选的的行号是： </string>
+    <string name="del_msg2">您的数据库编号是： </string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+
+    <string name="tg_clname">请输入玩家姓名</string>
+    <string name="tg_name_ph">在这里输入姓名</string>
+    <string name="tg_enter_email">请输入Email地址</string>
+    <string name="tg_login">登录</string>
+
+    <string name="app_profile">你的资料</string>
+    <string name="tg_name_grt">你好, </string>
+    <string name="tg_name_ph2">您的姓名</string>
+    <string name="tg_set_chlg">请定制您的挑战计划</string>
+    <string name="tg_q_go">发起挑战！</string>
+    <string name="tg_email_ph">在这里输入Email</string>
+    <string name="tg_total_quest">问题总数</string>
+    <string name="tg_total_correct">回答正确</string>
+    <string name="tg_total_incorrect">回答错误</string>
+    <string name="tg_total_unanswered">待回答</string>
+    <string name="tg_total_score">共计得分</string>
+    <string name="tg_total_unanswered_cnt">未回答数量</string>
+    <string name="tg_QuestionNum_cnt">问题总数数量</string>
+    <string name="tg_total_answered">已回答</string>
+    <string name="tg_total_answered_cnt">已回答数量</string>
+    <string name="tg_question_num">问题: </string>
+    <string name="tg_open">开</string>
+    <string name="tg_close">关</string>
+    <string name="tg_backtomainpage">返回主页</string>
+    <string name="tg_ranking">查看英雄榜</string>
+    <string name="tg_playagain">再玩一次</string>
+    <string name="tg_help">帮助中心</string>
+    <string name="tg_app_name">Trivia竞猜游戏</string>
+    <string name="tg_welcome"> 欢迎迎接挑战,  </string>
+
+    <string name="tg_select_5_number">问题数量: 5 </string>
+    <string name="tg_select_10_number">问题数量: 10 </string>
+    <string name="tg_select_15_number">问题数量: 15 </string>
+    <string name="tg_select_20_number">问题数量: 20 </string>
+    <string name="tg_reset">重置选项</string>
+    <string name="tg_submit">提交答案</string>
+    <string name="tg_ranking_tleRK">排名</string>
+    <string name="tg_ranking_tleNM">姓名</string>
+    <string name="tg_ranking_tleSC">成绩</string>
+    <string name="tg_blank_line">   ------------------------------------------------------------------------------------------------------  </string>
+    <string name="tg_submitBtn"> 提交 </string>
+    <string name="tg_quitBtn"> 退出 </string>
+    <string name="tg_alert_instr1">使用说明</string>
+    <string name="tg_alert_instr2">(1) 选择你想玩的游戏组合</string>
+    <string name="tg_alert_instr3">(2) 回答所有问题</string>
+    <string name="tg_alert_instr4">(3) 提交及查看答案</string>
+    <string name="tg_alert_instr5">(4) 也可以通过工具栏查看英雄排名榜</string>
+    <string name="tg_alert_instr_ques"> 您是否准备开始战斗？</string>
+    <string name="tg_game_name">TRIVIA竞猜游戏</string>
+    <string name="tg_author">作者: Nicole Yue</string>
+    <string name="tg_version">版本: 5.0</string>
+
     </resources>

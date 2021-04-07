@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".trivia.TriviaPlayRoomActivity">
+
+    <ProgressBar
+        android:id="@+id/tg_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:visibility="visible"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/tg_grt_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:layout_below="@+id/tg_progressBar"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#E91E63"/>
+
+    <TextView
+        android:id="@+id/tg_total_ques_num_tx"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_grt_top"
+        android:text="@string/tg_total_quest" />
+
+    <TextView
+        android:id="@+id/tg_ques_num_cnt"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_total_ques_num_tx"
+        android:text="@string/tg_QuestionNum_cnt"/>
+
+    <TextView
+        android:id="@+id/tg_unanswered"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_ques_num_cnt"
+        android:text="@string/tg_total_unanswered" />
+
+    <TextView
+        android:id="@+id/tg_unanswered_cnt"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_unanswered"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tg_total_unanswered" />
+
+    <TextView
+        android:id="@+id/tg_total_corr"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_unanswered_cnt"
+        android:text="@string/tg_total_correct" />
+
+    <TextView
+        android:id="@+id/tg_corr_cnt"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_total_corr"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tg_total_correct" />
+
+    <TextView
+        android:id="@+id/tg_total_incorr"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_corr_cnt"
+        android:text="@string/tg_total_incorrect" />
+
+    <TextView
+        android:id="@+id/tg_incorr_cnt"
+        android:paddingTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/tg_total_incorr"
+        android:text="@string/tg_total_incorrect" />
+
+    <TextView
+        android:id="@+id/tg_score"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_incorr_cnt"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:text="@string/tg_total_score" />
+
+    <TextView
+        android:id="@+id/tg_score_cnt"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_score"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:text="@string/tg_total_score" />
+
+    <ListView
+        android:id="@+id/tg_theListView"
+        android:paddingTop="10dp"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_grt_top"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/tg_total_ques_num_tx"
+        android:paddingLeft="10dp"
+        android:divider="@color/design_default_color_background">
+
+    </ListView>
+
+    <FrameLayout
+        android:id="@+id/tg_fragmentLocation"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/purple_500"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/tg_theListView"/>
+
+
+    <Button
+        android:id="@+id/tg_leaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tg_theListView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/tg_quitBtn"/>
+
+    <TextView
+        android:id="@+id/tg_textSpace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/tg_nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tg_submit"
+        android:layout_alignRight="@+id/tg_theListView"
+        android:layout_alignBottom="@id/tg_theListView" />
+
+</RelativeLayout>

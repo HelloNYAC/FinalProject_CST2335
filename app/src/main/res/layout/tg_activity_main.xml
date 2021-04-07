@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundcolor">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tg_my_toolbar_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EAC5C5"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:id="@+id/tg_bgimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tg_my_toolbar_m"
+        android:src="@drawable/tg_main2"/>
+
+    <TextView
+        android:id="@+id/tg_name_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="@string/tg_enter_name"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/tg_bgimg"
+        android:layout_marginTop="20dp"
+        android:textColor="#B3380919"
+        android:layout_marginRight="10dp"/>
+
+    <EditText
+        android:id="@+id/enter_nm_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:layout_marginTop="15dp"
+        android:textSize="25sp"
+        android:layout_below="@+id/tg_bgimg"
+        android:text="@string/tg_enter_name"
+        android:backgroundTint="@color/material_on_primary_disabled"
+        android:layout_toRightOf="@+id/tg_name_m"/>
+
+
+    <Button
+        android:id="@+id/q_go_btn_m"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tg_name_m"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_centerInParent="true"
+        android:text="@string/tg_q_go" />
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/tg_drawer_layout_m"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tg_my_toolbar_m"
+        tools:openDrawer="start">
+        <!-- THIS IS WHAT IS VISIBLE ON SCREEN:-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/tg_bnv_m"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EAC5C5"
+                android:visible="true"
+                app:itemIconTint="@android:color/black"
+                app:itemTextColor="@android:color/black"
+                app:menu="@menu/tg_main_activity_actions" />
+        </LinearLayout>
+
+        <!-- THIS IS WHAT IS WHAT POPS OUT FROM THE SIDE:-->
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="200dp"
+            android:layout_height="500dp"
+            android:layout_gravity="start"
+            android:background="#EAC5C5"
+            android:fitsSystemWindows="true"
+            android:visible="true"
+            app:labelVisibilityMode="labeled"
+            app:headerLayout="@layout/tg_header_layout"
+            app:menu="@menu/tg_main_activity_actions"
+            android:id="@+id/tg_nav_view_m"/>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>

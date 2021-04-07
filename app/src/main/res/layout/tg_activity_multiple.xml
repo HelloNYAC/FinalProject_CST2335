@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
+
+<!--    <TextView-->
+<!--        android:id="@+id/qustls_id"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginRight="5dp" />-->
+
+    <TextView
+        android:id="@+id/qustls_qust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="questionlist"/>
+
+    <RadioGroup
+        android:id="@+id/tg_answer_group_mul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qustls_qust"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/qustls_ans1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"/>
+s
+        <RadioButton
+            android:id="@+id/qustls_ans2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B" />
+
+        <RadioButton
+            android:id="@+id/qustls_ans3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"/>
+
+        <RadioButton
+            android:id="@+id/qustls_ans4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D"/>
+    </RadioGroup>
+
+</RelativeLayout>
