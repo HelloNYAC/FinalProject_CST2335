@@ -117,4 +117,31 @@
 
 
 
+    <string name="ss_mainbt">Go</string>
+    <string name="song_snackbar1">Lovely song</string>
+    <string name="SONG_rm_title">Do you want to delete this？</string>
+    <string name="SONG_rm_msg1">"The selected row is: "</string>
+    <string name="SONG_rm_msg2">"The database id is: " </string>
+    <string name="SONG_p_msg1">"YES"</string>
+    <string name="SONG_n_msg2">"NO" </string>
+    <string name="songhidetext">Save to favorites</string>
+    <string name="title_activity_song_favourite_list">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="song_myfvbtn">My favourites</string>
+    <string name="song_menu_search">Search</string>
+    <string name="song_menu_home">Home</string>
+    <string name="song_menu_fav">Favourites</string>
+    <string name="ssfv_open">OPEN</string>
+    <string name="song_helptitle">Instruction</string>
+    <string name="song_helpMsg1">Search your favorite song and add to favorite</string>
+    <string name="song_helpMsg2">Click songID and ArtistID, you can get the guitar music of the song and artist name</string>
+    <string name="song_helpMsg3">Click heart button, check what you added in the favorite list.</string>
+        <string name="ssfv_close">CLOSE</string>
+    <string name="ss_help">Help</string>
+    <string name="ss_game_name">Songster</string>
+    <string name="ss_author">Ying Li</string>
+    <string name="ss_version">Version 4.1</string>
+
 </resources>

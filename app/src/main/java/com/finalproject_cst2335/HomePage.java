@@ -11,13 +11,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-<<<<<<< .merge_file_a14940
+import android.view.View;
+import android.widget.ImageView;
+import com.finalproject_cst2335.Song.SongMainActivity;
 import com.finalproject_cst2335.car.CarMainActivity;
-=======
-
-import com.finalproject_cst2335.trivia.TriviaGamePickActivity;
-import com.finalproject_cst2335.trivia.TriviaMainActivity;
->>>>>>> .merge_file_a12532
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -25,18 +22,38 @@ public class HomePage extends AppCompatActivity {
     private DrawerLayout drawL;
     private NavigationView navView;
     private ActionBarDrawerToggle toggler;
+    private ImageView trivia,soccer,songsterr,car;
 
-    /**
-     * oncreate method of the whole project
-     * to setview of the activity
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         tb = findViewById(R.id.home_tb);
         setSupportActionBar(tb);
+
+//        trivia =findViewById(R.id.hmimgtivia);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
+//            startActivity(goToSoccerGame);
+//        });
+//
+//        soccer =findViewById(R.id.hmimgsoccer);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+//            startActivity(goToSoccerGame);
+//        });
+//
+//        car = findViewById(R.id.hmimgcar);
+//        trivia.setOnClickListener(v -> {
+//            Intent goToCarGame = new Intent(HomePage.this, CarGameHomePage.class);
+//            startActivity(goToCarGame);
+//        });
+//
+        songsterr = findViewById(R.id.hmimgsong);
+        songsterr.setOnClickListener(v -> {
+                    Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
+                    startActivity(goToSoccerGame);
+        });
 
         drawL = findViewById(R.id.drawerL);
         navView = findViewById(R.id.navView);
@@ -51,11 +68,6 @@ public class HomePage extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    /**
-     * opoption to load menu
-     * @param menu
-     * @return
-     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -63,11 +75,6 @@ public class HomePage extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    /**
-     * opoption selected on toolbar
-     * @param item
-     * @return
-     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(toggler.onOptionsItemSelected(item)){
@@ -78,34 +85,31 @@ public class HomePage extends AppCompatActivity {
 //            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
 //            startActivity(goToSoccerGame);
 //        }
-//
-        if( item.getItemId() == R.id.toTrivia){
-            Intent toTrivia = new Intent(HomePage.this, TriviaMainActivity.class);
-            startActivity(toTrivia);
-        }
 
-        if( item.getItemId() == R.id.toCar){
-            Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
-            startActivity(goToCar);
-        }
+       if( item.getItemId() == R.id.toTrivia){
+           Intent goToSoccerGame = new Intent(HomePage.this, TriviaMainActivity.class);
+           startActivity(goToSoccerGame);
+       }
+
+
+        if( item.getItemId() == R.id.toSongster){
+            Intent goToSoccerGame = new Intent(HomePage.this, SongMainActivity.class);
+            startActivity(goToSoccerGame);
+
+//         if( item.getItemId() == R.id.toCar){
+//             Intent goToCar = new Intent(HomePage.this, CarMainActivity.class);
+//             startActivity(goToCar);
+//         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * onpost crete to save instancestate
-     * @param savedInstanceState
-     */
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         toggler.syncState();
     }
 
-    /**
-     * on configure method
-     * @param newConfig
-     */
     @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);

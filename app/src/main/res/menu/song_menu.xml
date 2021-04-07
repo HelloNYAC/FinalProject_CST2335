@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/songtohome"
+        android:title="@string/song_menu_home"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/songtofvlist"
+        android:title="@string/song_menu_fav"
+        android:icon="@drawable/ic_fav"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/songhelp"
+        android:title="@string/ss_help"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="always"/>
+
+
+
+</menu>
