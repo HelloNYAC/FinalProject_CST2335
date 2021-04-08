@@ -5,7 +5,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/ShowFavrouties"
-            android:icon="@drawable/favourites"
+            android:icon="@drawable/soccer_favourites"
             android:title="Saved">
         </item>
         <item

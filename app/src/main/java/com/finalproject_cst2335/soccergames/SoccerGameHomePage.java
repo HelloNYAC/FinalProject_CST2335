@@ -185,6 +185,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
                 }else {
                     Intent goToDetail = new Intent(SoccerGameHomePage.this, SoccerNewsDetailPage.class);
                     goToDetail.putExtra(SOCCER_NEWS_DETAIL, adapter.getItem(position));
+                    Log.e("=====", "SOCCER_NEWS_DETAIL: "+SOCCER_NEWS_DETAIL );
                     startActivity(goToDetail);
                 }
             }

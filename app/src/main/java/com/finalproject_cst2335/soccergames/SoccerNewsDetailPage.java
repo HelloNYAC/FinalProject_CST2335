@@ -62,11 +62,12 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
         Log.i("Thumbnail", soccerNews.getImage());
 
         if( soccerNews != null){
+            thumbnailURL = soccerNews.getImage();
+            Log.e("TAG====", "onCreate: " +thumbnailURL);
             titleTv.setText(soccerNews.getTitle());
             linkTv.setText(soccerNews.getArticleUrl());
             dateTv.setText(soccerNews.getDate());
             descTv.setText(soccerNews.getDescription());
-            thumbnailURL = soccerNews.getImage();
 
             ImageDownloader downloader = new ImageDownloader();
             downloader.execute();
