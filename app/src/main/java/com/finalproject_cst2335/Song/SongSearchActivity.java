@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finalproject_cst2335.HomePage;
 import com.finalproject_cst2335.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -86,7 +87,7 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
                 break;
             case R.id.songtohome:
                 Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
-                startActivity(new Intent(this, SongMainActivity.class));
+                startActivity(new Intent(this, HomePage.class));
                 break;
         }
 
@@ -196,7 +197,7 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
                 break;
             case R.id.songtohome:
                 Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
-                startActivity(new Intent(this, SongMainActivity.class));
+                startActivity(new Intent(this, HomePage.class));
                 break;
         }
         DrawerLayout drawerLayout = findViewById(R.id.song_drawer_layout);

@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finalproject_cst2335.HomePage;
 import com.finalproject_cst2335.R;
 
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class SongDetailsFragment extends Fragment {
                             startActivity( new Intent (getActivity(), SongfavList.class));
                             break;
                         case R.id.songtohome:
-                            startActivity( new Intent (getActivity(), SongMainActivity.class));
+                            startActivity( new Intent (getActivity(), HomePage.class));
                             break;
                     }
                     return true;
