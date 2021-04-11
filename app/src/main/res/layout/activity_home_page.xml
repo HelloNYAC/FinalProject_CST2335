@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerL"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.finalproject_cst2335.HomePage">
@@ -19,35 +18,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="140dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/hmimgtivia"
-        android:src="@drawable/hmtrivia"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:id="@+id/hmimgtivia"
+            android:layout_width="154dp"
+            android:layout_height="134dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="180dp"
-            android:src="@drawable/hmsoccer"
+            android:src="@drawable/hmtrivia" />
+
+        <ImageView
             android:id="@+id/hmimgsoccer"
-            android:layout_toRightOf="@+id/hmimgtivia"/>
+            android:layout_width="157dp"
+            android:layout_height="139dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="180dp"
+            android:layout_toRightOf="@+id/hmimgtivia"
+            android:src="@drawable/hmsoccer" />
 
         <ImageView
             android:id="@+id/hmimgcar"
-            android:layout_width="142dp"
-            android:layout_height="141dp"
+            android:layout_width="155dp"
+            android:layout_height="145dp"
             android:layout_below="@+id/hmimgtivia"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="50dp"
             android:src="@drawable/hmcar" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
             android:id="@+id/hmimgsong"
-            android:layout_toRightOf="@+id/hmimgcar"
+            android:layout_width="154dp"
+            android:layout_height="140dp"
             android:layout_below="@+id/hmimgsoccer"
-            android:src="@drawable/hmsongsterr"/>
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/hmimgcar"
+            android:src="@drawable/hmsongsterr" />
 
         
     </RelativeLayout>
