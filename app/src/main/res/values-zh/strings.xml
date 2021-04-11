@@ -200,6 +200,6 @@
     <!--CARDB END-->
 
     <!-- soccer games -->
-    <string name="sc_main_title"> LATEST SOCCER NEWS</string>
-    <string name="sc_goal"> GOAL! </string>
+    <string name="sc_main_title"> 足球新闻</string>
+    <string name="sc_goal"> 进球得分</string>
 </resources>

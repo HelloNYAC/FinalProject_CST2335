@@ -1,5 +1,6 @@
 package com.finalproject_cst2335.soccergames;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -7,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,12 +36,12 @@ public class FavSoccerGames extends AppCompatActivity {
     public static final String NEWS_TO_PASS = "NEWS_TO_PASS";
     private boolean isTablet;
     private static final String CURRENT_FRAME = "CURRENT_FRAME";
-
+    public static final int BACK_FROM_FAV = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fav_soccer_games);
-
+        setTitle("My Favorite Soccer Games");
         tb = findViewById(R.id.sc_fav_page_tb);
         favDetailFrame = findViewById(R.id.sc_fav_detail_fragment);
         isTablet = favDetailFrame != null;
@@ -68,6 +71,21 @@ public class FavSoccerGames extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fav_list_tb_items,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if( item.getItemId() == R.id.sc_fav_list_to_home){
+            Intent backToHome = new Intent(FavSoccerGames.this,SoccerGameHomePage.class);
+            startActivity(backToHome);
+        }
+        return true;
     }
 
     private class FavListAdapter extends BaseAdapter{
