@@ -46,8 +46,8 @@
 
         <ImageView
             android:id="@+id/hmimgsong"
-            android:layout_width="154dp"
-            android:layout_height="140dp"
+            android:layout_width="142dp"
+            android:layout_height="135dp"
             android:layout_below="@+id/hmimgsoccer"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="30dp"
