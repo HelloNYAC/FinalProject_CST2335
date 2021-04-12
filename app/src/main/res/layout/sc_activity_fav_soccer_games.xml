@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".soccergames.FavSoccerGames">
+    tools:context=".soccergames.SoccerFavSoccerGames">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/sc_fav_page_tb"

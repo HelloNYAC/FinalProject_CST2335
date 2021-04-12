@@ -7,14 +7,12 @@ import android.util.Log;
 
 import com.finalproject_cst2335.R;
 
-import java.sql.SQLException;
-
 public class SongEmptyActivty extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_song_empty_activty);
+        setContentView(R.layout.song_activity_song_empty_activty);
         Bundle song_dataToPass = getIntent().getExtras(); //get the data that was passed from FragmentExample
         Bundle song_dataToRemove = getIntent().getExtras();
         Log.e("song_dataToPass", "onCreate: " + song_dataToPass.get("TO_SAVE") );

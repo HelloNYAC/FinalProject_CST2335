@@ -31,7 +31,7 @@ public class SongMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_song_main);
+        setContentView(R.layout.song_activity_song_main);
 
         ss_search = findViewById(R.id.ss_inputname);
         ss_gobutton = findViewById(R.id.ss_gobt);

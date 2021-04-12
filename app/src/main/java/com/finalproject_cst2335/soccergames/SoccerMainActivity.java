@@ -17,7 +17,7 @@ public class SoccerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soccer_main);
+        setContentView(R.layout.sc_activity_soccer_main);
         goalBtn = findViewById(R.id.sc_go_btn);
         goalBtn.setBackgroundColor(Color.parseColor("#2d7ceb"));
 

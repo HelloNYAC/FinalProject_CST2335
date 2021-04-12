@@ -2,31 +2,22 @@ package com.finalproject_cst2335.Song;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.finalproject_cst2335.R;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 
 public class SongfavList extends AppCompatActivity {
@@ -49,7 +40,7 @@ public class SongfavList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songfav_list);
+        setContentView(R.layout.song_activity_songfav_list);
 
         favAdapter = new favListAdapter();
         ListView songfvlistview = findViewById(R.id.song_fvlist_listview);

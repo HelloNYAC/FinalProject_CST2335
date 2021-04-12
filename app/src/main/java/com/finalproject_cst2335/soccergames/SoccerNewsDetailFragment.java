@@ -27,22 +27,24 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class FavNewsDetailFragment extends Fragment {
 
-    private TextView titleTv;
-    private TextView dateTv;
-    private TextView descTv;
-    private TextView linkTv;
-    private ImageView thumbNailIv;
-    private Button removeBtn;
-    private Button openInBrowserBtn;
-    private Button hideBtn;
-    private SoccerGameDBHelper dbHelper;
+public class SoccerNewsDetailFragment extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     private SoccerNews news;
     private AppCompatActivity parent;
+    private ImageView thumbnail;
+    private SoccerGameDBHelper dbHelper;
 
-    public FavNewsDetailFragment( SoccerNews news, AppCompatActivity parent) {
+    public SoccerNewsDetailFragment(SoccerNews news, AppCompatActivity parent) {
         // Required empty public constructor
         this.news = news;
         this.parent = parent;
@@ -52,53 +54,56 @@ public class FavNewsDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fav_news_detail, container, false);
-        titleTv = view.findViewById(R.id.sc_favDetailFragment_news_title);
-        dateTv = view.findViewById(R.id.sc_favDetailFragment_date);
-        descTv = view.findViewById(R.id.sc_favDetailFragment_desc);
-        linkTv = view.findViewById(R.id.sc_favDetailFragment_link);
-        thumbNailIv = view.findViewById(R.id.sc_favDetailFragment_thumbnail);
-        removeBtn = view.findViewById(R.id.sc_favDetailFragment_remove_fav);
-        openInBrowserBtn = view.findViewById(R.id.sc_favDetailFragment_open_browser);
-        hideBtn = view.findViewById(R.id.sc_favDetailFragment_hide);
+        View view = inflater.inflate(R.layout.sc_fragment_news_detail, container, false);
+        TextView titleTv = view.findViewById(R.id.sc_detailfragment_news_title);
+        TextView linkTv = view.findViewById(R.id.sc_detailfragment_link);
+        TextView dateTv = view.findViewById(R.id.sc_detailfragment_date);
+        TextView descTv = view.findViewById(R.id.sc_detailfragment_desc);
+        Button addToFavBtn = view.findViewById(R.id.sc_detailfragment_save_fav);
+        Button hideBtn = view.findViewById(R.id.sc_detailfragment_hide);
+        Button openBrowserBtn = view.findViewById(R.id.sc_detailfragment_open_browser);
+        thumbnail = view.findViewById(R.id.sc_detailfragment_thumbnail);
 
-        titleTv.setText(this.news.getTitle());
-        dateTv.setText(this.news.getDate());
-        descTv.setText(this.news.getDescription());
-        linkTv.setText(this.news.getArticleUrl());
-
-        //set remove event to remove a news from database
-        removeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                long affectedRows = dbHelper.removeNews(news);
-                if(affectedRows >= 1){
-                    Toast.makeText(parent,"Remove this news successfully",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(parent,"Fail to remove this news",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        //hit hide button to hide a fragment
         hideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 parent.getSupportFragmentManager()
                         .beginTransaction()
-                        .remove(FavNewsDetailFragment.this)
+                        .remove(SoccerNewsDetailFragment.this)
                         .commit();
             }
         });
-        //set  on click event to openInBrowser button  to open a news link in browser
-        openInBrowserBtn.setOnClickListener(new View.OnClickListener() {
+
+        titleTv.setText(this.news.getTitle());
+        linkTv.setText(this.news.getArticleUrl());
+        dateTv.setText(this.news.getDate());
+        descTv.setText(this.news.getDescription());
+
+        //hit save button to save a news to db
+        addToFavBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long affectedRows = dbHelper.addNewSoccerGame(news);
+                if(affectedRows >= 1){
+                    Toast.makeText(parent,"Add this news to favorite list successfully",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(parent,"Failed to add this news to favorite list",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //hit open button to open a link in browser
+        openBrowserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(news.getArticleUrl()));
@@ -108,21 +113,22 @@ public class FavNewsDetailFragment extends Fragment {
 
         ImageDownloader downloader = new ImageDownloader(this.news.getImage());
         downloader.execute();
+
         return view;
     }
 
     private class ImageDownloader extends AsyncTask<String,Integer,String> {
         Bitmap image = null;
-        String url;
+        String thumbnailURL;
 
-        private ImageDownloader(String url){
-            this.url = url;
+        private ImageDownloader(String thumbnailURL){
+            this.thumbnailURL = thumbnailURL;
         }
         @Override
         protected String doInBackground(String... strings) {
-            if( this.url != null && !this.url.equals("")){
+            if( thumbnailURL != null && !thumbnailURL.equals("")){
                 try {
-                    URL url = new URL(this.url);
+                    URL url = new URL(thumbnailURL);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     InputStream inputStream = connection.getInputStream();
                     image = BitmapFactory.decodeStream(inputStream);
@@ -138,7 +144,7 @@ public class FavNewsDetailFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             if( image!=null){
-                thumbNailIv.setImageBitmap(image);
+                thumbnail.setImageBitmap(image);
             }
         }
     }

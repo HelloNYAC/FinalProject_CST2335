@@ -24,8 +24,8 @@
         <activity android:name=".car.CarListsView" />
         <activity android:name=".car.CarListsDetail" />
         <activity android:name=".car.CarMainActivity" />
-        <activity android:name=".soccergames.FavoriteNewsDetailPage" />
-        <activity android:name=".soccergames.FavSoccerGames" />
+        <activity android:name=".soccergames.SoccerFavoriteNewsDetailPage" />
+        <activity android:name=".soccergames.SoccerFavSoccerGames" />
         <activity android:name=".soccergames.SoccerNewsDetailPage" />
         <activity android:name=".soccergames.SoccerGameHomePage" />
         <activity android:name=".HomePage">
