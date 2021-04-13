@@ -26,10 +26,10 @@
         android:visible="true"
         android:orderInCategory="50"/>
 
-    <item android:id="@+id/hp_soccer"
+    <item android:id="@+id/hp_car"
         app:showAsAction="always"
-        android:icon="@drawable/soccer"
-        android:title="@string/zz_gotosoccer"
+        android:icon="@drawable/car"
+        android:title="@string/zz_gotocar"
         android:enabled="true"
         android:visible="true"
         android:orderInCategory="50"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->

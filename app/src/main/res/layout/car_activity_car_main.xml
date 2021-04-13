@@ -32,6 +32,7 @@
             android:textColor="#417C6D"
             android:textSize="36sp" />
 
+
         <TextView
             android:id="@+id/SearchByModel"
             android:layout_width="match_parent"
