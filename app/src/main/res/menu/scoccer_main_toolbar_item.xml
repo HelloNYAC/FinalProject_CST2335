@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/hp_homepage"
+        android:title="@string/tg_backtomainpage"
+        android:icon="@drawable/tg_homepage2"
+        android:orderInCategory="50"
+        android:visible="true"
+        android:enabled="true"
+        app:showAsAction="always"/>  <!-- This uses showAsAction=always, so look at icon= parameter -->
+
+    <item android:id="@+id/hp_trivia"
+        android:icon="@drawable/trivia"
+        android:title="@string/zz_gototrivia"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:visible="true"
+        android:orderInCategory="50"/> <!-- This uses showAsAction=never, so look at title= parameter -->
+
+    <item android:id="@+id/hp_song"
+        app:showAsAction="always"
+        android:icon="@drawable/songster"
+        android:title="@string/zz_gotosong"
+        android:enabled="true"
+        android:visible="true"
+        android:orderInCategory="50"/>
+
+    <item android:id="@+id/hp_soccer"
+        app:showAsAction="always"
+        android:icon="@drawable/soccer"
+        android:title="@string/zz_gotosoccer"
+        android:enabled="true"
+        android:visible="true"
+        android:orderInCategory="50"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
+
+</menu>
