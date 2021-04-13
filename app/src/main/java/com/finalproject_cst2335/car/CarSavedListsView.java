@@ -29,7 +29,7 @@ public class CarSavedListsView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_saved_lists);
+        setContentView(R.layout.car_activity_car_saved_lists);
         tb = findViewById(R.id.carShowFavorites_tb);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,7 +92,7 @@ public class CarSavedListsView extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             final Cars favouritesModel = favouritesModels.get(position);
             View view = convertView;
-            view = getLayoutInflater().inflate(R.layout.activity_car_details_view, parent, false);
+            view = getLayoutInflater().inflate(R.layout.car_activity_car_details_view, parent, false);
 
             TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
             tv_make_id = view.findViewById(R.id.tv_make_id);

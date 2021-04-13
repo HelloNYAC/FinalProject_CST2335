@@ -25,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FavoriteNewsDetailPage extends AppCompatActivity {
+public class SoccerFavoriteNewsDetailPage extends AppCompatActivity {
 
     private Toolbar tb;
     private TextView titleTv;
@@ -43,7 +43,7 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favorite_news_detail_page);
+        setContentView(R.layout.sc_activity_favorite_news_detail_page);
 
         tb = findViewById(R.id.sc_fav_detail_tb);
         titleTv = findViewById(R.id.sc_fav_news_title);
@@ -55,7 +55,7 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
         openBrowserBtn = findViewById(R.id.sc_fav_open_browser);
         dbHelper = new SoccerGameDBHelper(getApplicationContext());
 
-        news = (SoccerNews) getIntent().getSerializableExtra(FavSoccerGames.NEWS_TO_PASS);
+        news = (SoccerNews) getIntent().getSerializableExtra(SoccerFavSoccerGames.NEWS_TO_PASS);
 
         if( news != null){
             thumbnailURL = news.getImage();
@@ -71,11 +71,11 @@ public class FavoriteNewsDetailPage extends AppCompatActivity {
                 public void onClick(View v) {
                     long affectedRows = dbHelper.removeNews( news);
                     if( affectedRows >= 1 ){
-                        Toast.makeText(FavoriteNewsDetailPage.this,"Remove successfully",Toast.LENGTH_SHORT).show();
-                        Intent back = new Intent(FavoriteNewsDetailPage.this,FavSoccerGames.class);
+                        Toast.makeText(SoccerFavoriteNewsDetailPage.this,"Remove successfully",Toast.LENGTH_SHORT).show();
+                        Intent back = new Intent(SoccerFavoriteNewsDetailPage.this, SoccerFavSoccerGames.class);
                         startActivity(back);
                     }else{
-                        Toast.makeText(FavoriteNewsDetailPage.this,"Failed to remove this news record",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SoccerFavoriteNewsDetailPage.this,"Failed to remove this news record",Toast.LENGTH_SHORT).show();
                     }
                 }
             });

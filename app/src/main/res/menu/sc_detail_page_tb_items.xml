@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="@string/favorite"
         android:id="@+id/sc_fav_news"
-            android:icon="@drawable/fav"
+            android:icon="@drawable/soccer_favourites"
             app:showAsAction="always"/>
 </menu>

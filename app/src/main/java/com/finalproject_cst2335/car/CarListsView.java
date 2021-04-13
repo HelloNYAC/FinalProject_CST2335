@@ -1,12 +1,10 @@
 package com.finalproject_cst2335.car;
 
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 
 import com.finalproject_cst2335.R;
 import com.google.gson.Gson;
@@ -45,7 +42,7 @@ public class CarListsView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_lists);
+        setContentView(R.layout.car_activity_car_lists);
         tb = findViewById(R.id.carsList_tb);
         setSupportActionBar(tb);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -199,7 +196,7 @@ public class CarListsView extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             final Cars dataList = trackDetailModels.get(position);
             View view;
-            view = getLayoutInflater().inflate(R.layout.activity_car_details_view, parent, false);
+            view = getLayoutInflater().inflate(R.layout.car_activity_car_details_view, parent, false);
 
             TextView tv_make_id, tv_make_name, tv_model_id, tv_model_name;
             tv_make_id = view.findViewById(R.id.tv_make_id);

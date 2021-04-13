@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.finalproject_cst2335">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -11,21 +12,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalProject_CST2335">
+        android:theme="@style/Theme.FinalProject_CST2335"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".soccergames.SoccerMainActivity"></activity>
         <activity android:name=".Song.SongfavList" />
         <activity android:name=".Song.SongEmptyActivty" />
         <activity android:name=".Song.SongSearchActivity" />
         <activity android:name=".Song.SongMainActivity" />
-
-        <activity android:name="com.finalproject_cst2335.car.CarSavedListsDetail"/>
-        <activity android:name="com.finalproject_cst2335.car.CarSavedListsView"/>
-        <activity android:name="com.finalproject_cst2335.car.CarListsView" />
-        <activity android:name="com.finalproject_cst2335.car.CarListsDetail" />
-        <activity android:name="com.finalproject_cst2335.car.CarMainActivity"/>
-        android:theme="@style/Theme.FinalProject_CST2335"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".soccergames.FavoriteNewsDetailPage"></activity>
-        <activity android:name=".soccergames.FavSoccerGames" />
+        <activity android:name=".car.CarSavedListsDetail" />
+        <activity android:name=".car.CarSavedListsView" />
+        <activity android:name=".car.CarListsView" />
+        <activity android:name=".car.CarListsDetail" />
+        <activity android:name=".car.CarMainActivity" />
+        <activity android:name=".soccergames.SoccerFavoriteNewsDetailPage" />
+        <activity android:name=".soccergames.SoccerFavSoccerGames" />
         <activity android:name=".soccergames.SoccerNewsDetailPage" />
         <activity android:name=".soccergames.SoccerGameHomePage" />
         <activity android:name=".HomePage">
@@ -35,12 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".trivia.TriviaPlayRoomActivity"/>
-        <activity android:name=".trivia.TriviaEmptyActivity"/>
-        <activity android:name=".trivia.TriviaRankingPage"/>
-        <activity android:name=".trivia.TriviaGamePickActivity"/>
-        <activity android:name=".trivia.TriviaMainActivity"/>
-
+        <activity android:name=".trivia.TriviaPlayRoomActivity" />
+        <activity android:name=".trivia.TriviaEmptyActivity" />
+        <activity android:name=".trivia.TriviaRankingPage" />
+        <activity android:name=".trivia.TriviaGamePickActivity" />
+        <activity android:name=".trivia.TriviaMainActivity" />
     </application>
 
 </manifest>

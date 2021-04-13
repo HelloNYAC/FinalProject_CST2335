@@ -28,15 +28,21 @@
             android:id="@+id/sc_searchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_below="@id/soccerMainPage_tb"
             android:layout_toRightOf="@id/sc_searchBox"
             android:text="@string/search"/>
         <ListView
             android:id="@+id/sc_itemList"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_below="@id/sc_searchBox"/>
+        <FrameLayout
+            android:id="@+id/sc_detail_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/sc_itemList"
+            android:layout_below="@id/sc_searchBtn"/>
         <ProgressBar
             android:id="@+id/sc_prograssBar"
             android:layout_width="wrap_content"
@@ -50,7 +56,7 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/soccerMainPageNavView"
-        app:headerLayout="@layout/nav_view_header"
+        app:headerLayout="@layout/hp_nav_view_header"
         app:menu="@menu/nav_view_items"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

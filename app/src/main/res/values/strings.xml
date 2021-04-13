@@ -133,12 +133,11 @@
     <string name="song_helpMsg1">Search your favorite song and add to favorite</string>
     <string name="song_helpMsg2">Click songID and ArtistID, you can get the guitar music of the song and artist name</string>
     <string name="song_helpMsg3">Click heart button, check what you added in the favorite list.</string>
-        <string name="ssfv_close">CLOSE</string>
+    <string name="ssfv_close">CLOSE</string>
     <string name="ss_help">Help</string>
     <string name="ss_game_name">Songster</string>
     <string name="ss_author">Ying Li</string>
     <string name="ss_version">Version 4.1</string>
-
 
 
     <!--CARDB-->
@@ -201,4 +200,8 @@
     <string name="version">Version</string>
     <string name="author">Author: Car (NanChun Chen); Songster (Ying Li) ; SoccerGame (Yang Yang) TriviaGame (Nicole Yue)</string>
     <string name="one">1</string>
+
+    <!-- soccer games -->
+    <string name="sc_main_title"> LATEST SOCCER NEWS</string>
+    <string name="sc_goal"> GOAL! </string>
 </resources>

@@ -198,4 +198,8 @@
     <string name="java">Java</string>
     <string name="view_car_details">查看汽车参数</string>
     <!--CARDB END-->
+
+    <!-- soccer games -->
+    <string name="sc_main_title"> 足球新闻</string>
+    <string name="sc_goal"> 进球得分</string>
 </resources>

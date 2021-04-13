@@ -6,18 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import com.finalproject_cst2335.Song.SongMainActivity;
 import com.finalproject_cst2335.car.CarMainActivity;
+import com.finalproject_cst2335.soccergames.SoccerMainActivity;
 import com.finalproject_cst2335.trivia.TriviaMainActivity;
-import com.finalproject_cst2335.soccergames.SoccerGameHomePage;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
@@ -36,7 +34,7 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.hp_activity_home_page);
         tb = findViewById(R.id.home_tb);
         setSupportActionBar(tb);
 
@@ -48,7 +46,7 @@ public class HomePage extends AppCompatActivity {
 
         soccer =findViewById(R.id.hmimgsoccer);
         soccer.setOnClickListener(v -> {
-            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+            Intent goToSoccerGame = new Intent(HomePage.this, SoccerMainActivity.class);
             startActivity(goToSoccerGame);
         });
 
@@ -81,7 +79,7 @@ public class HomePage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if( item.getItemId() == R.id.nav_toSoccerGame){
-                    Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+                    Intent goToSoccerGame = new Intent(HomePage.this, SoccerMainActivity.class);
                     startActivity(goToSoccerGame);
                 }
 
@@ -123,7 +121,7 @@ public class HomePage extends AppCompatActivity {
             startActivity(goToSongster);
         }
         if( item.getItemId() == R.id.toSoccerGame){
-            Intent goToSoccerGame = new Intent(HomePage.this, SoccerGameHomePage.class);
+            Intent goToSoccerGame = new Intent(HomePage.this, SoccerMainActivity.class);
             startActivity(goToSoccerGame);
         }
 

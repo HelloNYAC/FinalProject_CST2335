@@ -1,5 +1,6 @@
 package com.finalproject_cst2335.soccergames;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -7,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,7 +26,7 @@ import com.finalproject_cst2335.soccergames.entities.SoccerNews;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavSoccerGames extends AppCompatActivity {
+public class SoccerFavSoccerGames extends AppCompatActivity {
 
     private Toolbar tb;
     private ListView lv;
@@ -33,12 +36,12 @@ public class FavSoccerGames extends AppCompatActivity {
     public static final String NEWS_TO_PASS = "NEWS_TO_PASS";
     private boolean isTablet;
     private static final String CURRENT_FRAME = "CURRENT_FRAME";
-
+    public static final int BACK_FROM_FAV = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fav_soccer_games);
-
+        setContentView(R.layout.sc_activity_fav_soccer_games);
+        setTitle("My Favorite Soccer Games");
         tb = findViewById(R.id.sc_fav_page_tb);
         favDetailFrame = findViewById(R.id.sc_fav_detail_fragment);
         isTablet = favDetailFrame != null;
@@ -54,13 +57,13 @@ public class FavSoccerGames extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(isTablet){
                     SoccerNews newsToBePass = (SoccerNews) adapter.getItem(position);
-                    FavNewsDetailFragment newsDetailFragment = new FavNewsDetailFragment(newsToBePass, FavSoccerGames.this);
+                    SoccerFavNewsDetailFragment newsDetailFragment = new SoccerFavNewsDetailFragment(newsToBePass, SoccerFavSoccerGames.this);
                     FragmentManager manager = getSupportFragmentManager();
                     manager.beginTransaction().
                             replace(R.id.sc_fav_detail_fragment,newsDetailFragment, CURRENT_FRAME)
                             .commit();
                 }else{
-                    Intent goToDetailPage = new Intent(FavSoccerGames.this, FavoriteNewsDetailPage.class);
+                    Intent goToDetailPage = new Intent(SoccerFavSoccerGames.this, SoccerFavoriteNewsDetailPage.class);
                     SoccerNews newsToBePassed = (SoccerNews) adapter.getItem(position);
                     goToDetailPage.putExtra(NEWS_TO_PASS, newsToBePassed);
                     startActivity(goToDetailPage);
@@ -68,6 +71,21 @@ public class FavSoccerGames extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fav_list_tb_items,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if( item.getItemId() == R.id.sc_fav_list_to_home){
+            Intent backToHome = new Intent(SoccerFavSoccerGames.this,SoccerGameHomePage.class);
+            startActivity(backToHome);
+        }
+        return true;
     }
 
     private class FavListAdapter extends BaseAdapter{
@@ -91,7 +109,7 @@ public class FavSoccerGames extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = getLayoutInflater();
             SoccerNews scnews = (SoccerNews) getItem(position);
-            convertView = inflater.inflate(R.layout.news_item_layout,parent,false);
+            convertView = inflater.inflate(R.layout.sc_news_item_layout,parent,false);
             ImageView thumbnailIv = convertView.findViewById(R.id.sc_thumbnail);
             TextView linkTv = convertView.findViewById(R.id.sc_link);
             linkTv.setText(scnews.getArticleUrl());

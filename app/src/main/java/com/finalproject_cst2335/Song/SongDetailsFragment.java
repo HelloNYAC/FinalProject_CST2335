@@ -74,7 +74,7 @@ public class SongDetailsFragment extends Fragment {
             id = songDataFromAnyWhere.getLong(SongSearchActivity.SONG_ITEM_ID);
             // Inflate the layout for this fragment
 
-            result = inflater.inflate(R.layout.activity_song__details_fragment, container, false);
+            result = inflater.inflate(R.layout.song_activity_song__details_fragment, container, false);
             Toolbar toolbar = result.findViewById(R.id.song_tbar);
             toolbar.inflateMenu(R.menu.song_menu);
             toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -126,7 +126,7 @@ public class SongDetailsFragment extends Fragment {
             id = songDataFromAnyWhere.getLong(SongfavList.SONG_ITEM_ID);
 
             // Inflate the layout for this fragment
-            result = inflater.inflate(R.layout.activity_song__details_fragment, container, false);
+            result = inflater.inflate(R.layout.song_activity_song__details_fragment, container, false);
             favBtn = result.findViewById(R.id.Song_detail_ToggleButton);
             favBtn.setText("UNFAVORITE");
             //show the message

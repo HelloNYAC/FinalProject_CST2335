@@ -46,7 +46,7 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soccer_news_detail_page);
+        setContentView(R.layout.sc_activity_soccer_news_detail_page);
         titleTv = findViewById(R.id.sc_news_title);
         linkTv = findViewById(R.id.sc_detail_link);
         dateTv = findViewById(R.id.sc_detail_date);
@@ -105,6 +105,19 @@ public class SoccerNewsDetailPage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String message = null;
+        //Look at your menu XML file. Put a case for every id in that file:
+        switch(item.getItemId()) {
+            //what to do when the menu item is selected:
+            case R.id.sc_fav_news:
+                long affectRows = dbHelper.addNewSoccerGame(soccerNews);
+                if (affectRows >= 1) {
+                    Toast.makeText(SoccerNewsDetailPage.this, "Add successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SoccerNewsDetailPage.this, "Unable to save this news", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
         return true;
     }
 

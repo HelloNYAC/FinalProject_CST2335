@@ -31,7 +31,7 @@ public class CarListsDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_lists_detail_fragment);
+        setContentView(R.layout.car_activity_car_lists_detail_fragment);
         //tb = findViewById(R.id.car_searchResults_tb);
         //setSupportActionBar(tb);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);

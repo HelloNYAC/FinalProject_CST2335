@@ -84,13 +84,13 @@ public class SoccerGameHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soccer_game_home_page);
+        setContentView(R.layout.sc_activity_soccer_game_home_page);
         pb = findViewById(R.id.sc_prograssBar);
         detailFrame = findViewById(R.id.sc_detail_frame);
         boolean isTablet = detailFrame != null;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(SoccerGameHomePage.this);
-        builder.setTitle("Please rate our app").setView(R.layout.soccergames_rating_layout);
+        builder.setTitle("Please rate our app").setView(R.layout.sc_ating_layout);
 
         AlertDialog dialog = builder.show();
         RatingBar ratingBar = dialog.findViewById(R.id.sc_ratingBar);
@@ -176,7 +176,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if( isTablet){
                     SoccerNews newsToBePass = adapter.getItem(position);
-                    NewsDetailFragment newsDetailFragment = new NewsDetailFragment(newsToBePass, SoccerGameHomePage.this);
+                    SoccerNewsDetailFragment newsDetailFragment = new SoccerNewsDetailFragment(newsToBePass, SoccerGameHomePage.this);
                     FragmentManager manager = getSupportFragmentManager();
                     manager.beginTransaction().
                             replace(R.id.sc_detail_frame,newsDetailFragment, CURRENT_FRAME)
@@ -241,7 +241,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
 
         if( item.getItemId() == R.id.sc_fav_list){
 //            Toast.makeText(SoccerGameHomePage.this,"Fav list ... ", Toast.LENGTH_SHORT).show();
-            Intent toFavListActivity = new Intent(SoccerGameHomePage.this, FavSoccerGames.class);
+            Intent toFavListActivity = new Intent(SoccerGameHomePage.this, SoccerFavSoccerGames.class);
             startActivity(toFavListActivity);
         }
 
@@ -286,7 +286,7 @@ public class SoccerGameHomePage extends AppCompatActivity {
 
             LayoutInflater inflater = getLayoutInflater();
             SoccerNews scnews = getItem(position);
-            convertView = inflater.inflate(R.layout.news_item_layout,parent,false);
+            convertView = inflater.inflate(R.layout.sc_news_item_layout,parent,false);
             ImageView thumbnailIv = convertView.findViewById(R.id.sc_thumbnail);
             TextView linkTv = convertView.findViewById(R.id.sc_link);
             linkTv.setText(scnews.getArticleUrl());

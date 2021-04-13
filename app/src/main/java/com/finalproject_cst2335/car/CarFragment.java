@@ -1,6 +1,5 @@
 package com.finalproject_cst2335.car;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -46,7 +45,7 @@ public class CarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_car_lists_detail_fragment, container, false);
+        view = inflater.inflate(R.layout.car_activity_car_lists_detail_fragment, container, false);
 
         //Views Initializer
         btn_add_to_favorites = view.findViewById(R.id.Add_to_Favorites);
