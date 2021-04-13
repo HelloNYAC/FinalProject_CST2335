@@ -10,9 +10,9 @@
         android:enabled="true"
         app:showAsAction="always"/>  <!-- This uses showAsAction=always, so look at icon= parameter -->
 
-    <item android:id="@+id/hp_song"
-        android:icon="@drawable/songster"
-        android:title="@string/zz_gotosong"
+    <item android:id="@+id/hp_trivia"
+        android:icon="@drawable/trivia"
+        android:title="@string/zz_gototrivia"
         app:showAsAction="always"
         android:enabled="true"
         android:visible="true"

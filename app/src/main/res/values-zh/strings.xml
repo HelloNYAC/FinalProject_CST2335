@@ -161,6 +161,11 @@
     <string name="tg_version">版本: 5.0</string>
 
 
+    <string name="zz_gotosong">Gong to Songster</string>
+    <string name="zz_gototrivia">Gong to Trivia</string>
+    <string name="zz_gotosoccer">Gong to Soccer</string>
+    <string name="zz_gotocar">Gong to Car</string>
+
     <!--CARDB-->
     <string name="Open">开</string>
     <string name="Close">关闭</string>

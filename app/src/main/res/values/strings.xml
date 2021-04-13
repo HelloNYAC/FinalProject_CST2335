@@ -88,6 +88,10 @@
     <string name="tg_open">Open</string>
     <string name="tg_close">Close</string>
     <string name="tg_backtomainpage">Home Page</string>
+    <string name="zz_gotosong">Gong to Songster</string>
+    <string name="zz_gototrivia">Gong to Trivia</string>
+    <string name="zz_gotosoccer">Gong to Soccer</string>
+    <string name="zz_gotocar">Gong to Car</string>
     <string name="tg_ranking">Score Ranking</string>
     <string name="tg_playagain">Play Again</string>
     <string name="tg_help">Need Help ?</string>

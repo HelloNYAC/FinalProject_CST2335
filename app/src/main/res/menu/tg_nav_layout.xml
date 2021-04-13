@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/hp_homepage"
+    <item android:id="@+id/tg_homepage"
         android:title="@string/tg_backtomainpage"
         android:icon="@drawable/tg_homepage2"
         android:orderInCategory="50"
@@ -10,27 +10,28 @@
         android:enabled="true"
         app:showAsAction="always"/>  <!-- This uses showAsAction=always, so look at icon= parameter -->
 
-    <item android:id="@+id/hp_song"
-        android:icon="@drawable/songster"
-        android:title="@string/zz_gotosong"
+    <item android:id="@+id/tg_ranking"
+        android:icon="@drawable/tg_ranking"
+        android:title="@string/tg_ranking"
         app:showAsAction="always"
         android:enabled="true"
         android:visible="true"
         android:orderInCategory="50"/> <!-- This uses showAsAction=never, so look at title= parameter -->
 
-    <item android:id="@+id/hp_soccer"
+    <item android:id="@+id/tg_playagain"
+        android:icon="@drawable/tg_play2"
+        android:title="@string/tg_playagain"
         app:showAsAction="always"
-        android:icon="@drawable/soccer"
-        android:title="@string/zz_gotosoccer"
         android:enabled="true"
         android:visible="true"
-        android:orderInCategory="50"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
+        android:orderInCategory="50"/> <!-- This uses showAsAction=never, so look at title= parameter -->
 
-    <item android:id="@+id/hp_car"
-        app:showAsAction="always"
-        android:icon="@drawable/car"
+    <item android:id="@+id/tg_help"
+        app:showAsAction="collapseActionView"
+        android:icon="@drawable/tg_help_2"
         android:title="@string/tg_help"
         android:enabled="true"
         android:visible="true"
-        android:orderInCategory="50"/>
+        android:orderInCategory="400"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
+
 </menu>
