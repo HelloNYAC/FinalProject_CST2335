@@ -163,7 +163,7 @@
                 android:visible="true"
                 app:itemIconTint="@android:color/black"
                 app:itemTextColor="@android:color/black"
-                app:menu="@menu/tg_main_activity_actions" />
+                app:menu="@menu/tg_nav_layout" />
         </LinearLayout>
 
         </androidx.drawerlayout.widget.DrawerLayout>

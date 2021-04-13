@@ -308,13 +308,22 @@ public class SoccerGameHomePage extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            adapter.notifyDataSetChanged();
             pb.setVisibility(View.INVISIBLE);
+            adapter.notifyDataSetChanged();
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
+            {
+                super.onProgressUpdate(values);
+                try {
+                    pb.setVisibility(View.VISIBLE);
+                    pb.setProgress(values[0]);
+                    Thread.sleep(1000);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         @Override

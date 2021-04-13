@@ -6,13 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Song.SongSearchActivity">
 
+
+<RelativeLayout
+    android:id="@+id/song_test_lv"
+    android:layout_width="300dp"
+    android:layout_height="match_parent">
     <include
         android:id="@+id/song_tbar"
         layout="@layout/song_toolbar"/>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/song_drawer_layout"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -64,8 +69,9 @@
             android:visibility="visible"
             app:headerLayout="@layout/song_header_layout"
             app:menu="@menu/song_menu"/>
-
     </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>
 
     <FrameLayout
         android:id="@+id/Song_fragmentLocation"
@@ -73,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
-        layout_toRightOf="song_searchlistview"
+        layout_toRightOf="song_test_lv"
     </FrameLayout>
 
 </RelativeLayout>
