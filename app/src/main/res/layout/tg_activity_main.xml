@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EAC5C5"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
 
     <ImageView
         android:id="@+id/tg_bgimg"
@@ -80,7 +80,7 @@
                 android:visible="true"
                 app:itemIconTint="@android:color/black"
                 app:itemTextColor="@android:color/black"
-                app:menu="@menu/tg_main_activity_actions" />
+                app:menu="@menu/tg_nav_layout" />
         </LinearLayout>
 
         <!-- THIS IS WHAT IS WHAT POPS OUT FROM THE SIDE:-->
@@ -93,7 +93,7 @@
             android:visible="true"
             app:labelVisibilityMode="labeled"
             app:headerLayout="@layout/tg_header_layout"
-            app:menu="@menu/tg_main_activity_actions"
+            app:menu="@menu/tg_nav_layout"
             android:id="@+id/tg_nav_view_m"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 

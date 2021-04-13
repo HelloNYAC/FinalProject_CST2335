@@ -22,6 +22,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject_cst2335.HomePage;
 import com.finalproject_cst2335.R;
+import com.finalproject_cst2335.Song.SongMainActivity;
+import com.finalproject_cst2335.car.CarMainActivity;
+import com.finalproject_cst2335.soccergames.SoccerMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -108,7 +111,39 @@ public class TriviaMainActivity extends AppCompatActivity implements NavigationV
         //Look at your menu XML file. Put a case for every id in that file:
         switch(item.getItemId())
         {
+            case R.id.hp_homepage:
+                message = getResources().getString(R.string.tg_backtomainpage);
+                startActivity(new Intent(this, HomePage.class));
+                break;
+            case R.id.hp_song:
+                message = getResources().getString(R.string.zz_gotosong);
+                startActivity(new Intent(this, SongMainActivity.class));
+                break;
+            case R.id.hp_soccer:
+                message = getResources().getString(R.string.zz_gotosoccer);
+                startActivity(new Intent(this, SoccerMainActivity.class));
+                break;
+            case R.id.hp_car:
+                message = getResources().getString(R.string.zz_gotocar);
+                startActivity(new Intent(this, CarMainActivity.class));
+                break;
             //what to do when the menu item is selected:
+
+        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        return true;
+    }
+
+    /**
+     * opoption selected on navigation drawer and bottom nav bar
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onNavigationItemSelected( @NonNull MenuItem item) {
+        String message = null;
+        switch(item.getItemId())
+        {
             case R.id.tg_homepage:
                 message = getResources().getString(R.string.tg_backtomainpage);
                 startActivity(new Intent(this, HomePage.class));
@@ -134,53 +169,6 @@ public class TriviaMainActivity extends AppCompatActivity implements NavigationV
                                 + getString(R.string.tg_alert_instr3)+ "\n"
                                 + getString(R.string.tg_alert_instr4)+ "\n"
                                 + getString(R.string.tg_alert_instr5)+ "\n" + "\n"
-                                + getString(R.string.tg_alert_instr_ques)+ "\n" )
-                        .setPositiveButton(getString(R.string.tg_close), (click, arg) -> {
-                            startActivity(new Intent(this, TriviaGamePickActivity.class));
-                        })
-                        .create().show();
-                break;
-        }
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-        return true;
-    }
-
-    /**
-     * opoption selected on navigation drawer and bottom nav bar
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onNavigationItemSelected( @NonNull MenuItem item) {
-        String message = null;
-        switch(item.getItemId())
-        {
-            //what to do when the menu item is selected:
-            case R.id.tg_homepage:
-                message = getResources().getString(R.string.tg_backtomainpage);
-                startActivity(new Intent(this, HomePage.class));
-                break;
-            case R.id.tg_ranking:
-                message = getResources().getString(R.string.tg_ranking);
-                Bundle btoRank = new Bundle();
-                btoRank.putString("toolbarToRank", "toolbarToRank");
-                Intent i_rk = new Intent();
-                i_rk.putExtras(btoRank);
-                i_rk.setClass(this, TriviaRankingPage.class);
-                startActivity(i_rk);
-                break;
-            case R.id.tg_playagain:
-                message = getResources().getString(R.string.tg_playagain);
-                startActivity(new Intent(this, TriviaMainActivity.class));
-                break;
-            case R.id.tg_help:
-                message = getResources().getString(R.string.tg_help);
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setTitle(getString(R.string.tg_alert_instr1))
-                        .setMessage(getString(R.string.tg_alert_instr2)+ "\n"
-                                + getString(R.string.tg_alert_instr3)+ "\n"
-                                + getString(R.string.tg_alert_instr4)+ "\n"
-                                + getString(R.string.tg_alert_instr5)+ "\n"
                                 + getString(R.string.tg_alert_instr_ques)+ "\n" )
                         .setPositiveButton(getString(R.string.tg_close), (click, arg) -> {
                             startActivity(new Intent(this, TriviaGamePickActivity.class));
