@@ -3,6 +3,7 @@ package com.finalproject_cst2335.trivia;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -171,7 +172,6 @@ public class TriviaMainActivity extends AppCompatActivity implements NavigationV
                                 + getString(R.string.tg_alert_instr5)+ "\n" + "\n"
                                 + getString(R.string.tg_alert_instr_ques)+ "\n" )
                         .setPositiveButton(getString(R.string.tg_close), (click, arg) -> {
-                            startActivity(new Intent(this, TriviaGamePickActivity.class));
                         })
                         .create().show();
                 break;

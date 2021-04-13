@@ -47,13 +47,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide">隐藏</string>
     <string name="app_title">App名称</string>
-    <string name="final_project">Final Project CST2335</string>
+    <string name="final_project">安卓 CST2335</string>
     <string name="version">版本</string>
     <string name="author">作者</string>
     <string name="one">1</string>
 
-    <string name="ss_mainbt">Go</string>
-    <string name="song_snackbar1">Lovely song</string>
+    <string name="ss_mainbt">开始</string>
+    <string name="song_snackbar1">我的歌</string>
     <string name="songhidetext">保存至喜欢</string>
     <string name="SONG_rm_title">确认删除吗？</string>
     <string name="SONG_rm_msg1">"选择的行数是 "</string>
@@ -71,11 +71,24 @@
     <string name="song_helpMsg1">查收你喜欢的音乐并添加收藏</string>
     <string name="song_helpMsg2">点击songID，获得吉他曲谱页，点击artistID,获得艺术家的名字</string>
     <string name="song_helpMsg3">点击心型键，查看收藏链接</string>
-    <string name="ss_game_name">Songster</string>
+    <string name="ss_game_name">歌曲库</string>
     <string name="ss_author">Ying Li</string>
     <string name="ss_version">版本 4.1</string>
+    <string name="song_welcome">  欢迎来到歌曲库  </string>
+    <string name="song_search_art">  搜索歌手 </string>
+    <string name="song_add_fav"> 添加到收藏夹</string>
+    <string name="song_rmv_fav"> 移出收藏夹</string>
+    <string name="song_already_fav">这首歌已在收藏夹</string>
+    <string name="song_to_fav">歌曲已添加至收藏夹</string>
+    <string name="song_out_fav">歌曲已移出收藏夹</string>
+    <string name="song_fav_selec">已选中收藏</string>
+    <string name="song_hp_selec">已选中主页</string>
 
-    <string name="chat_app_name">Chat Room</string>
+
+
+
+
+    <string name="chat_app_name">聊天室</string>
     <string name="tg_enter_name">请输入姓名</string>
 
     <string-array name="spin_qust_num">
@@ -159,7 +172,7 @@
     <string name="tg_game_name">TRIVIA竞猜游戏</string>
     <string name="tg_author">作者: Nicole Yue</string>
     <string name="tg_version">版本: 5.0</string>
-
+    <string name="song_search">搜索</string>
 
     <string name="zz_gotosong">Gong to Songster</string>
     <string name="zz_gototrivia">Gong to Trivia</string>

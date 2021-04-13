@@ -55,15 +55,14 @@ public class SongMainActivity extends AppCompatActivity {
         Toolbar tg_myToolbar = (Toolbar)findViewById(R.id.song_my_toolbar_m);
         setSupportActionBar(tg_myToolbar);
 
-        Toast.makeText(this,"Welcome to Songster",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,getResources().getString(R.string.song_welcome),Toast.LENGTH_LONG).show();
         ss_gobutton.setOnClickListener(v -> {
             String nameSearched = ss_search.getText().toString();
             TextView snack =findViewById(R.id.ss_snack);
-            Snackbar.make(snack, "Search the artist name", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(snack, getResources().getString(R.string.song_search_art), Snackbar.LENGTH_SHORT).show();
             Intent goToSearch = new Intent(SongMainActivity.this, SongSearchActivity.class);
             goToSearch.putExtra("NAME", nameSearched);
             startActivity(goToSearch);
-
         });
 
        }

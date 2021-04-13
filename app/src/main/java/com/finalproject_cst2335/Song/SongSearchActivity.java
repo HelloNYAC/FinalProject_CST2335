@@ -82,11 +82,11 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
 //                startActivity(new Intent(this, SongSearchActivity.class));
                 break;
             case R.id.songtofvlist:
-                Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
+                Toast.makeText(this, getResources().getString(R.string.song_fav_selec),Toast.LENGTH_LONG);
                 startActivity(new Intent(this, SongfavList.class));
                 break;
             case R.id.songtohome:
-                Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
+                Toast.makeText(this, getResources().getString(R.string.song_hp_selec),Toast.LENGTH_LONG);
                 startActivity(new Intent(this, HomePage.class));
                 break;
         }
@@ -192,11 +192,11 @@ public class SongSearchActivity  extends AppCompatActivity implements Navigation
                         .create().show();
                 break;
             case R.id.songtofvlist:
-                Toast.makeText(this,"favourites selected",Toast.LENGTH_LONG);
+                Toast.makeText(this, getResources().getString(R.string.song_fav_selec),Toast.LENGTH_LONG);
                 startActivity(new Intent(this, SongfavList.class));
                 break;
             case R.id.songtohome:
-                Toast.makeText(this,"Homepage selected",Toast.LENGTH_LONG);
+                Toast.makeText(this, getResources().getString(R.string.song_hp_selec),Toast.LENGTH_LONG);
                 startActivity(new Intent(this, HomePage.class));
                 break;
         }

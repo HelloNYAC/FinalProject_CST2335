@@ -25,6 +25,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.finalproject_cst2335.HomePage;
 import com.finalproject_cst2335.R;
+import com.finalproject_cst2335.Song.SongMainActivity;
+import com.finalproject_cst2335.car.CarMainActivity;
+import com.finalproject_cst2335.soccergames.SoccerMainActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -196,32 +199,21 @@ public class TriviaRankingPage extends AppCompatActivity{
         //Look at your menu XML file. Put a case for every id in that file:
         switch(item.getItemId())
         {
-            //what to do when the menu item is selected:
-            case R.id.tg_homepage:
+            case R.id.hp_homepage:
                 message = getResources().getString(R.string.tg_backtomainpage);
                 startActivity(new Intent(this, HomePage.class));
                 break;
-            case R.id.tg_ranking:
-                message = getResources().getString(R.string.tg_ranking);
-//                startActivity(new Intent(this, TriviaRankingPage.class));
+            case R.id.hp_song:
+                message = getResources().getString(R.string.zz_gotosong);
+                startActivity(new Intent(this, SongMainActivity.class));
                 break;
-            case R.id.tg_playagain:
-                message = getResources().getString(R.string.tg_playagain);
-                startActivity(new Intent(this, TriviaGamePickActivity.class));
+            case R.id.hp_soccer:
+                message = getResources().getString(R.string.zz_gotosoccer);
+                startActivity(new Intent(this, SoccerMainActivity.class));
                 break;
-            case R.id.tg_help:
-                message = getResources().getString(R.string.tg_help);
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setTitle(getString(R.string.tg_alert_instr1))
-                        .setMessage(getString(R.string.tg_alert_instr2)+ "\n"
-                                + getString(R.string.tg_alert_instr3)+ "\n"
-                                + getString(R.string.tg_alert_instr4)+ "\n"
-                                + getString(R.string.tg_alert_instr5)+ "\n" + "\n"
-                                + getString(R.string.tg_alert_instr_ques)+ "\n" )
-                        .setPositiveButton(getString(R.string.tg_close), (click, arg) -> {
-                            startActivity(new Intent(this, TriviaGamePickActivity.class));
-                        })
-                        .create().show();
+            case R.id.hp_car:
+                message = getResources().getString(R.string.zz_gotocar);
+                startActivity(new Intent(this, CarMainActivity.class));
                 break;
         }
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();

@@ -104,6 +104,22 @@
     <string name="tg_submitBtn"> SUBMIT </string>
     <string name="tg_quitBtn"> QUIT </string>
     <string name="tg_welcome"> Welcome to the Challenge,  </string>
+    <string name="song_welcome">  Welcome to Songster  </string>
+    <string name="song_search_art">  Search the artist name </string>
+    <string name="song_add_fav"> ADD TO FAVORITE</string>
+    <string name="song_rmv_fav"> UNFAVORITE</string>
+    <string name="song_already_fav"> The song is already in your favorite list</string>
+    <string name="song_to_fav">The following song is added to your favorite list</string>
+    <string name="song_fav_selec"> favourites selected</string>
+    <string name="song_hp_selec"> Homepage selected</string>
+
+
+
+
+
+    <string name="song_out_fav">Removed to your favorite list</string>
+
+
 
     <string name="tg_q_go">LET"S GO</string>
     <string name="tg_reset">RESET</string>
@@ -133,6 +149,8 @@
     <string name="song_menu_home">Home</string>
     <string name="song_menu_fav">Favourites</string>
     <string name="ssfv_open">OPEN</string>
+    <string name="song_search">Search</string>
+
     <string name="song_helptitle">Instruction</string>
     <string name="song_helpMsg1">Search your favorite song and add to favorite</string>
     <string name="song_helpMsg2">Click songID and ArtistID, you can get the guitar music of the song and artist name</string>

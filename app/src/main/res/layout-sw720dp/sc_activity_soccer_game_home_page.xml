@@ -31,7 +31,7 @@
             android:layout_marginStart="5dp"
             android:layout_below="@id/soccerMainPage_tb"
             android:layout_toRightOf="@id/sc_searchBox"
-            android:text="@string/search"/>
+            android:text="@string/song_search"/>
         <ListView
             android:id="@+id/sc_itemList"
             android:layout_width="300dp"
@@ -51,7 +51,6 @@
             android:visibility="visible"/>
 
     </RelativeLayout>
-
 
 
     <com.google.android.material.navigation.NavigationView

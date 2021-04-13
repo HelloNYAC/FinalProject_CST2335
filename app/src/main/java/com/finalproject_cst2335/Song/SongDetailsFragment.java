@@ -97,7 +97,7 @@ public class SongDetailsFragment extends Fragment {
             ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
             favBtn = result.findViewById(R.id.Song_detail_ToggleButton);
-            favBtn.setText("ADD TO FAVORITE");
+            favBtn.setText(getResources().getString(R.string.song_add_fav));
             //show the message
             songID = result.findViewById(R.id.Song_detail_Songid);
             ArtID = result.findViewById(R.id.Song_detail_ArtID);
@@ -186,7 +186,7 @@ public class SongDetailsFragment extends Fragment {
                 int songidIndex = c.getColumnIndex(SongOpener.SONG_ID);
                 while(c.moveToNext()){
                     if(c.getString(songidIndex).equals(songID.getText().toString())){
-                        Toast.makeText(getActivity(), "The song is already in your favorite list", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getResources().getString(R.string.song_already_fav), Toast.LENGTH_LONG).show();
                         c.moveToLast();
 
                     }
@@ -194,7 +194,7 @@ public class SongDetailsFragment extends Fragment {
 //                if (stop) {
                     long songDfNewId = db.insert(SongOpener.TABLE_NAME, null, songNewRowValues);
 
-                    Toast.makeText(getActivity(), "The following song is added to your favorite list" + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.song_to_fav) + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
 //                }
 //                Intent nextActivity = new Intent(getActivity(), SongfavList.class);
 //                startActivity(nextActivity);
@@ -207,7 +207,7 @@ public class SongDetailsFragment extends Fragment {
      */
         private void removeFavFmDB(){
             db.delete(SongOpener.TABLE_NAME, SongOpener.COL_ID + "= ?", new String[] {Long.toString(songDataFromAnyWhere.getLong(SongfavList.SONG_ITEM_ID))});
-            Toast.makeText(getActivity(), "Removed to your favorite list" + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getResources().getString(R.string.song_out_fav) + songTitle.getText().toString(), Toast.LENGTH_LONG).show();
 //            Intent nextActivity = new Intent(getActivity(), SongfavList.class);
 //            startActivity(nextActivity);
             parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();

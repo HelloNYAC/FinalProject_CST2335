@@ -52,6 +52,7 @@
         android:layout_below="@id/tg_name_m"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
+        android:background="#E78E57"
         android:layout_centerInParent="true"
         android:text="@string/tg_q_go" />
 
