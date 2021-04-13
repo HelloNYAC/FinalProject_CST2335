@@ -37,6 +37,13 @@ public class SoccerFavSoccerGames extends AppCompatActivity {
     private boolean isTablet;
     private static final String CURRENT_FRAME = "CURRENT_FRAME";
     public static final int BACK_FROM_FAV = 2;
+
+    /**
+     * oncreate method of the page
+     * definding listview
+     * setting onclick event for listview
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,12 +80,22 @@ public class SoccerFavSoccerGames extends AppCompatActivity {
         });
     }
 
+    /**
+     * Loading menu of the toolbar
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.fav_list_tb_items,menu);
         return true;
     }
 
+    /**
+     * setting event activity for each toolbar icon
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if( item.getItemId() == R.id.sc_fav_list_to_home){
@@ -88,6 +105,9 @@ public class SoccerFavSoccerGames extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * my custimized adapter
+     */
     private class FavListAdapter extends BaseAdapter{
 
         @Override

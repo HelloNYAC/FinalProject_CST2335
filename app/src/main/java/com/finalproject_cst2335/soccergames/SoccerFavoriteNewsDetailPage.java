@@ -39,7 +39,11 @@ public class SoccerFavoriteNewsDetailPage extends AppCompatActivity {
     private SoccerNews news;
     private SoccerGameDBHelper dbHelper;
 
-
+    /**
+     * This is the onCreate method defining all varables
+     * setting up aon click events for buttons
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +97,9 @@ public class SoccerFavoriteNewsDetailPage extends AppCompatActivity {
 
     }
 
+    /**
+     * Async function to fetch information from url
+     */
     private class ImageDownloader extends AsyncTask<String,Integer,String> {
         Bitmap image = null;
         @Override

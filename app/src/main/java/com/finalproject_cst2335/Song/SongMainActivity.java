@@ -67,7 +67,9 @@ public class SongMainActivity extends AppCompatActivity {
 
        }
 
-
+    /**
+     * sharedpreference of the name
+     */
     @Override
     protected void onPause() {
         super.onPause();

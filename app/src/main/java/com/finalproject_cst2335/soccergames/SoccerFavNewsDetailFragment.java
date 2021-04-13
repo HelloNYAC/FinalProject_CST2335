@@ -42,6 +42,11 @@ public class SoccerFavNewsDetailFragment extends Fragment {
     private SoccerNews news;
     private AppCompatActivity parent;
 
+    /**
+     * Fragement details
+     * @param news
+     * @param parent
+     */
     public SoccerFavNewsDetailFragment(SoccerNews news, AppCompatActivity parent) {
         // Required empty public constructor
         this.news = news;
@@ -55,6 +60,15 @@ public class SoccerFavNewsDetailFragment extends Fragment {
 
     }
 
+    /**
+     * This is the onCreateview
+     * defining all variables
+     * defind onclick event
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -111,6 +125,9 @@ public class SoccerFavNewsDetailFragment extends Fragment {
         return view;
     }
 
+    /**
+     * AsyncTask to fetch news details
+     */
     private class ImageDownloader extends AsyncTask<String,Integer,String> {
         Bitmap image = null;
         String url;
